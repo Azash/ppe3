@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 	<title>Cleec : La communauté qui simplifie vos sports et loisirs</title>
-	<link rel="stylesheet" href="/cleec.css" type="text/css" charset="utf-8">
+	<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8">
 	<script style="" type="text/javascript" src="/global/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="/global/cleec.js"></script>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
