@@ -1,0 +1,3194 @@
+/************************ WWW.CLEEC.COM ************************/
+
+/*** @ 2007-2009 LMC France	- www.lmcfrance.com // Cleec - www.cleec.com ***/
+
+
+
+/************************ Mise à zéro des propriétés par défaut ************************/
+
+html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,input { margin: 0; padding: 0; }
+
+h1,h2,h3,h4,h5,h6,pre,code,address,caption,cite,code,th { font-size: 1em; font-weight: normal; font-style: normal; text-align: left; }
+
+ul,ol { list-style: none; }
+
+fieldset,img { border: none; }
+
+caption,th { text-align: left; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+a { color: gray }
+
+a:hover { color: #FE6A10 }
+
+.bleu { color: #1da6e2 }
+
+
+
+/************************ Structure générale	************************/
+
+body {
+
+	margin: 10px 0 5px 0;
+
+	text-align:center ;
+
+	font-family: verdana, arial, helvetica;
+
+	color: #333333;
+
+	/*background: url(/decleec.gif) pour le dev */
+
+}
+
+
+
+div#conteneur {
+
+	margin: 0 auto;
+
+	width : 786px;
+
+	text-align: left;
+
+	position: absolute;
+
+    top: 0;
+
+    left: 50%;
+
+    margin-left: -400px;
+
+}
+
+
+
+div#entete { }
+
+
+
+div#menu_gauche {
+
+	width: 145px;
+
+	float: left
+
+}
+
+
+
+div#contenu {
+
+	margin: 0 0 0 145px;
+
+}
+
+div#contenu_annexe {
+
+	margin: 0;
+
+}
+
+
+
+div#pied {
+
+	clear: left;
+
+	margin: 15px 0 0 0;
+
+	padding: 0 15px 1px 15px;
+
+
+
+	text-align: center;
+
+	background-color: #FE6A10;
+
+	font-size: 0.8em;
+
+	color: white
+
+}
+
+
+
+.spacer {
+
+	height: 1px;
+
+	clear: both;
+
+	background-color: white
+
+}
+
+.spacer626 {
+
+	float: left;
+
+	height: 1px;
+
+	width: 626px;
+
+}
+
+
+
+/****************** Home page / Accueil ************************/
+
+
+
+/*titre h1 avec photo de fond de présentation du site (page accueil) */
+
+div.photo_pres {
+
+	float: left;
+
+	width: 466px;
+
+	margin: 15px 0 0 0;
+
+	background : #7DB2EC url(images/photos/photo1.jpg) left -10px no-repeat
+
+}
+
+div.photo_pres.partenaire {
+
+    background-position: left top;
+
+}
+
+div.photo_pres h1 {
+
+	margin: 15px;
+
+	color: white;
+
+	font-size: 1.8em;
+
+}
+
+div.photo_pres a {
+
+	text-align: center;
+
+	display: block;
+
+	padding: 5px;
+
+	margin: 155px 40px 15px 40px;
+
+	background: #FE6A10;
+
+	font-weight: bold;
+
+	color: white;
+
+	text-decoration: none
+
+}
+
+
+
+div.partenaire{
+
+	width: 305px;
+
+	height: 305px;
+
+} 
+
+/* partie recherche (sport + code postal) */
+
+div.photo_pres label {
+
+	color: white;
+
+	font-size: 0.9em;
+
+}
+
+div.photo_pres input, div.photo_pres select {
+
+	color: #333;
+
+	margin-right: 10px
+
+}
+
+div.photo_pres label#ctl00_pageContenu_Label1 { margin-left: 20px }
+
+
+
+/****************** Titres ************************/
+
+
+
+/* titre dans tableau sur fond gris */
+
+h3 {
+
+	background-color:#BEBEBE;
+
+	color:White;
+
+	padding-left:5px;
+
+    font-size: small;
+
+	color: #333333;
+
+	margin: 0 8px 0 8px;
+
+}
+
+
+
+/* titre sur fond orange */
+
+h4 {
+
+	background-color: #FE6A10;
+
+	color:White;
+
+	height:22px;
+
+	padding-top:7px;
+
+	margin-top:0px
+
+}
+
+
+
+/* titre avec >	*/
+
+h5 {
+
+	background-image: url("/images/graphisme/fleche_titre.gif");
+
+	background-repeat: no-repeat;
+
+	background-position: top left;
+
+	padding: 4px 0 0 20px; 
+
+	font-size: small;
+
+	color: #222222;
+
+	margin: 0 0 0 3px;
+
+}
+
+
+
+/*********************CALENDAR****************************/
+
+#ctl00_pageContenu_Calendar1 a { /*tableau du calendrier */ text-decoration: none }
+
+#ctl00_pageContenu_Calendar1 a:hover { color: #FF772D }
+
+
+
+/*div de droite avec les détails */
+
+.cal_detailsJour {
+
+	padding-left: 0; /*205px;*/
+
+	margin: 7px 10px 5px 205px;
+
+	font-size: 0.8em;
+
+}
+
+.cal_newsfeed {
+
+	padding-left: 0; /*205px;*/
+
+	margin:  7px 10px 5px 205px;
+
+	font-size: 1.0em;
+
+}
+
+#ctl00_pageContenu_aff_meteo {
+
+	float:right;
+
+}
+
+
+
+
+
+
+
+.cal_even {
+
+	color:#506670;
+
+	padding: 0;
+
+	margin: 1px 0 0 0;
+
+	border-bottom: #C6E9FC solid 1px;
+
+	border-right: #C6E9FC solid 1px;
+
+	border-left: #C6E9FC solid 1px;
+
+} 
+
+
+
+.cal_even img
+
+{
+
+	border :0;
+
+	vertical-align: middle
+
+}
+
+.cal_even	h6 { /* titre d'un évènement */
+
+	background-color: #C6E9FC;
+
+	font-weight:bold;	
+
+	color:#333333;
+
+	font-size:8pt;
+
+	margin: 0;
+
+	padding:0;
+
+}
+
+
+
+.meteo { /* METEO (qui a aussi la classe cal_even)	*/
+
+	border-color: #E1DDD4;
+
+	text-align: center;
+
+	padding-bottom: 4px;
+
+}
+
+.meteo	h6 { 
+
+	background-color: #E1DDD4;
+
+	padding: 5px;
+
+	margin-bottom: 4px;
+
+	text-align: left
+
+}
+
+
+
+.MyCalendar .ajax__calendar_container {
+
+	border:1px solid #646464;
+
+	background-color:white;
+
+	color: #333333;
+
+}
+
+.MyCalendar .ajax__calendar_header {
+
+	border:0px solid #646464;
+
+	background-color:#9b9b9b;
+
+	color:white;
+
+	height:14px;
+
+}
+
+.MyCalendar .ajax__calendar_footer {
+
+	border:0px solid #646464;
+
+	background-color:#9b9b9b;
+
+	color:white;
+
+	height:14px;
+
+}
+
+
+
+
+
+/************************ ENTETE	************************/
+
+div#entete img {margin: 6px 0 } /* pour le logo */
+
+div#entete a#deconnect img { margin: 0 }
+
+a#deconnect {
+
+	display: block;
+
+	float: right;
+
+	text-align:right;
+
+	font-size: 0.6em;
+
+	color: #8d8379;
+
+	text-decoration: none;
+
+	margin-right: 76px
+
+}
+
+a#deconnect:hover {text-decoration: underline;}
+
+
+
+div#menu_entete {background: #1ea7e2 url(/images/graphisme/menu_fond.gif) left top no-repeat; margin: 5px 0 0 0;}
+
+div#menu_entete a {
+
+	display: block;
+
+	float: right;
+
+	padding: 6px 13px;
+
+	border-left: white solid 3px;
+
+	font-size: 0.9em;
+
+	font-weight: bold;
+
+	color: white;
+
+	text-decoration: none;
+
+}
+
+#sport_responsable {position: absolute; top: 0; left: 50%; margin-left: 332px;}
+
+#page_sport_responsable p, #page_sport_responsable h5, #page_sport_responsable .charte {margin-bottom: 15px;}
+
+#page_sport_responsable .sreen {float: right; padding: 0 10px;}
+
+#page_sport_responsable .charte {padding-left: 10px;}
+
+#page_sport_responsable .charte li {
+
+    padding-left: 55px;
+
+    background: url(/images/sport-responsable/icones.png) left top no-repeat !important;
+
+    background: url(/images/sport-responsable/icones.gif) left top no-repeat;
+
+    padding-top: 5px;
+
+    margin-bottom: 5px;
+
+    min-height: 39px; /* 44-5 de padding */
+
+    height: auto !important;
+
+    height: 39px;
+
+    font-size: 0.7em;
+
+}
+
+#page_sport_responsable .charte li.accessibilite {background-position: left top !important; background-position: left top;}
+
+#page_sport_responsable .charte li.valeurs {background-position: left -49px !important; background-position: left -49px;}
+
+#page_sport_responsable .charte li.prevention {background-position: left -97px !important; background-position: left -97px;}
+
+#page_sport_responsable .charte li.eco_resp {background-position: left -147px !important; background-position: left -147px;}
+
+#page_sport_responsable .charte li.insertion {background-position: left -195px !important; background-position: left -195px;}
+
+#page_sport_responsable .charte li.engager {background-position: left -244px !important; background-position: left -244px;}
+
+
+
+div#menu_entete a:hover {background-color: #5ac8f7;}
+
+div#menu_entete a.dernier {margin-right: 58px; border-right: white solid 3px;}
+
+div#menu_entete a.actuel {background-color: #bfe7f8; color: #327d9e;}
+
+div#menu_entete a.actuel:hover {background-color: #bfe7f8; color: #327d9e;}
+
+
+
+.entete_bleu {background-color:#599EBB; color:white; text-align:center;}
+
+
+
+/************************ PIED DE PAGE	************************/
+
+
+
+div#pied a {color: white; text-decoration: none;}
+
+div#pied a:hover {text-decoration: underline;}
+
+
+
+/************************ BOITES	************************/
+
+/* Taille des boites (4 dans le contenu =145px / 3= 199 / 2=313 / 1=626 /etc. */
+
+.boiteorange_145, .boitebleue_145, .boitegrise_145	{
+
+	display: inline; /*utile pour bug ie6 qui double les marges des float*/
+
+	float: left;
+
+	width: 145px;
+
+	margin: 15px 0 0 15px;
+
+}
+
+.boitegrise_198	{
+
+	display: inline;float: left;
+
+	width: 198px;
+
+	margin: 15px 0 0 15px;
+
+}
+
+.boitegrise_225	{
+
+	display: inline;float: left;
+
+	width: 225px;
+
+	margin: 15px 0 0 15px;
+
+}
+
+
+
+.boitegrise_305 {
+
+	display: inline;float: left;
+
+	width: 305px;
+
+	margin: 15px 0 0 15px;
+
+}
+
+
+
+.boitegrise_385 {
+
+	display: inline;float: left;
+
+	width: 385px;
+
+	margin: 15px 0 0 15px;
+
+}
+
+
+
+.boitegrise_412 {
+
+	display: inline;float: left;
+
+	width: 412px;
+
+	margin: 15px 0 0 15px;
+
+}
+
+.boitegrise_466 {
+
+	display: inline;float: left;
+
+	width: 466px;
+
+	margin: 15px 0 0 15px;
+
+	
+
+}
+
+
+
+.boitegrise_626 {
+
+	display: inline;
+
+	float: left;
+
+	width: 626px;
+
+	margin: 15px 0 0 15px;
+
+}
+
+.boitegrise_785 {
+
+	display: inline;
+
+	float: left;
+
+	width: 785px;
+
+	margin: 15px 0 0 0;
+
+}
+
+.boitegrise_626_block {
+
+	display: inline;
+
+	float: left;
+
+	width: 626px;
+
+	height:500px;
+
+	margin: 5px 0 0 5px;
+
+	display:block;
+
+}
+
+.boitegrise_var {
+
+	display: inline;float: left;
+
+	width: 100%;
+
+	margin: 15px 0 0 15px;
+
+}
+
+.no_margin{
+
+	margin: 0 0 0 0;
+
+}
+
+
+
+
+
+/*exception dans le menu de gauche : pas de marge à gauche */
+
+div#menu_gauche .boiteorange_145, div#menu_gauche .boitebleue_145, div#menu_gauche .boitegrise_145 {
+
+	margin: 15px 0 0 0;
+
+	float: none;
+
+	display: block;
+
+}
+
+
+
+/* Sur les pages annexes (accueil, qui sommes-nous etc), pas de marge à gauche non plus sur les 466 qui sont à gauche */
+
+.sans_marge_gauche {
+
+	margin: 15px 0 0 0;
+
+}
+
+
+
+/* Image de Fond des boites */
+
+.boitebleue_145 { background: white url(images/graphisme/boitebleue_145m.gif) center top repeat-y }
+
+.boiteorange_145 { background: white url(images/graphisme/boiteorange_145m.gif) center top repeat-y }
+
+.boitegrise_145 { background: white url(images/graphisme/boitegrise_145m.gif) center top repeat-y }
+
+.boitegrise_198 { background: white url(images/graphisme/boitegrise_198m.gif) center top repeat-y }
+
+.boitegrise_225 { background: white url(images/graphisme/boitegrise_225m.gif) center top repeat-y }
+
+.boitegrise_305 { background: white url(images/graphisme/boitegrise_305m.gif) center top repeat-y }
+
+.boitegrise_385 { background: white url(images/graphisme/boitegrise_385m.gif) center top repeat-y }
+
+.boitegrise_412 { background: white url(images/graphisme/boitegrise_412m.gif) center top repeat-y }
+
+.boitegrise_466 { background: white url(images/graphisme/boitegrise_466m.gif) center top repeat-y }
+
+.boitegrise_626 { background: white url(images/graphisme/boitegrise_626m.gif) center top repeat-y }
+
+.boitegrise_785 { background: white url(images/graphisme/boitegrise_785m.gif) center top repeat-y }
+
+
+
+/* titre de la boite */
+
+.boitebleue_145 h2, .boiteorange_145 h2, .boitegrise_145 h2, .boitegrise_198 h2, .boitegrise_225 h2, .boitegrise_305 h2, .boitegrise_385 h2, .boitegrise_412 h2, .boitegrise_466 h2, .boitegrise_626 h2, .boitegrise_785 h2  {
+
+	height: 39px;
+
+	color: white;
+
+	font-weight: bold;
+
+	font-size: 0.9em
+
+}
+
+
+
+.boitebleue_145 h2 { background: #BEBEBE url(images/graphisme/boitebleue_145h.gif) center top no-repeat }
+
+.boiteorange_145 h2 { background: #BEBEBE url(images/graphisme/boiteorange_145h.gif) center top no-repeat }
+
+.boitegrise_145 h2 { background: #BEBEBE url(images/graphisme/boitegrise_145h.gif) center top no-repeat }
+
+.boitegrise_198 h2 { background: #BEBEBE url(images/graphisme/boitegrise_198h.gif) center top no-repeat }
+
+.boitegrise_225 h2 { background: #BEBEBE url(images/graphisme/boitegrise_225h.gif) center top no-repeat }
+
+.boitegrise_305 h2 { background: #BEBEBE url(images/graphisme/boitegrise_305h.gif) center top no-repeat }
+
+.boitegrise_385 h2 { background: #BEBEBE url(images/graphisme/boitegrise_385h.gif) center top no-repeat }
+
+.boitegrise_412 h2 { background: #BEBEBE url(images/graphisme/boitegrise_412h.gif) center top no-repeat }
+
+.boitegrise_466 h2 { background: #BEBEBE url(images/graphisme/boitegrise_466h.gif) center top no-repeat }
+
+.boitegrise_626 h2 { background: #BEBEBE url(images/graphisme/boitegrise_626h.gif) center top no-repeat }
+
+.boitegrise_785 h2 { background: #BEBEBE url(images/graphisme/boitegrise_785h.gif) center top no-repeat }
+
+
+
+/* a quoi cela sert-il ? */
+
+.titre	{
+
+	 	
+
+	color:White;
+
+	font-weight: bold;
+
+	font-size: 12px;
+
+	text-indent:10px;
+
+	background-color:#cbcbcb;
+
+	padding:5px 0;
+
+}
+
+
+
+/*background: white url(images/graphisme/boitebleue_145h.gif) center top no-repeat } */
+
+
+
+img.boiteico {
+
+	margin: 3px 4px;
+
+	vertical-align: middle
+
+}
+
+
+
+/*contenu de la boite */
+
+.boitebleue_145 p, .boiteorange_145 p, .boitegrise_145 p, .boitegrise_198 p, .boitegrise_225 p, .boitegrise_305 p, .boitegrise_385 p, .boitegrise_412 p, .boitegrise_466 p, .boitegrise_626 p, .boitegrise_785 p {
+
+	margin: 0 6px;
+
+	font-size: 0.7em
+
+}
+
+
+
+
+
+/* pied de la boite*/
+
+.boitebleue_145 .finboite, .boiteorange_145 .finboite, .boitegrise_145 .finboite, .boitegrise_198 .finboite, .boitegrise_225 .finboite, .boitegrise_305 .finboite, .boitegrise_385 .finboite, .boitegrise_412 .finboite, .boitegrise_466 .finboite, .boitegrise_626 .finboite, .boitegrise_785 .finboite {
+
+	height: 13px;
+
+	font-size: 0.1em;
+
+	clear:both;
+
+} 
+
+
+
+.boitebleue_145 .finboite { background: white url(images/graphisme/boitebleue_145b.gif) center bottom no-repeat }
+
+.boiteorange_145 .finboite { background: white url(images/graphisme/boiteorange_145b.gif) center bottom no-repeat }
+
+.boitegrise_145 .finboite { background: white url(images/graphisme/boitegrise_145b.gif) center bottom no-repeat }
+
+.boitegrise_198 .finboite { background: white url(images/graphisme/boitegrise_198b.gif) center bottom no-repeat }
+
+.boitegrise_225 .finboite { background: white url(images/graphisme/boitegrise_225b.gif) center bottom no-repeat }
+
+.boitegrise_305 .finboite { background: white url(images/graphisme/boitegrise_305b.gif) center bottom no-repeat }
+
+.boitegrise_385 .finboite { background: white url(images/graphisme/boitegrise_385b.gif) center bottom no-repeat }
+
+.boitegrise_412 .finboite { background: white url(images/graphisme/boitegrise_412b.gif) center bottom no-repeat }
+
+.boitegrise_466 .finboite { background: white url(images/graphisme/boitegrise_466b.gif) center bottom no-repeat }
+
+.boitegrise_626 .finboite { background: white url(images/graphisme/boitegrise_626b.gif) center bottom no-repeat }
+
+.boitegrise_785 .finboite { background: white url(images/graphisme/boitegrise_785b.gif) center bottom no-repeat }
+
+
+
+
+
+/***************************************************************/
+
+/************************ FORMULAIRES	************************/
+
+/***************************************************************/
+
+/* vu Dans plein d'endroits*/
+
+.heritage
+
+{
+
+	margin:0 6px;
+
+	font-size:0.9em;
+
+}
+
+.heritage p
+
+{
+
+	font-size:0.9em;
+
+}
+
+.heritage a
+
+{
+
+	font-size:0.9em;
+
+}
+
+.heritage1em
+
+{
+
+	font-size:0.9em;
+
+}
+
+.orga_rapide .heritage label {
+
+	display: block;
+
+	float: left;
+
+	text-align: right;
+
+	width: 45px
+
+}
+
+
+
+/*** ????? ***/
+
+.mise_en_forme_du_label label
+
+{
+
+float: left;
+
+width: 17%;
+
+text-align: right;
+
+padding-top: 0.3em;
+
+padding-right: 0.5em;
+
+padding-bottom: 0pt;
+
+padding-left: 0pt;
+
+margin-top: 0pt;
+
+margin-right: 0pt;
+
+margin-bottom: 0pt;
+
+margin-left: 0pt;
+
+}
+
+
+
+
+
+
+
+/*trait de sépartion utile pour les formulaires*/
+
+hr
+
+{
+
+	margin: 10px 10px;
+
+	color: #CBCBCB;
+
+	background-color: #CBCBCB;
+
+	height: 1px;
+
+	border: 0;
+
+}
+
+
+
+/*** formulaires longs (ex: editer mon profil)	*****/
+
+.mise_en_forme_du_formulaire label {
+
+	display: block;
+
+	float: left;
+
+    width: 140px;
+
+	text-align: right;
+
+	padding: 2px 5px 0 0;
+
+	margin:0
+
+}
+
+
+
+label#ctl00_pageContenu_R_groupeLabel, label#ctl00_pageContenu_defautLabel, label.apresChamps {
+
+/* cas particulier pour les labels de bouton radio (orga rapide, photos) qui sont après l'élément input */
+
+	display: inline;
+
+	float: none;
+
+	width: auto
+
+}
+
+
+
+.orga_lbl label {/*plus petit les champs label dans mise en formulaire // page organiser.aspx */
+
+    float: left;
+
+    width: 17%;
+
+    text-align: right;
+
+    padding-top: 0.3em;
+
+    padding-right: 0.5em;
+
+    padding-bottom: 0pt;
+
+    padding-left: 0pt;
+
+
+
+}
+
+.orga_avancee_200 label { /*plus grands les champs label dans mise en formulaire // page activites/modif.aspx  */
+
+	width: 200px;
+
+}
+
+
+
+.orga_avancee label { /*plus petit les champs label dans mise en formulaire // page nouvelle.aspx et organiser.aspx */
+
+	width: 80px;
+
+}
+
+.orga_avancee select { 
+
+	width: 180px;
+
+}
+
+.orga_avancee input[type="text"] { 
+
+	width: 180px;
+
+}
+
+.orga_avancee textarea { 
+
+	width: 180px;
+
+}
+
+
+
+.orga_questionnaire label { /*plus petit les champs label dans mise en formulaire // page testques.aspx */
+
+	width: 10px;
+
+}
+
+.orga_questionnaire input[type="radio"] { 
+
+	width: 20px;
+
+}
+
+.orga_questionnaire input[type="checkbox"] { 
+
+	width: 20px;
+
+}
+
+
+
+.orga_popup label { /*plus petit les champs label dans mise en formulaire // page testques.aspx */
+
+	width: 60px;
+
+}
+
+
+
+.orga_popup input[type="text"] { 
+
+	width: 220px;
+
+}
+
+
+
+.recherche label { /*recherche des profils = label plus petit*/
+
+	width: 100px
+
+}
+
+.recherche {text-align: left} /*trouver pourquoi ils est centré au milieu par défaut */
+
+
+
+.mise_en_forme_du_formulaire p {
+
+	margin: 6px
+
+}
+
+
+
+.mise_en_forme_du_formulaire input[type="text"] {
+
+	width: 200px;
+
+	margin: 0
+
+} 
+
+.mise_en_forme_du_formulaire input[type="password"] {
+
+	width: 200px;
+
+	margin: 0
+
+} 
+
+.mise_en_forme_du_formulaire textarea {
+
+	width: 200px;
+
+	margin: 0
+
+}
+
+
+
+.boite input[type=file] {
+
+	width:309px
+
+}
+
+
+
+/***************************************************************/
+
+/************************ INSCRIPTION	************************/
+
+/***************************************************************/
+
+
+
+/*** ??? MERCI DE COMMENTER ****/
+
+div#premiere
+
+{
+
+width: 600px;
+
+margin-left: 90px;
+
+}
+
+/*** ????? ***/
+
+.info
+
+{
+
+font-size: 0.8em;
+
+font-style: italic;
+
+color: #4e6d7e;
+
+}
+
+
+
+.info2
+
+{
+
+font-size: 0.8em;
+
+color: #4e6d7e;
+
+}
+
+
+
+
+
+/***Fenêtre modale d'information qui apparait au milieu de l'écran pour confirmer l'inscription ***/
+
+.modalBackground {
+
+	background-color: Gray;
+
+	/*-moz-opacity: 0.7; Mozilla */
+
+	/*filter: alpha(opacity=70); IE */
+
+	opacity: 0.7; /* Safari, opera, etc */
+
+}
+
+.modalOrganiser{
+
+	width: 626px;
+
+	height: 400px;
+
+	background-color:White;
+
+}
+
+
+
+/**** ???? ***/
+
+.UserFirst {
+
+	width: 626px;
+
+	margin: 0;
+
+	/*position: absolute;
+
+	top: -500px;*/
+
+}
+
+/**** ???? ***/
+
+#inscrip {
+
+	width:100%;
+
+	background-color:white;
+
+	margin:-15px -15px -10px -8px;
+
+	padding:15px 15px 0 0
+
+}
+
+/**** ???? ***/
+
+.arrondi_haut
+
+{
+
+background-color: transparent;
+
+background-image: url(ar_haut_droite.png);
+
+background-repeat: no-repeat;
+
+background-attachment: scroll;
+
+height: 10px;
+
+padding-bottom: 10px;
+
+margin-top: 0pt;
+
+margin-right: -10px;
+
+margin-bottom: 0pt;
+
+margin-left: 10px;
+
+padding-top: 0px;
+
+}
+
+
+
+
+
+
+
+/******************* DIVERS	*********************/
+
+img.profil_photo {
+
+	border:	solid 1px #d1d1d1;
+
+}
+
+
+
+img.bouton_go {
+
+	cursor: pointer;
+
+	vertical-align: middle
+
+}
+
+
+
+/* lien alertes */
+
+a.lien_alerte {	color: #333333; text-decoration: none; }
+
+a.lien_alerte:hover { text-decoration: underline }
+
+a.lien_alerte > b {color: #FE6A10 }
+
+a.lien_alerte:hover > b {text-decoration: none}
+
+a.centrer { display: block; text-align:center}
+
+
+
+.lien_annuaire 
+
+{
+
+    color:#1DA6E2;
+
+}
+
+
+
+/* lien des box avec puce */
+
+a.lien_puce {
+
+	color: #333333; text-decoration: none;
+
+	padding-left: 8px;
+
+	background: url(/images/graphisme/puce_orange.gif) left 3px no-repeat;
+
+	
+
+}
+
+a.lien_puce:hover { text-decoration: underline }
+
+
+
+/* lien des box sans puce *ATTENTION DOUBLONS AVEC CEUX ligne 1172 */
+
+a.lien_no_puce 	
+
+{
+
+	color: #333333; 
+
+	text-decoration: none;
+
+	padding-left: 8px;
+
+	/*font-size: 70%;*/
+
+}
+
+a.lien_no_puce2 	
+
+{
+
+	color: #333333; 
+
+	text-decoration: none;
+
+	padding-left: 8px;	
+
+}
+
+a.lien_no_puce:hover { text-decoration: underline }
+
+
+
+/* lien pour les numeros de page, precedent et suivant */
+
+a.lien_num_page {	color:Gray ; text-decoration: none;
+
+	padding-left: 8px;
+
+	font-size:1em;
+
+}
+
+a.lien_num_page:hover { color:#FE6A10; text-decoration: underline }
+
+
+
+
+
+/************************* Message d'info*************************************/
+
+.red_center
+
+{
+
+	display:block;
+
+	color:Red;
+
+	text-align:center;
+
+}
+
+.bttn_center
+
+{
+
+	text-align:center;
+
+}
+
+
+
+
+
+/*************************************************************
+
+************************	AMIS	**************************
+
+*************************************************************/
+
+
+
+/*div pour afficher les photos et le nom des amis*/
+
+div#ami_affichage {
+
+	margin: 0 7px
+
+}
+
+.aff_contact {
+
+	float: left;
+
+	margin: 0 0 2px 4px;
+
+	width: 70px;
+
+	text-align: center
+
+}
+
+
+
+.aff_contact_petit {
+
+	line-height: 10px;
+
+
+
+}
+
+.aff_contact a {
+
+	text-decoration: none;
+
+	color: #333333;
+
+	font-size: 0.8em
+
+}
+
+.aff_contact_larger {
+
+	float: left;
+
+	margin: 0 0 2px 5px;
+
+	width: 120px;
+
+	text-align: center
+
+}
+
+/*** détail d'un profil qui apparait en popup ****/
+
+.profil_popup {
+
+	position:absolute;
+
+	background-color: #F1F1F1;
+
+	border: #8d8379 solid 1px;
+
+	color: #333333
+
+}
+
+
+
+/**************************************************************
+
+********************	MESSAGERIE	***************************
+
+**************************************************************/
+
+
+
+#header {
+
+	float:left;
+
+	width:100%;
+
+	background: url(../global/trait.png) repeat-x bottom;
+
+	font-size:95%
+
+}
+
+		
+
+#header ul {
+
+	margin:0;
+
+	padding:10px 10px 0;
+
+	list-style:none
+
+}
+
+
+
+#header li {
+
+	float:left;
+
+	background:url(img/left.gif) no-repeat left top;
+
+	margin:0;
+
+	padding:0 0 0 9px
+
+}
+
+
+
+#header a {
+
+	display:block;
+
+	background:url(img/right.gif) no-repeat right top;
+
+	padding:5px 15px 4px 6px;
+
+	text-decoration:none;
+
+	font-weight:bold;
+
+	font-size:75%;
+
+	color:#765
+
+}
+
+
+
+#header a:hover {
+
+	color:#333 
+
+}
+
+
+
+#header .composerMsg a {
+
+	font-size:9pt;
+
+	font-weight:normal;
+
+	background: none;
+
+	color:Gray;
+
+	text-decoration:underline;
+
+	
+
+}
+
+
+
+#header .composerMsg a:hover {
+
+	font-size:9pt;
+
+	font-weight:normal;
+
+	background: none;
+
+	color:#FF7F00;
+
+	text-decoration:underline	
+
+}
+
+
+
+
+
+#header #current {
+
+	background-image:url(img/left_on.gif)
+
+}
+
+
+
+#header #current a {
+
+	background-image:url(img/right_on.gif);
+
+	color:#333;
+
+	padding-bottom:5px
+
+}
+
+
+
+.boite_msg {
+
+	border:solid 1px #333333;
+
+	background-color:Silver;
+
+	width:95%
+
+}
+
+
+
+.boite_outil {
+
+	border:solid 1px white;
+
+	background-color:rgb(178,178,178);
+
+	color:White;
+
+	width:95%;	
+
+	padding:2px 5px 2px 5px;
+
+	font-size:0.9em
+
+	
+
+}
+
+
+
+.boite_outil a {
+
+	color:White;
+
+	text-decoration:none;
+
+	
+
+}
+
+
+
+.boite_outil a:hover {
+
+	color:White;
+
+	text-decoration:underline
+
+}
+
+
+
+.boite_outil a:visited {
+
+	color:White
+
+}
+
+
+
+.boite_outil table td{
+
+	border:0px
+
+}
+
+
+
+.boite_entete_msg {
+
+	border:solid 1px white;
+
+	background-color:white;
+
+	width:95%;
+
+	padding:5px;
+
+	margin-top:-13px;
+
+	color:rgb(70,93,104);
+
+	font-size:0.8em
+
+}
+
+
+
+.boite_entete_msg table td{
+
+	border-bottom:1px dotted rgb(178,178,178)
+
+}
+
+
+
+.boite_contenu_msg {
+
+	width:95%;
+
+	background-color:White;		
+
+	padding:5px;
+
+	margin-top:-13px;
+
+	color:rgb(70,93,104);
+
+	font-size:0.8em
+
+}
+
+
+
+#header table td {
+
+	border:0px
+
+}
+
+
+
+table#lesmessages td{
+
+	border:0px;
+
+	color:rgb(118,93,103)
+
+}
+
+
+
+table#basdemessages td{
+
+	border:0px;
+
+	color:rgb(118,93,103)
+
+}
+
+
+
+table#ctl00_ContentPlace_gridMsg td{
+
+	border:0px;
+
+	color:rgb(118,93,103)
+
+}
+
+
+
+
+
+
+
+
+
+/***************************************************************
+
+******************PHOTOS (mycleec/photos.aspx)******************
+
+***************************************************************/
+
+
+
+/* div pour afficher les photos et la legende */
+
+
+
+.left_photos {
+
+	float:left;
+
+	margin:10px 0 0 10px;
+
+	text-align:center
+
+}
+
+
+
+#photos_affichage {
+
+	width:600px
+
+}
+
+	
+
+.scroller {
+
+	height:150px;
+
+	overflow:auto;
+
+}
+
+
+
+.bouton_radio {
+
+	margin-right:7px;
+
+	position:relative;
+
+	top:-2px
+
+}
+
+/***************************************************************
+
+**************************	index.aspx	***************************
+
+***************************************************************/
+
+div#login p {
+
+	margin: 3px 0
+
+}
+
+
+
+div#login label {
+
+	width:105px;
+
+	display:block;
+
+	float:left;
+
+	padding: 2px 5px 0 0;
+
+
+
+	color: #333333;
+
+	font-weight: bold;
+
+	text-align:right
+
+}
+
+div#login input[type="text"] { width: 153px;}
+
+div#login input[type="password"] { width: 153px;}
+
+
+
+.derniers_inscrit
+
+{
+
+	font-size:8px;
+
+}
+
+
+
+.valid{
+
+	width:23px;
+
+	height:18px;
+
+	font-weight: bold;
+
+	border:1px solid black;
+
+}
+
+
+
+/********************************************************************
+
+***********************	 GROUPE		*****************************
+
+********************************************************************/
+
+
+
+.message_forum {
+
+	width:100%;
+
+	margin-top:15px;
+
+	border-style:solid;
+
+	border-width:1px
+
+}
+
+
+
+
+
+/********************************************************************
+
+***********************	 RENCONTRES		*********************
+
+********************************************************************/
+
+/*Tableau des participants*/
+
+table#rencontre{
+
+	border:0;
+
+	border-collapse:collapse;
+
+	font-size: 10px;
+
+	margin: 0 auto
+
+}
+
+table#rencontre td.rencontre{
+
+	border:0;
+
+}
+
+table#rencontre th.rencontre{
+
+	border:0;
+
+	background-color: #599EBB;
+
+	color: #FFFFFF;
+
+	font-weight: bold;
+
+	padding: 3px;
+
+	text-align: center
+
+}
+
+table#rencontre th.vide{
+
+	border:0;
+
+}
+
+table#rencontre td.participant{
+
+	border:1px solid #599EBB;
+
+	border-collapse:collapse;
+
+	text-align:center;
+
+	background-color:#E8F5FD;
+
+	font-weight:bold;
+
+	color:#599EBB;
+
+}
+
+table#rencontre td.center{
+
+	text-align:center;
+
+	border:1px solid #599EBB;
+
+	border-collapse:collapse;
+
+	height:22px;
+
+}
+
+table#rencontre td.mef{
+
+	border:1px solid #599EBB;
+
+	border-collapse:collapse;
+
+	height:27px;
+
+	padding-left:3px;
+
+	text-align:left;
+
+}
+
+
+
+/*messages*/
+
+table.renc_messages  {
+
+	width:96%;
+
+	margin: 3px auto;
+
+	border-collapse:collapse;
+
+	font-size: 0.8em
+
+}
+
+table.renc_messages  th{
+
+	background-color:#A9A9A9;
+
+	text-align:center;
+
+	color:white;
+
+	padding:5px 0 5px 0;
+
+}
+
+table.renc_messages  td {    
+
+	border:none;
+
+	border-bottom: #A9A9A9 dotted 1px ;
+
+	vertical-align: top;
+
+	font-size: 11px;
+
+	padding: 2px 10px
+
+}
+
+
+
+/*forum*/
+
+table.tbl_forum {
+
+	width:98%;
+
+	margin: 1px auto;
+
+	border-collapse:collapse;
+
+	font-size: 11px
+
+}
+
+table.tbl_forum th {
+
+	background-color:#e0e0e0;
+
+	text-align:left;
+
+	color: #333333;
+
+	padding:2px 2px 5px 0;
+
+}
+
+table.tbl_forum td {    
+
+	border: none;
+
+	vertical-align: top;
+
+	font-size: 11px;
+
+	padding: 5px
+
+}
+
+table.tbl_forum td div {
+
+    padding-left: 80px;
+
+    font-size: 1.3em;
+
+}
+
+table.tbl_forum td div.aff_contact {
+
+    padding-left: 0;
+
+    font-size: 1em;
+
+}
+
+
+
+/* Annuaire */
+
+div#ctl00_pageContenu_club1_resultat table.tbl_forum td {
+
+    color: #333333;
+
+    padding: 10px 7px 10px 4px;
+
+}
+
+div#ctl00_pageContenu_club1_resultat table.tbl_forum td b {
+
+    color: #1da6e2;
+
+}
+
+div#ctl00_pageContenu_club1_resultat table.tbl_forum td a {
+
+    color: #1da6e2;
+
+    font-size: 1.1em
+
+}
+
+
+
+/*Partenaires*/
+
+table.tbl_partenaire  {
+
+	width:98%;
+
+	margin: 1px auto;
+
+	border-collapse:collapse;
+
+	font-size: 12px
+
+}
+
+table.tbl_partenaire  th{
+
+	background-color:#e0e0e0;
+
+	text-align:left;
+
+	color: #333333;
+
+	padding:2px 2px 5px 0;
+
+}
+
+table.tbl_partenaire td {    
+
+	border:none;
+
+	vertical-align: top;
+
+	margin-left : 1px;
+
+	text-align:left;
+
+	padding: 2px 2px
+
+}
+
+table.tbl_partenaire p
+
+{
+
+    
+
+    font-size: 11px;
+
+    
+
+}
+
+table.tbl_partenaire em
+
+{
+
+font-style : italic;
+
+}
+
+table.tbl_partenaire strong
+
+{  
+
+    
+
+    font-weight:bold;
+
+ 
+
+}
+
+table.tbl_partenaire ol
+
+{
+
+    list-style-position:inside;
+
+    list-style-type:decimal;
+
+    margin-left:25px;
+
+    margin-top:25px;
+
+}
+
+
+
+table.tbl_partenaire ul
+
+{
+
+    list-style-type:circle;
+
+    list-style-position:inside;
+
+    margin-top:5px;
+
+    margin-left:25px;
+
+}
+
+
+
+.annuaire_image
+
+{
+
+    clear: both;
+
+    float: left;
+
+    width: 60px;
+
+    height: 50px;
+
+    border: 1px solid #1DA6E2;
+
+    margin-left: 5px;
+
+}
+
+    
+
+/*Avantages*/
+
+table#avantages{
+
+	margin-bottom:5px;
+
+	text-align:left;
+
+}
+
+table#avantages td{
+
+	padding:0 10px 0 10px;
+
+	vertical-align:top;
+
+	width:50%;
+
+}
+
+table#avantages td h5{
+
+	margin:0;
+
+	text-align:left;
+
+	color:#FE6A10;
+
+	font-weight:bold;
+
+}
+
+table#avantages ul{
+
+	text-align:left;
+
+	margin:5px 0 20px 20px;
+
+	font-size:11px;
+
+	list-style-position:outside;
+
+	list-style-type:inherit;
+
+}
+
+table#avantages li{
+
+	margin-bottom:3px
+
+}
+
+
+
+/********************************************************************
+
+***********************	 GEOLOCALISATION		*********************
+
+********************************************************************/
+
+.popup
+
+{
+
+    text-align:left;
+
+}
+
+
+
+/********************************************************************
+
+***********************	 FORUM		*********************
+
+********************************************************************/
+
+a.lien_puce_bis {
+
+	color: #333333; text-decoration: none;
+
+	font-weight:bold;
+
+	/*font-size:80%;*/
+
+}
+
+
+
+a.lien_puce_bis:hover { text-decoration: underline }
+
+
+
+a.lien_no_puce
+
+{
+
+    color: #333333;
+
+    text-decoration: none;
+
+}
+
+
+
+a.lien_no_puce:hover { color:#fd690f; text-decoration: none; }
+
+
+
+a.lien_no_puce2
+
+{
+
+    color: #333333;
+
+    text-decoration: underline;
+
+	padding-left: 8px;
+
+	/*font-size: 70%;*/
+
+}
+
+
+
+a.lien_no_puce2:hover { color:#fd690f; }
+
+/*
+
+td.petite_date
+
+{
+
+    font-size:70%;
+
+}
+
+
+
+td.petit_chiffre
+
+{
+
+    font-size:70%;
+
+}
+
+
+
+td.petit_chiffre2
+
+{
+
+    font-size:70%;
+
+}*/
+
+
+
+table.table_forum
+
+{
+
+    margin: 0 4px;
+
+    border-collapse: collapse;
+
+    font-size: 11px
+
+}
+
+
+
+tr.white
+
+{
+
+  background-color:#ffffff;
+
+}
+
+
+
+tr.grey
+
+{
+
+  background-color:#f1f1f1;
+
+}
+
+
+
+img.boiteico2 
+
+{
+
+    padding-left:0px;
+
+	vertical-align: middle;
+
+}
+
+h5.menuForum {
+
+	background-image: url("/images/graphisme/fleche_titre.gif");
+
+	background-repeat: no-repeat;
+
+	background-position: top left;
+
+	padding: 5px 0 0 20px; 
+
+	font-size: 10px;
+
+	color: #333333;
+
+	margin: 0 0 10px 3px;
+
+}
+
+
+
+/********************************************************************
+
+***********************	 RECHERCHE		*********************
+
+********************************************************************/
+
+div.marge
+
+{
+
+    margin: 6px;
+
+}
+
+
+
+.mise_en_forme_du_recherche label {
+
+	display: block;
+
+	float: left;
+
+		width: 120px;
+
+	text-align: right;
+
+		padding: 2px 5px 0 0;
+
+		margin:0
+
+}
+
+
+
+.mise_en_forme_du_recherche p {
+
+	margin: 6px
+
+}
+
+
+
+.mise_en_forme_du_recherche input[type="text"] {
+
+	width: 150px;
+
+	margin: 0
+
+} 
+
+
+
+.trop_resultat
+
+{
+
+    display: inline;float: left;
+
+	width: 626px;
+
+	margin: 15px 0 0 15px;
+
+}
+
+/********************************************************************
+
+***********************	 Rating Star		*********************
+
+********************************************************************/
+
+
+
+
+
+ .ratingStar {
+
+    font-size: 0pt;
+
+    width: 13px;
+
+    height: 12px;
+
+    margin: 0px;
+
+    padding: 0px;
+
+    cursor: pointer;
+
+    display: block;
+
+    background-repeat: no-repeat;
+
+}
+
+
+
+.filledRatingStar {
+
+    background-image: url(/images/stars/FilledStar.png);
+
+
+
+}
+
+
+
+.emptyRatingStar {
+
+    background-image: url(/images/stars/EmptyStar.png);
+
+}
+
+
+
+.savedRatingStar {
+
+    background-image: url(/images/stars/SavedStar.png);
+
+}
+
+
+
+/********************************************************************
+
+***********************	 Flux d'infos		*********************
+
+********************************************************************/
+
+
+
+div.fluxitem {
+
+    border-bottom: dashed 1px #cccccc;
+
+    margin: 5px 10px;
+
+    clear: left;
+
+    color: #444444
+
+}
+
+div.fluxitem a {
+
+    color: #1da6e2;
+
+    font-weight: bold;
+
+    text-decoration: none
+
+}
+
+div.fluxitem a:hover {
+
+    text-decoration: underline
+
+}
+
+
+
+div.fluxitem div.photo {
+
+    display: inline;
+
+    float: left;
+
+    margin-right: 15px;
+
+    width: 50px;
+
+    height: 60px;
+
+}
+
+
+
+div.fluxitem p.description {
+
+    padding: 10px 0 5px 0
+
+}
+
+
+
+div.fluxitem p.dateheure {
+
+    color: #999999;
+
+    /*font-size: 0.8em;*/
+
+}
+
+
+
+/********************************************************************
+
+*********************** Nuage de tags (accueil) *********************
+
+********************************************************************/
+
+p.tags {
+
+    text-align: center
+
+}
+
+p.tags a{ text-decoration: none; color: #1da6e2 }
+
+p.tags a:hover{ text-decoration: underline }
+
+
+
+
+
+/******************logos Accueil fin de page*******************/
+
+.boitepress_bas{
+
+	text-align: center;
+
+	padding: 15px 0 0 0;
+
+	clear: left;
+
+}
+
+
+
+.boitepress_bas a{
+
+	text-decoration: none;
+
+}
+
+
+
+.boitepress_bas img{
+
+	margin-right: 5px;
+
+	vertical-align: middle;
+
+}
+
+
+
+/*******************Mycleec offres privilège*************************/
+
+div.offrePrivilege {
+
+	height: 133px;
+
+	background-image: url(/images/promos-avantages/band_fond_offresPrivilege.jpg);
+
+	color: #808080;
+
+	font-size: 0.7em;
+
+	margin: 20px 0 0 10px;
+
+	border: solid 1px;
+
+}
+
+
+
+div.offrePrivilege img{
+
+	margin: 20px 10px 10px;
+
+	float: left;
+
+}
+
+
+
+div.offrePrivilege img.photo{
+
+	float: right;
+
+	margin: 20px 10px 0 0;
+
+}
+
+
+
+div.offrePrivilege h2{
+
+	font-weight:bold;
+
+	margin: 10px 0 0 10px;
+
+}
+
+
+
+div.offrePrivilege p{
+
+	margin: 5px 0 10px 100px;
+
+	width: 450px;
+
+	height: 80px;
+
+}
+
+/**********cas specifiques*************/
+
+div.offrePrivilege p.peche{
+
+	margin-left: 80px;
+
+}
+
+
+
+div.offrePrivilege span.avecphoto p{
+
+	width: 350px;
+
+}
+
+
+
+div.offrePrivilege span.avecphoto p.nike{
+
+	margin-left: 160px;
+
+}
+
+
+
+/****************************************/
+
+div.offrePrivilege a{
+
+	margin: 0 0 0 10px;
+
+	color: #FE6A10;
+
+	text-decoration: none;
+
+	font-weight: bold;
+
+}
+
+
+
+div.offrePrivilege a:hover{
+
+	text-decoration: underline;
+
+}
+
+
+
+/*****************Quizz*******************/
+
+div#bandeau_entete {
+
+	background-color: #F1F1F1;
+
+	margin-top: 7px;
+
+	height: 30px;
+
+}
+
+div#deco_formQuizz {
+
+	margin-top: 20px;
+
+}
+
+
+
+.introquizz {
+
+	font-size: 0.8em;
+
+	font-weight: bold;
+
+	padding: 0 10px 10px;
+
+	text-align: justify;
+
+}
+
+
+
+.titrequestion {
+
+	display: block;
+
+	color: white;
+
+	text-align: left;
+
+	padding-left: 10px;
+
+	background-color: #bebebe;
+
+	font-size: 0.9em;
+
+	height: 30px;
+
+}
+
+
+
+.choixreponse {
+
+	font-size: 0.7em;
+
+}
+
+
+
+span.messageconfirm {
+
+	font-weight: bold;
+
+	color: #3BADDF;
+
+}
+
+
+
+span.messageerr {
+
+	font-weight: bold;
+
+	color: red;
+
+}
+
+
+
+/*********************** 25/07/09 ************************/
+
+/***************** Carte des membres / clubs *******************/
+
+
+
+a#ctl00_pageContenu_lienClub.onglet_style  {
+
+	margin-left: 10px;
+
+	border-left: gray solid 1px;
+
+}
+
+a#ctl00_pageContenu_lienPart.onglet_style {
+
+	border-right: gray solid 1px;
+
+}
+
+		
+
+a.onglet_style {
+
+	padding: 3px 6px;
+
+	display: block;
+
+	float: left;
+
+	font-size: 0.7em;
+
+
+
+	border-top: gray solid 1px;
+
+	background-color: #edeae2;
+
+	color: #111;
+
+	text-decoration: none;
+
+	
+
+	position: relative;
+
+	top: 5px;
+
+	z-index: 150;
+
+}
+
+a.onglet_style:hover {
+
+	color: #1da6e2
+
+}
+
+a.onglet_style.actif  {
+
+	top: 1px;
+
+	padding: 4px 6px;
+
+	color: #1da6e2;
+
+	font-weight: bold;
+
+	font-size: 0.8em;
+
+	border-right: gray solid 1px;
+
+	border-left: gray solid 1px;
+
+}
+
+
+
+div#ctl00_pageContenu_resultat div#ctl00_pageContenu_map {
+
+	clear: left;
+
+	margin-bottom: 15px;
+
+}
+
+div#ctl00_pageContenu_blocNonConnecte {
+
+	text-align: left;
+
+}
+
+div#ctl00_pageContenu_blocNonConnecte  a { margin-top: 15px }
+
+
+
+.align_image img, .align_image span {
+
+  vertical-align: middle;
+
+  display: inline-block; 
+
+}
+
+
+
+.align_image a {
+
+	text-decoration: none;
+
+}
+
+.align_image {
+
+	text-align:center;
+
+}
+
+
+
+#ctl00_pageContenu_aff_villes_liste { margin: auto; }
+
+.ville_pays { font-weight: bold; clear: both; padding-top: 10px; }
+
+.ville { float: left; width: 33%; }
+
+
+
+div.photo_pres_sport {
+
+    background: url("images/sport.jpg") no-repeat scroll left -10px #7DB2EC;
+
+    float: left;
+
+    margin: 15px 0 0;
+
+    width: 466px;
+
+}
+
+
+
+div.photo_pres_sport h1 {
+
+    color:white;
+
+    font-size:1.8em;
+
+    margin:15px;
+
+}
+
+
+
+/** Liens sponsorisés AWE **/
+
+/*.ad-skin-none { width: 150px; height: 150px; }*/
+
+.ad-skin-none { width: auto; clear: both; padding: 5px 0 0 0; font-size: 0.8em; color: gray ; text-align: center }
+
+.ad-skin-none p { margin: 0; padding: 0; }
+
+.ad-skin-none span { display: block; }
+
+.ad-skin-none .ad-lnk { }
+
+.ad-skin-none span.ad-desc1 { }
+
+.ad-skin-none span.ad-desc2 { }
+
+.ad-skin-none span.ad-display-url { }
+
+
+
+iframe { border: none;}
+
+
+
+.mise_en_forme_du_formulaire p.missing_data { 
+
+    color: red;
+
+    background-color: #FE96A0;
+
+    padding: 10px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    margin: 6px 10px;
+
+}
+
+
+
+div#login p.align_image { margin: 10px 0; }
+
+div#login p.align_image a, .mise_en_forme_du_formulaire p.align_image a { margin: 0 5px; }
+
+.rechercher_partenaire_form p { margin: 15px; }
+
+.rechercher_partenaire_form p.btn_rechercher_container { text-align: right; }
+
+
+
+.partenaire_loisir_infos_edit {  float: left; width: 270px; position: relative;}
+
+.partenaire_loisir_infos { float: left; width: 340px; position: relative; }
+
+.partenaire_loisir_infos p.partenaire_title { font-weight: bold; color: #1da6e2; }
+
+.partenaire_loisir_infos p { padding: 3px 0; }
+
+.partenaire_loisir_infos p.partenaire_title, .partenaire_loisir_infos p.partenaire_user { padding-top: 0; }
+
+.partenaire_loisir_infos_left { width: 200px; }
+
+.partenaire_loisir_infos p.partenaire_desc { margin-top: 7px; }
+
+.bleugras { font-weight: bold; color: #1da6e2; }
+
+
+
+.envoyer_message { position: absolute; right: 0; top: 0; }
+
+
+
+.resultats_gauche, .resultats_droite { float: left; width: 50%; }
+
+.resultats_droite textarea { margin:0;}
+
+.labelOu { margin-left: 50px; }
+
+.filter_partenaires, .btns_partenaires { text-align: right; }
+
+
+
+.ajax__calendar_container { z-index: 999; }
+
