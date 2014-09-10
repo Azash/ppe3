@@ -1,4 +1,4 @@
-<?php 
+ï»¿<?php 
 	//Pour se connecter à la base de données
 	include("connexion.php");
 ?>
