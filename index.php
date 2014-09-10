@@ -1,3 +1,7 @@
+<?php 
+	//Pour se connecter à la base de données
+	include("connexion.php");
+?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 	<title>SOS partenaires</title>
 	<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8">
@@ -126,29 +130,17 @@ return true;
 	    <div class="photo_pres">
 		    <h1>Trouvez des partenaires de sport près de chez vous</h1>
 		    <label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_Label1">Sport: </label>
-		    <select name="ctl00$pageContenu$ddl_loisir" id="ctl00_pageContenu_ddl_loisir">
-		<option value="96">Athlétisme</option>
-		<option value="99">Badminton</option>
-		<option value="137">Danse</option>
-		<option value="147">Fitness</option>
-		<option value="150">Football</option>
-		<option value="155">Golf</option>
-		<option value="182">Natation</option>
-		<option value="304">Poker</option>
-		<option value="312">Randonnée</option>
-		<option value="200">Roller</option>
-		<option value="201">Rugby</option>
-		<option value="126">Running</option>
-		<option value="206">Ski</option>
-		<option value="212">Squash</option>
-		<option value="301">Stretching</option>
-		<option selected="selected" value="220">Tennis</option>
-		<option value="221">Tennis de table</option>
-		<option value="229">Vélo</option>
-		<option value="229">VTT</option>
-		<option value="298">Yoga</option>
-
-	</select>
+			<select name="Activité">
+				<?php
+					$req = sprintf("SELECT activitie FROM activities ORDER BY activitie");
+					$resultat = mysql_query($req);
+					$ligne = mysql_fetch_assoc($resultat);
+					while($ligne){
+						echo '<option value="'.$ligne["activitie"].'">'.$ligne["activitie"].'</option>';
+						$ligne = mysql_fetch_assoc($resultat);
+					}	
+				?>
+			</select>
 		    <label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">Code Postal: </label>
 	        <input name="ctl00$pageContenu$postal" maxlength="5" id="ctl00_pageContenu_postal" style="width:50px;" type="text">
 	        <input name="ctl00$pageContenu$btnTrouver" value="Trouver" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$pageContenu$btnTrouver&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_pageContenu_btnTrouver" type="submit">
