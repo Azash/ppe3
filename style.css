@@ -103,7 +103,7 @@ div#pied {
 
 	text-align: center;
 
-	background-color: #FF8144;
+	background-color: #1B84B1;
 
 	font-size: 0.8em;
 
@@ -149,7 +149,7 @@ div.photo_pres {
 
 	margin: 15px 0 0 0;
 
-	background : #FF9D6E url(images/photos/photo1.jpg) left -10px no-repeat
+	background : #FF941C url(images/photos/photo1.jpg) left -10px no-repeat
 
 }
 
@@ -179,7 +179,7 @@ div.photo_pres a {
 
 	margin: 155px 40px 15px 40px;
 
-	background: #D34400;
+	background: #B25E00;
 
 	font-weight: bold;
 
@@ -463,7 +463,7 @@ a#deconnect:hover {text-decoration: underline;}
 
 
 
-div#menu_entete {background: #64E113 url(/images/graphisme/menu_fond.gif) left top no-repeat; margin: 5px 0 0 0;}
+div#menu_entete {background: #1B84B1 url(/images/graphisme/menu_fond.gif) left top no-repeat; margin: 5px 0 0 0;}
 
 div#menu_entete a {
 
