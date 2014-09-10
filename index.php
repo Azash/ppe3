@@ -1,16 +1,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
-	<title>Cleec : La communauté qui simplifie vos sports et loisirs</title>
+	<title>SOS partenaires</title>
 	<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8">
-	<script style="" type="text/javascript" src="/global/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="/global/cleec.js"></script>
+	<!--<script style="" type="text/javascript" src="/global/jquery-1.11.0.min.js"></script>-->
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta name="Author" content="Cleec">
-	
-	<meta name="description" content="Sur Cleec trouvez des activités près de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
-	<meta name="Keywords" content="cleec, sports et loisirs, sport, loisir, coach, reseau, social, bien, etre, bien-etre, loisirs, sports, communaute, social">
-	
-	<link rel="home" href="http://www.cleec.com/">
-	<link rel="shortcut icon" href="/favicon.ico">
+	<meta name="Author" content="SOSpartenaires">
+	<meta name="description" content="Sur SOS partenaires trouvez des activités près de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
+	<meta name="Keywords" content="SOS partenaires, sports et loisirs, sport, loisir, coach, reseau, social, bien, etre, bien-etre, loisirs, sports, communaute, social">
+
+	<!--<link rel="shortcut icon" href="/favicon.ico">-->
 <script src="http://maps.gstatic.com/cat_js/maps-api-v3/api/js/18/0/intl/fr_ALL/%7Bcommon,util,geocoder%7D.js" charset="UTF-8" type="text/javascript"></script><script src="http://maps.gstatic.com/cat_js/maps-api-v3/api/js/18/0/intl/fr_ALL/%7Bstats%7D.js" charset="UTF-8" type="text/javascript"></script></head>
 
 <body>
