@@ -1,5 +1,5 @@
 ï»¿<?php 
-	//Pour se connecter à la base de données
+	//Pour se connecter Ã  la base de donnÃ©es
 	include("connexion.php");
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
@@ -8,7 +8,7 @@
 	<!--<script style="" type="text/javascript" src="/global/jquery-1.11.0.min.js"></script>-->
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="Author" content="SOSpartenaires">
-	<meta name="description" content="Sur SOS partenaires trouvez des activités près de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
+	<meta name="description" content="Sur SOS partenaires trouvez des activitÃ©s prÃ¨s de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
 	<meta name="Keywords" content="SOS partenaires, sports et loisirs, sport, loisir, coach, reseau, social, bien, etre, bien-etre, loisirs, sports, communaute, social">
 
 	<!--<link rel="shortcut icon" href="/favicon.ico">-->
@@ -68,14 +68,14 @@ return true;
 	<div id="conteneur">
 	
 		<div id="entete">
-			<a href="/"><img src="/images/graphisme/logo_baseline_bl.gif" alt="Cleec. Vos sports. Vos Loisirs. Votre réseau." height="42" width="407"></a>
+			<a href="/"><img src="/images/graphisme/logo_baseline_bl.gif" alt="Cleec. Vos sports. Vos Loisirs. Votre rÃ©seau." height="42" width="407"></a>
 			
 	<div id="menu_entete">
 		<a href="/forum/" id="ctl00_menu_Entete_menu_forum" class="dernier">Forums</a>
 		<a href="/conseils/" id="ctl00_menu_Entete_menu_conseils">Conseils</a>
 		<a href="/annuaire/" id="ctl00_menu_Entete_menu_annuaire">Annuaire</a>
 	
-		<a href="/activites/" id="ctl00_menu_Entete_menu_activites">Activités</a>
+		<a href="/activites/" id="ctl00_menu_Entete_menu_activites">ActivitÃ©s</a>
 		<a href="/partenaire/" id="ctl00_menu_Entete_menu_membres">Membres</a>
 		<a href="/partenaires/" id="ctl00_menu_Entete_menu_partenaires">Partenaires</a>
 		<a href="/avantages.aspx" id="ctl00_menu_Entete_menu_mycleec">Mycleec</a>
@@ -128,9 +128,9 @@ return true;
 	
 	    
 	    <div class="photo_pres">
-		    <h1>Trouvez des partenaires de sport près de chez vous</h1>
+		    <h1>Trouvez des partenaires de sport prÃ¨s de chez vous</h1>
 		    <label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_Label1">Sport: </label>
-			<select name="Activité">
+			<select name="ActivitÃ©">
 				<?php
 					$req = sprintf("SELECT activitie FROM activities ORDER BY activitie");
 					$resultat = mysql_query($req);
@@ -145,7 +145,7 @@ return true;
 	        <input name="ctl00$pageContenu$postal" maxlength="5" id="ctl00_pageContenu_postal" style="width:50px;" type="text">
 	        <input name="ctl00$pageContenu$btnTrouver" value="Trouver" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$pageContenu$btnTrouver&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_pageContenu_btnTrouver" type="submit">
 	        <span id="ctl00_pageContenu_RegularExpressionValidator2" style="color:Red;visibility:hidden;">* Code Postal invalide</span>
-		    <a href="avantages.aspx">Découvrez les avantages de cleec</a>
+		    <a href="avantages.aspx">DÃ©couvrez les avantages de cleec</a>
 	    </div>
 	
 </div>
@@ -165,7 +165,7 @@ return true;
 			    <input name="ctl00$pageContenu$Button1" id="ctl00_pageContenu_Button1" src="/images/graphisme/ico_go20.gif" alt="ok" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$pageContenu$Button1&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" style="height:20px;width:20px;border-width:0px;" align="middle" type="image">
 		    </p>
 		    <p>
-		        <label for="ctl00_pageContenu_CheckBox_souvenir">Me mémoriser</label><input id="ctl00_pageContenu_CheckBox_souvenir" name="ctl00$pageContenu$CheckBox_souvenir" type="checkbox">
+		        <label for="ctl00_pageContenu_CheckBox_souvenir">Me mÃ©moriser</label><input id="ctl00_pageContenu_CheckBox_souvenir" name="ctl00$pageContenu$CheckBox_souvenir" type="checkbox">
 		    </p>
     		
 		    <p><span id="ctl00_pageContenu_Con_rep" class="red_center"></span></p>
@@ -193,8 +193,8 @@ return true;
 	<div class="boitegrise_305">
 		<h2><img src="/images/icones/envieG.gif" alt="" class="boiteico" height="22" width="22">Pourquoi s'inscrire ?</h2>
 		<p>
-		Dynamisez <b>gratuitement</b> vos activités sportives :<br><br>
-		&gt; Trouvez des partenaires près de chez vous<br>
+		Dynamisez <b>gratuitement</b> vos activitÃ©s sportives :<br><br>
+		&gt; Trouvez des partenaires prÃ¨s de chez vous<br>
 		&gt; Trouvez des clubs, des coachs et des magasins<br>
 		&gt; Trouvez et organisez vos sorties sportives
 		</p><br>
@@ -211,7 +211,7 @@ return true;
     <div class="photo" style="background-image: url(/fichiers_users/Homme.gif);"><img src="/images/graphisme/arrondi_50x60.png" alt="Photo du sportif" height="60" width="50"></div>
     
     <p class="description">
-        <a href="/membres/profil.aspx?choix=69174">pierre</a> a posté un nouveau message sur le <a href="/forum/golf/43286/un-ou-une-partenaire-de-golf-seine-et-marne_1.aspx">forum Golf</a>
+        <a href="/membres/profil.aspx?choix=69174">pierre</a> a postÃ© un nouveau message sur le <a href="/forum/golf/43286/un-ou-une-partenaire-de-golf-seine-et-marne_1.aspx">forum Golf</a>
          
     </p>
     <p class="dateheure">
@@ -237,7 +237,7 @@ return true;
     <div class="photo" style="background-image: url(/fichiers_users/Homme.gif);"><img src="/images/graphisme/arrondi_50x60.png" alt="Photo du sportif" height="60" width="50"></div>
     
     <p class="description">
-        <a href="/membres/profil.aspx?choix=69165">Gilles Fourestier</a> a posté un nouveau message sur le <a href="/forum/football/43285/cherche-gardien-de-but-foot-loisir_1.aspx">forum Football</a>
+        <a href="/membres/profil.aspx?choix=69165">Gilles Fourestier</a> a postÃ© un nouveau message sur le <a href="/forum/football/43285/cherche-gardien-de-but-foot-loisir_1.aspx">forum Football</a>
          
     </p>
     <p class="dateheure">
@@ -250,7 +250,7 @@ return true;
     <div class="photo" style="background-image: url(/fichiers_users/Femme.gif);"><img src="/images/graphisme/arrondi_50x60.png" alt="Photo du sportif" height="60" width="50"></div>
     
     <p class="description">
-        <a href="/membres/profil.aspx?choix=69463">Marlène  Gomis</a> a rejoint cleec
+        <a href="/membres/profil.aspx?choix=69463">MarlÃ¨ne  Gomis</a> a rejoint cleec
          
     </p>
     <p class="dateheure">
@@ -279,8 +279,8 @@ return true;
 
     
     <div class="boitegrise_305">
-        <h2><img src="/images/icones/actualite.gif" alt="" class="boiteico" height="22" width="22">Actualités Cleec</h2>
-        <div id="ctl00_pageContenu_aff_actus"><p><span style="width:80px; float:left; text-align:right;">3 Sept. - </span><span style="Display:block; margin-left:82px"><a href="/actus/yoga-paris-14-sepetmbre.aspx">Cours de Yoga à Paris le 14 septembre : Inscrivez-vous vite !</a></span></p><br><p><span style="width:80px; float:left; text-align:right;">3 Sept. - </span><span style="Display:block; margin-left:82px"><a href="/actus/cours-yoga-cleec.aspx">Cours de Yoga sur Cleec</a></span></p><br><p><span style="width:80px; float:left; text-align:right;">13 Mai - </span><span style="Display:block; margin-left:82px"><a href="/actus/Concours-FFN.aspx">Assistez aux championnats d'Europe de Natation à Berlin !</a></span></p><br></div>
+        <h2><img src="/images/icones/actualite.gif" alt="" class="boiteico" height="22" width="22">ActualitÃ©s Cleec</h2>
+        <div id="ctl00_pageContenu_aff_actus"><p><span style="width:80px; float:left; text-align:right;">3 Sept. - </span><span style="Display:block; margin-left:82px"><a href="/actus/yoga-paris-14-sepetmbre.aspx">Cours de Yoga Ã  Paris le 14 septembre : Inscrivez-vous vite !</a></span></p><br><p><span style="width:80px; float:left; text-align:right;">3 Sept. - </span><span style="Display:block; margin-left:82px"><a href="/actus/cours-yoga-cleec.aspx">Cours de Yoga sur Cleec</a></span></p><br><p><span style="width:80px; float:left; text-align:right;">13 Mai - </span><span style="Display:block; margin-left:82px"><a href="/actus/Concours-FFN.aspx">Assistez aux championnats d'Europe de Natation Ã  Berlin !</a></span></p><br></div>
         <div class="finboite"></div>
 	</div>
 
@@ -298,11 +298,11 @@ return true;
 		<a style="font-size:0.9em" href="/partenaire/natation.aspx">Natation</a>
 		<a style="font-size:1em" href="/partenaire/tennis-de-table.aspx">Tennis de table</a>
 		<a style="font-size:2em" href="/partenaire/tennis.aspx">Tennis</a>
-		<a style="font-size:1.3em" href="/partenaire/cyclisme-sur-route.aspx">Vélo</a>
+		<a style="font-size:1.3em" href="/partenaire/cyclisme-sur-route.aspx">VÃ©lo</a>
 		<a style="font-size:0.9em" href="/partenaire/danse-de-salon.aspx">Danse</a>
 		<a style="font-size:2em" href="/partenaire/fitness.aspx">Fitness</a> 
-		<a style="font-size:0.8em" href="/partenaire/athletisme.aspx">Athlétisme</a>
-		<a style="font-size:0.8em" href="/partenaire/randonnee-marche.aspx">Randonnée</a>
+		<a style="font-size:0.8em" href="/partenaire/athletisme.aspx">AthlÃ©tisme</a>
+		<a style="font-size:0.8em" href="/partenaire/randonnee-marche.aspx">RandonnÃ©e</a>
 		<a style="font-size:1.4em" href="/partenaire/velo-tout-terrain-vtt.aspx">VTT</a>
 		<a style="font-size:1.2em" href="/partenaire/badminton.aspx">Badminton</a>
 		<a style="font-size:1.7em" href="/partenaire/ski.aspx">Ski</a>
@@ -317,13 +317,13 @@ return true;
 		<a style="font-size:1.3em" href="/partenaire/handball.aspx">Handball</a>
 		<a style="font-size:0.8em" href="/partenaire/judo.aspx">Judo</a>
 		</p>
-		<p style="text-align: center; margin-top: 10px"><a href="/activites/">Retrouvez plus de 200 activités sportives !</a></p>
+		<p style="text-align: center; margin-top: 10px"><a href="/activites/">Retrouvez plus de 200 activitÃ©s sportives !</a></p>
 		<div class="finboite"></div>
 	</div>
 	
 	
 	<div class="boitepress_bas">
-	    <a href="/infos/presse.aspx"><img src="/images/presse/presse_accueil_bas/presse_itele.gif" alt="i_Télé"></a>
+	    <a href="/infos/presse.aspx"><img src="/images/presse/presse_accueil_bas/presse_itele.gif" alt="i_TÃ©lÃ©"></a>
 	    <a href="/infos/presse.aspx"><img src="/images/presse/presse_accueil_bas/presse_elle.gif" alt="ELLE"></a>
 	    <a href="/infos/presse.aspx"><img src="/images/presse/presse_accueil_bas/presse_direct8.gif" alt="Direct 8"></a>
 	    <a href="/infos/presse.aspx"><img src="/images/presse/presse_accueil_bas/presse_bfm2.gif" alt="BFM"></a>
@@ -352,7 +352,7 @@ return true;
 	    </div>
 		
 		
-    <div style="font-size: 0.6em;margin-top: 8px;"><p>Faire du sport à : <a href="/sport/paris.aspx">Paris</a>, <a href="/sport/lyon.aspx">Lyon</a>, <a href="/sport/marseille.aspx">Marseille</a>, <a href="/sport/toulouse.aspx">Toulouse</a>, <a href="/sport/lille.aspx">Lille</a>, <a href="/sport/nantes.aspx">Nantes</a>, <a href="/sport/bordeaux.aspx">Bordeaux</a>, <a href="/sport/nice.aspx">Nice</a>, <a href="/sport/montpellier.aspx">Montpellier</a>, <a href="/sport/rennes.aspx">Rennes</a>, <a href="/sport/grenoble.aspx">Grenoble</a>, <a href="/sport/strasbourg.aspx">Strasbourg</a>, <a href="/sport/rouen.aspx">Rouen</a>, <a href="/sport/pau.aspx">Pau</a></p></div>
+    <div style="font-size: 0.6em;margin-top: 8px;"><p>Faire du sport Ã  : <a href="/sport/paris.aspx">Paris</a>, <a href="/sport/lyon.aspx">Lyon</a>, <a href="/sport/marseille.aspx">Marseille</a>, <a href="/sport/toulouse.aspx">Toulouse</a>, <a href="/sport/lille.aspx">Lille</a>, <a href="/sport/nantes.aspx">Nantes</a>, <a href="/sport/bordeaux.aspx">Bordeaux</a>, <a href="/sport/nice.aspx">Nice</a>, <a href="/sport/montpellier.aspx">Montpellier</a>, <a href="/sport/rennes.aspx">Rennes</a>, <a href="/sport/grenoble.aspx">Grenoble</a>, <a href="/sport/strasbourg.aspx">Strasbourg</a>, <a href="/sport/rouen.aspx">Rouen</a>, <a href="/sport/pau.aspx">Pau</a></p></div>
 
 
 	</div>
