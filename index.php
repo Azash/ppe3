@@ -1,5 +1,5 @@
-<?php 
-	//Pour se connecter à la base de données
+ï»¿<?php 
+	//Pour se connecter Ã  la base de donnÃ©es
 	include("connexion.php");
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
@@ -8,7 +8,7 @@
 	<!--<script style="" type="text/javascript" src="/global/jquery-1.11.0.min.js"></script>-->
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="Author" content="SOSpartenaires">
-	<meta name="description" content="Sur SOS partenaires trouvez des activités près de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
+	<meta name="description" content="Sur SOS partenaires trouvez des activitÃ©s prÃ¨s de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
 	<meta name="Keywords" content="SOS partenaires, sports et loisirs, sport, loisir, coach, reseau, social, bien, etre, bien-etre, loisirs, sports, communaute, social">
 
 	<!--<link rel="shortcut icon" href="/favicon.ico">-->
@@ -21,7 +21,7 @@
 					<a href="/conseils/" id="ctl00_menu_Entete_menu_conseils">Conseils</a>
 					<a href="/annuaire/" id="ctl00_menu_Entete_menu_annuaire">Annuaire</a>
 				
-					<a href="/activites/" id="ctl00_menu_Entete_menu_activites">Activités</a>
+					<a href="/activites/" id="ctl00_menu_Entete_menu_activites">ActivitÃ©s</a>
 					<a href="/partenaire/" id="ctl00_menu_Entete_menu_membres">Membres</a>
 					<a href="/partenaires/" id="ctl00_menu_Entete_menu_partenaires">Partenaires</a>
 					<a href="/avantages.aspx" id="ctl00_menu_Entete_menu_mycleec">Mycleec</a>
@@ -33,9 +33,9 @@
 			<div id="contenu_annexe">
 				<div id="ctl00_pageContenu_pnCarte">
 					<div class="photo_pres">
-						<h1>Trouvez des partenaires de sport près de chez vous</h1>
+						<h1>Trouvez des partenaires de sport prÃ¨s de chez vous</h1>
 						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_Label1">Sport: </label>
-						<select name="Activité" id="ctl00_pageContenu_ddl_loisir">
+						<select name="ActivitÃ©" id="ctl00_pageContenu_ddl_loisir">
 							<?php
 								$req = sprintf("SELECT activitie FROM activities ORDER BY activitie");
 								$resultat = mysql_query($req);
@@ -46,10 +46,22 @@
 								}	
 							?>
 						</select>
-						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">Code Postal: </label>
-						<input name="ctl00$pageContenu$postal" maxlength="5" id="ctl00_pageContenu_postal" style="width:50px;" type="text">
+						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">DÃ©partement : </label>
+						<select name="ctl00$pageContenu$postal" id="ctl00_pageContenu_postal">
+							<?php
+								$req = sprintf("SELECT dep FROM departements");
+								$resultat = mysql_query($req);
+								$ligne = mysql_fetch_assoc($resultat);
+								while($ligne){
+									echo '<option value="'.$ligne["dep"].'">'.$ligne["dep"].'</option>';
+									$ligne = mysql_fetch_assoc($resultat);
+								}	
+							?>
+						</select>
+						<!-- <label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">Code Postal: </label>
+						<input name="ctl00$pageContenu$postal" maxlength="5" id="ctl00_pageContenu_postal" style="width:50px;" type="text"> -->
 						<input name="ctl00$pageContenu$btnTrouver" value="Trouver" id="ctl00_pageContenu_btnTrouver" type="submit">
-						<a href="avantages.aspx">Découvrez les avantages de cleec</a>
+						<a href="avantages.aspx">DÃ©couvrez les avantages de cleec</a>
 					</div>
 				</div>
 <!--Zone Pour Estelle-->
