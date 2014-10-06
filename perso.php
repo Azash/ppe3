@@ -31,8 +31,25 @@
 <!--FIN HEADER-->
 <!--CONTENU-->			
 			<div id="contenu_annexe">
-
-
+			<div><!--avatar-->
+			</div>
+<div>
+Ville
+Code postale
+Numéro de téléphone
+Description personnel
+</div>
+<div>
+Sport
+Niveau sportif
+Le jour de la semaine
+Plage horaires
+</div>
+<div><!--Configuration-->
+Le jour de la semaine
+Plage horaires
+Le choix de faire apparaitre ou non les informations personnelles (email et numéro de téléphone) dans les résultats de recherche.
+</div>
 <!--Fin de Zone Estelle-->
 				
 				<!--CORRESPOND A UNE BOITE SMALL
@@ -40,12 +57,12 @@
 					<h2></h2>
 					<div class="finboite"></div>
 				</div>-->
-				<!--CORRESPON A LA BOITE MEDIUM-->
+				<!--CORRESPON A LA BOITE MEDIUM
 				<div class="boitegrise_466 sans_marge_gauche">
 					<h2></h2>
 					<div class="finboite"></div>
 				</div>
-				
+				-->
 				<div class="spacer"></div>
 			</div>
 <!--FIN CONTENU-->			
