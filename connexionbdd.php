@@ -10,5 +10,5 @@
 //mysql_select_db($base,$db);
 
 @$connexion = mysql_connect("localhost","root","") or exit(mysql_error());
-@mysql_select_db("sos_partenaire") or exit(mysql_error());
+@mysql_select_db("sos_partenaire", $connexion) or exit(mysql_error());
 ?>

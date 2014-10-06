@@ -2,7 +2,6 @@
 	session_start();
 	//Pour se connecter à la base de données
 	include('connexionbdd.php');
-	include('Connexion.php');
 	include('fctPhp.php');
 ?>
 
@@ -46,7 +45,7 @@
 
 							//si quelqu'un vient changer l'url manuellement sans se connecter, il est automatiquement renvoyé vers la page Connexion.php
 							}else{
-							header('Location:Connexion.php'); 
+							header('Location:index.php'); 
 							}
 
 
