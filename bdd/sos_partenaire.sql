@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Lun 06 Octobre 2014 à 14:05
+-- Généré le: Lun 06 Octobre 2014 à 14:20
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -216,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `dispo` (
 CREATE TABLE IF NOT EXISTS `listactivities` (
   `idUser` int(11) NOT NULL,
   `idActivities` int(11) NOT NULL,
-  `idLvl` int(11) NOT NULL
+  `lvl` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
