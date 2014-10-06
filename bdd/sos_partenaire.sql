@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Lun 06 Octobre 2014 à 12:06
+-- Généré le: Lun 06 Octobre 2014 à 14:05
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -182,8 +182,7 @@ INSERT INTO `departements` (`id`, `dep`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `dispo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) NOT NULL,
+  `idUser` int(11) NOT NULL,
   `L1` tinyint(1) NOT NULL,
   `L2` tinyint(1) NOT NULL,
   `L3` tinyint(1) NOT NULL,
@@ -205,9 +204,20 @@ CREATE TABLE IF NOT EXISTS `dispo` (
   `D1` tinyint(1) NOT NULL,
   `D2` tinyint(1) NOT NULL,
   `D3` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  UNIQUE KEY `email` (`idUser`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `listactivities`
+--
+
+CREATE TABLE IF NOT EXISTS `listactivities` (
+  `idUser` int(11) NOT NULL,
+  `idActivities` int(11) NOT NULL,
+  `idLvl` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -227,23 +237,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `ville` varchar(255) DEFAULT NULL,
   `codePostal` int(5) DEFAULT NULL,
   `tel` varchar(10) DEFAULT NULL,
-  `sport` varchar(50) DEFAULT NULL,
-  `niveau` varchar(50) DEFAULT NULL,
   `description` text,
-  `jour` date DEFAULT NULL,
-  `plage` varchar(255) DEFAULT NULL,
   `afficheEmail` tinyint(1) DEFAULT NULL,
   `AfficheTel` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `nom`, `prenom`, `birth`, `mdp`, `sexe`, `email`, `avatar`, `ville`, `codePostal`, `tel`, `sport`, `niveau`, `description`, `jour`, `plage`, `afficheEmail`, `AfficheTel`) VALUES
-(1, 'Boudy', 'Guillaume', '1992-05-23', '9cf95dacd226dcf43da376cdb6cbba7035218921', 'Homme', 'guillaume.boudy@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'user', 'user', '2012-11-12', '12dea96fec20593566ab75692c9949596833adc9', 'Homme', 'guillaume.wesley@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `nom`, `prenom`, `birth`, `mdp`, `sexe`, `email`, `avatar`, `ville`, `codePostal`, `tel`, `description`, `afficheEmail`, `AfficheTel`) VALUES
+(1, 'Boudy', 'Guillaume', '1992-05-23', '9cf95dacd226dcf43da376cdb6cbba7035218921', 'Homme', 'guillaume.boudy@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'user', 'user', '2012-11-12', '12dea96fec20593566ab75692c9949596833adc9', 'Homme', 'guillaume.wesley@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'Boudy', 'Guillaume', '1992-05-23', '9cf95dacd226dcf43da376cdb6cbba7035218921', 'Homme', 'guillaume.wesley@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
