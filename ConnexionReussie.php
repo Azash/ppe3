@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 	session_start();
 	//Pour se connecter à la base de données
 	include('connexionbdd.php');
@@ -37,35 +37,31 @@
 			<div id="contenu_annexe">
 				<div id="ctl00_pageContenu_pnCarte">
 					<div class="photo_pres">
-						<h1>Trouvez des partenaires de sport près de chez vous</h1>
-						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_Label1">Sport: </label>
-						<select name="Activité" id="ctl00_pageContenu_ddl_loisir">
-							<?php
-								$req = sprintf("SELECT activitie FROM activities ORDER BY activitie");
-								$resultat = mysql_query($req);
-								$ligne = mysql_fetch_assoc($resultat);
-								while($ligne){
-									echo '<option value="'.$ligne["activitie"].'">'.$ligne["activitie"].'</option>';
-									$ligne = mysql_fetch_assoc($resultat);
-								}	
-							?>
-						</select>
-						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">Département : </label>
-						<select name="ctl00$pageContenu$postal" id="ctl00_pageContenu_postal">
-							<?php
-								$req = sprintf("SELECT dep FROM departements");
-								$resultat = mysql_query($req);
-								$ligne = mysql_fetch_assoc($resultat);
-								while($ligne){
-									echo '<option value="'.$ligne["dep"].'">'.$ligne["dep"].'</option>';
-									$ligne = mysql_fetch_assoc($resultat);
-								}	
-							?>
-						</select>
-						<!-- <label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">Code Postal: </label>
-						<input name="ctl00$pageContenu$postal" maxlength="5" id="ctl00_pageContenu_postal" style="width:50px;" type="text"> -->
-						<input name="ctl00$pageContenu$btnTrouver" value="Trouver" id="ctl00_pageContenu_btnTrouver" type="submit">
-						<a href="#">Tout afficher</a>
+						<h1>Bonne navigation!</h1>
+						<?php
+							if(isset($_SESSION['email']))  //indique que quelqu'un s'est bien connecté. pour éviter que n'importe qui puisse se connecter
+							{
+							echo "<p>Bonjour, vous êtes connecté avec votre compte</p> ".$_SESSION['email'];
+
+
+							//echo "Bonjour ".$_SESSION['email'];
+
+
+
+						?>
+							<a href="./deconnexion.php" >Me déconnecter</a><br/>
+							<a href="./Update.php" >Changer mes informations</a><br/>
+							<a href="./Desinscription.php" >Me désinscrire</a><br/>
+								
+						<?php 
+
+							//si quelqu'un vient changer l'url manuellement sans se connecter, il est automatiquement renvoyé vers la page Connexion.php
+							}else{
+							header('Location:Connexion.php'); 
+							}
+
+
+						?>
 					</div>
 				</div>
 <!--Zone Pour Estelle-->
@@ -91,19 +87,6 @@
 						<div class="finboite"></div>
 					</div>
 				</div>
-<!--Fin de Zone Estelle-->
-				<!--
-				CORRESPOND A UNE BOITE SMALL
-				<div class="boitegrise_305">
-					<h2></h2>
-					<div class="finboite"></div>
-				</div>
-				CORRESPON A LA BOITE MEDIUM
-				<div class="boitegrise_466 sans_marge_gauche">
-					<h2></h2>
-					<div class="finboite"></div>
-				</div>
-				-->
 				<div class="spacer"></div>
 			</div>
 <!--FIN CONTENU-->			
