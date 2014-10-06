@@ -647,7 +647,9 @@ div#pied a:hover {text-decoration: underline;}
 
 	width: 626px;
 
-	margin: 15px 0 0 15px;
+	margin: 15px 0 0 90px;
+	
+	
 
 }
 
@@ -743,7 +745,7 @@ div#menu_gauche .boiteorange_145, div#menu_gauche .boitebleue_145, div#menu_gauc
 
 .boitegrise_466 { background: white url(images/graphisme/MediumBoxMedium.jpg) center top repeat-y }
 
-.boitegrise_626 { background: white url(images/graphisme/boitegrise_626m.gif) center top repeat-y }
+.boitegrise_626 { background: white url(images/graphisme/LargeBoxMedium.jpg) center top repeat-y }
 
 .boitegrise_785 { background: white url(images/graphisme/boitegrise_785m.gif) center top repeat-y }
 
@@ -783,7 +785,7 @@ div#menu_gauche .boiteorange_145, div#menu_gauche .boitebleue_145, div#menu_gauc
 
 .boitegrise_466 h2 { background: #BEBEBE url(images/graphisme/MediumBoxH.jpg) center top no-repeat }
 
-.boitegrise_626 h2 { background: #BEBEBE url(images/graphisme/boitegrise_626h.gif) center top no-repeat }
+.boitegrise_626 h2 { background: #BEBEBE url(images/graphisme/LargeBoxH.jpg) center top no-repeat }
 
 .boitegrise_785 h2 { background: #BEBEBE url(images/graphisme/boitegrise_785h.gif) center top no-repeat }
 
@@ -871,7 +873,7 @@ img.boiteico {
 
 .boitegrise_466 .finboite { background: white url(images/graphisme/MediumBoxB.jpg) center bottom no-repeat }
 
-.boitegrise_626 .finboite { background: white url(images/graphisme/boitegrise_626b.gif) center bottom no-repeat }
+.boitegrise_626 .finboite { background: white url(images/graphisme/LargeBoxB.jpg) center bottom no-repeat }
 
 .boitegrise_785 .finboite { background: white url(images/graphisme/boitegrise_785b.gif) center bottom no-repeat }
 

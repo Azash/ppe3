@@ -1,6 +1,12 @@
 <?php 
 	//Pour se connecter à la base de données
-	include("connexion.php");
+	include("FctPhp.php");
+	include("connexionbdd.php");
+	session_start();
+	
+	if (!isset($_SESSION['id'])) {
+		//header('location:index.php');
+	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 	<title>SOS partenaires</title>
@@ -15,40 +21,33 @@
 	<body>
 		<div id="conteneur">
 <!--HEADER-->		
-			<div id="entete">
-				<div id="menu_entete">
-					<a href="/forum/" id="ctl00_menu_Entete_menu_forum" class="dernier">Forums</a>
-					<a href="/conseils/" id="ctl00_menu_Entete_menu_conseils">Conseils</a>
-					<a href="/annuaire/" id="ctl00_menu_Entete_menu_annuaire">Annuaire</a>
-				
-					<a href="activites.php" id="ctl00_menu_Entete_menu_activites">Activités</a>
-					<a href="/partenaire/" id="ctl00_menu_Entete_menu_membres">Membres</a>
-					<a href="/partenaires/" id="ctl00_menu_Entete_menu_partenaires">Partenaires</a>
-					<a href="/avantages.aspx" id="ctl00_menu_Entete_menu_mycleec">Mycleec</a>
-					<div class="spacer"></div>
-				</div>
-			</div>
+	<?php getHeader(); ?>
 <!--FIN HEADER-->
 <!--CONTENU-->			
 			<div id="contenu_annexe">
 			<div><!--avatar-->
 			</div>
-<div>
-Ville
-Code postale
-Numéro de téléphone
-Description personnel
+<div class="boitegrise_626">
+<h2>&nbsp;Informations personnelles</h2>
+&nbsp;Ville<br>
+&nbsp;Code postale<br>
+&nbsp;Numéro de téléphone<br>
+&nbsp;Description personnel
+<div class="finboite"></div>
 </div>
-<div>
-Sport
-Niveau sportif
-Le jour de la semaine
-Plage horaires
+<div class="boitegrise_626">
+<h2>&nbsp;Informations activitées</h2>
+&nbsp;Sport<br>
+&nbsp;Niveau sportif<br>
+&nbsp;Le jour de la semaine<br>
+&nbsp;Plage horaires
+<div class="finboite"></div>
 </div>
-<div><!--Configuration-->
-Le jour de la semaine
-Plage horaires
-Le choix de faire apparaitre ou non les informations personnelles (email et numéro de téléphone) dans les résultats de recherche.
+<div  class="boitegrise_626"><!--Configuration-->
+<h2>&nbsp;Paramètre du compte</h2>
+&nbsp;Mot de passe<br>
+&nbsp;Le choix de faire apparaitre ou non les informations personnelles (email et numéro de téléphone) dans les résultats de recherche.
+<div class="finboite"></div>
 </div>
 <!--Fin de Zone Estelle-->
 				
@@ -67,13 +66,7 @@ Le choix de faire apparaitre ou non les informations personnelles (email et numé
 			</div>
 <!--FIN CONTENU-->			
 <!--FOOTER-->			
-			<div id="pied">
-				<a href="/site-tour.aspx">Aide</a> |
-				<a href="/nos-partenaires/">Nos Partenaires</a> |
-				<a href="/infos/presse.aspx">Presse</a> |
-				<a href="/infos/conditionsdutilisation.aspx">Conditions d'utilisation</a> |
-				<a href="/infos/contact.aspx">Contact</a>
-			</div>
+			<?php getFooter(); ?>
 <!--FIN FOOTER-->			
 		</div>
 	</body>
