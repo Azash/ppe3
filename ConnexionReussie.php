@@ -3,6 +3,7 @@
 	//Pour se connecter à la base de données
 	include('connexionbdd.php');
 	include('Connexion.php');
+	include('fctPhp.php');
 ?>
 
 <meta charset="utf-8">
@@ -79,7 +80,7 @@
 			</div>
 <!--FIN CONTENU-->			
 <!--FOOTER-->			
-			<?php getFooter() ?>
+			<?php getFooter(); ?>
 <!--FIN FOOTER-->			
 		</div>
 	</body>
