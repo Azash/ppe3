@@ -1,5 +1,5 @@
-ï»¿<?php 
-	//Pour se connecter Ã  la base de donnÃ©es
+<?php 
+	//Pour se connecter à la base de données
 	include("connexion.php");
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
@@ -8,7 +8,7 @@
 	<!--<script style="" type="text/javascript" src="/global/jquery-1.11.0.min.js"></script>-->
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="Author" content="SOSpartenaires">
-	<meta name="description" content="Sur SOS partenaires trouvez des activitÃ©s prÃ¨s de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
+	<meta name="description" content="Sur SOS partenaires trouvez des activités près de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
 	<meta name="Keywords" content="SOS partenaires, sports et loisirs, sport, loisir, coach, reseau, social, bien, etre, bien-etre, loisirs, sports, communaute, social">
 
 	<!--<link rel="shortcut icon" href="/favicon.ico">-->
@@ -21,7 +21,7 @@
 					<a href="/conseils/" id="ctl00_menu_Entete_menu_conseils">Conseils</a>
 					<a href="/annuaire/" id="ctl00_menu_Entete_menu_annuaire">Annuaire</a>
 				
-					<a href="activites.php" id="ctl00_menu_Entete_menu_activites">ActivitÃ©s</a>
+					<a href="/activites/" id="ctl00_menu_Entete_menu_activites">Activités</a>
 					<a href="/partenaire/" id="ctl00_menu_Entete_menu_membres">Membres</a>
 					<a href="/partenaires/" id="ctl00_menu_Entete_menu_partenaires">Partenaires</a>
 					<a href="/avantages.aspx" id="ctl00_menu_Entete_menu_mycleec">Mycleec</a>
@@ -31,43 +31,27 @@
 <!--FIN HEADER-->
 <!--CONTENU-->			
 			<div id="contenu_annexe">
-				<div id="ctl00_pageContenu_pnCarte">
-					<div class="photo_pres">
-						<h1>Trouvez des partenaires de sport prÃ¨s de chez vous</h1>
-						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_Label1">Sport: </label>
-						<select name="ActivitÃ©" id="ctl00_pageContenu_ddl_loisir">
-							<?php
-								$req = sprintf("SELECT activitie FROM activities ORDER BY activitie");
-								$resultat = mysql_query($req);
-								$ligne = mysql_fetch_assoc($resultat);
-								while($ligne){
-									echo '<option value="'.$ligne["activitie"].'">'.$ligne["activitie"].'</option>';
-									$ligne = mysql_fetch_assoc($resultat);
-								}	
-							?>
-						</select>
-						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">DÃ©partement : </label>
-						<select name="ctl00$pageContenu$postal" id="ctl00_pageContenu_postal">
-							<?php
-								$req = sprintf("SELECT dep FROM departements");
-								$resultat = mysql_query($req);
-								$ligne = mysql_fetch_assoc($resultat);
-								while($ligne){
-									echo '<option value="'.$ligne["dep"].'">'.$ligne["dep"].'</option>';
-									$ligne = mysql_fetch_assoc($resultat);
-								}	
-							?>
-						</select>
-						<!-- <label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">Code Postal: </label>
-						<input name="ctl00$pageContenu$postal" maxlength="5" id="ctl00_pageContenu_postal" style="width:50px;" type="text"> -->
-						<input name="ctl00$pageContenu$btnTrouver" value="Trouver" id="ctl00_pageContenu_btnTrouver" type="submit">
-						<a href="#">Tout afficher</a>
-					</div>
-				</div>
-<!--Zone Pour Estelle-->
-				<div id="ctl00_pageContenu_connexion">
-					<div id="login" class="boitegrise_305">
-						<h2>&nbsp;Connectez-vous</h2>
+				<div id="ctl00_pageContenu_bloc_recherche">
+					<div id="search" class="boitegrise_626">
+						<h2>Trouvez un partenaire</h2>
+						<div id="ctl00_pageContenu_bloc_search" class="rechercher_partenaire_form">
+							<div id="ct100_pageContenu_ct101">
+								<p>
+									<label for="ctl00_pageContenu_ddlActivite" id="ctl00_pageContenu_lblddlActivite">Activité : </label>
+									<select name="Activité" id="ctl00_pageContenu_ddl_loisir">
+										<?php
+											$req = sprintf("SELECT activitie FROM activities ORDER BY activitie");
+											$resultat = mysql_query($req);
+											$ligne = mysql_fetch_assoc($resultat);
+											while($ligne){
+												echo '<option value="'.$ligne["activitie"].'">'.$ligne["activitie"].'</option>';
+												$ligne = mysql_fetch_assoc($resultat);
+											}	
+										?>
+									</select>
+								</p>							
+							</div>
+						</div>
 						<p>
 							<label for="ctl00_pageContenu_email" id="ctl00_pageContenu_mailLabel">Mail</label>
 							<input name="ctl00$pageContenu$email" id="ctl00_pageContenu_email" type="text">
@@ -84,20 +68,6 @@
 						<div class="finboite"></div>
 					</div>
 				</div>
-<!--Fin de Zone Estelle-->
-				<!--
-				CORRESPOND A UNE BOITE SMALL
-				<div class="boitegrise_305">
-					<h2></h2>
-					<div class="finboite"></div>
-				</div>
-				CORRESPON A LA BOITE MEDIUM
-				<div class="boitegrise_466 sans_marge_gauche">
-					<h2></h2>
-					<div class="finboite"></div>
-				</div>
-				-->
-				<div class="spacer"></div>
 			</div>
 <!--FIN CONTENU-->			
 <!--FOOTER-->			
