@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 10 Septembre 2014 à 09:44
+-- Généré le: Lun 06 Octobre 2014 à 12:06
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -174,6 +174,40 @@ INSERT INTO `departements` (`id`, `dep`) VALUES
 (93, '93'),
 (94, '94'),
 (95, '95');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `dispo`
+--
+
+CREATE TABLE IF NOT EXISTS `dispo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `L1` tinyint(1) NOT NULL,
+  `L2` tinyint(1) NOT NULL,
+  `L3` tinyint(1) NOT NULL,
+  `Ma1` tinyint(1) NOT NULL,
+  `Ma2` tinyint(1) NOT NULL,
+  `Ma3` tinyint(1) NOT NULL,
+  `Me1` tinyint(1) NOT NULL,
+  `Me2` tinyint(1) NOT NULL,
+  `Me3` tinyint(1) NOT NULL,
+  `J1` tinyint(1) NOT NULL,
+  `J2` tinyint(1) NOT NULL,
+  `J3` tinyint(1) NOT NULL,
+  `V1` tinyint(1) NOT NULL,
+  `V2` tinyint(1) NOT NULL,
+  `V3` tinyint(1) NOT NULL,
+  `S1` tinyint(1) NOT NULL,
+  `S2` tinyint(1) NOT NULL,
+  `S3` tinyint(1) NOT NULL,
+  `D1` tinyint(1) NOT NULL,
+  `D2` tinyint(1) NOT NULL,
+  `D3` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
