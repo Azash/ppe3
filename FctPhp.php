@@ -7,9 +7,9 @@
 					<a href="/annuaire/" id="ctl00_menu_Entete_menu_annuaire">Annuaire</a>
 				
 					<a href="activites.php" id="ctl00_menu_Entete_menu_activites">Activités</a>
-					<a href="/partenaire/" id="ctl00_menu_Entete_menu_membres">Membres</a>
+					<a href="perso.php" id="ctl00_menu_Entete_menu_membres">Perso</a>
 					<a href="/partenaires/" id="ctl00_menu_Entete_menu_partenaires">Partenaires</a>
-					<a href="/avantages.aspx" id="ctl00_menu_Entete_menu_mycleec">Mycleec</a>
+					<a href="index.php" id="ctl00_menu_Entete_menu_mycleec">SOS</a>
 					<div class="spacer"></div>
 				</div>
 			</div>';

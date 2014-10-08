@@ -77,7 +77,7 @@
 						</form>';
 						}
 						else {
-							echo "ID = ".$_SESSION['id']."\n";
+							//echo "ID = ".$_SESSION['id']."\n";
 							echo '<h2>&nbsp;Connectez-vous</h2><form method = "post" action ="Connexion.php">
 							<p>
 								<label for="ctl00_pageContenu_email" id="ctl00_pageContenu_mailLabel">Mail</label>
