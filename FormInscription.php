@@ -26,7 +26,7 @@
 			<div id="contenu_annexe">
 				<div class="boitegrise_626">
 					<h2>&nbsp;Inscription</h2>
-						<form method="post" action="FormInscription.php" style="text-align:center">
+						<form method="post" action="Connexion.php" style="text-align:center">
 
 		<br />
 
