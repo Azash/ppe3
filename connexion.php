@@ -23,7 +23,7 @@
 
 		$mdp = sha1($mdp);
 		//echo $email;
-		$Connexion = mysql_query("SELECT email, id FROM users WHERE email='$email' AND mdp='$mdp'");
+		$Connexion = mysql_query("SELECT email, prenom, id FROM users WHERE email='$email' AND mdp='$mdp'");
 		$select = mysql_fetch_array($Connexion, MYSQL_ASSOC);
 		
 		if(count($select) > 0)
@@ -35,6 +35,8 @@
 			//$_SESSION['rank'] = $select['niveauDroit'];
 			$_SESSION['id'] = $select['id'];
 			//echo $_SESSION['id'];
+			$_SESSION['prenom'] = $select['prenom'];
+			//echo $_SESSION['prenom'];
 			header('location:index.php'); //(=connexion réussie)
 		}
 		else 

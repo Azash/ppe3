@@ -8,5 +8,5 @@
 	session_destroy();	 
 
 	//header('Location: ./');
-	header('Location: Connexion.php');
+	header('Location: index.php');
 	?>
