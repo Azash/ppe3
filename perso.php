@@ -7,6 +7,29 @@
 	if (!isset($_SESSION['id'])) {
 		//header('location:index.php');
 	}
+	else {
+		$UserCurrentId = $_SESSION['id'];
+		if (!isset($_GET['id']))
+			$id = $_SESSION['id'];
+		else
+			$id = $_GET['id'];
+		$req = "select nom, prenom, birth, mdp, sexe, email, avatar, ville, codePostal, tel, description, afficheEmail, afficheTel from users where id=".$id;
+		$resultat = mysql_query($req) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+		$ligne = mysql_fetch_assoc($resultat);
+		$nom = $ligne['nom'];
+		$prenom = $ligne['prenom'];
+		$birth = $ligne['birth'];
+		$mdp = $ligne['mdp'];
+		$sexe = $ligne['sexe'];
+		$email = $ligne['email'];
+		$avatar = $ligne['avatar'];
+		$ville = $ligne['ville'];
+		$codePostal = $ligne['codePostal'];
+		$tel = $ligne['tel'];
+		$description = $ligne['description'];
+		$afficheEmail = $ligne['afficheEmail'];
+		$afficheTel = $ligne['afficheTel'];
+	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 	<title>SOS partenaires</title>
@@ -25,32 +48,34 @@
 <!--FIN HEADER-->
 <!--CONTENU-->			
 			<div id="contenu_annexe">
-			<div><!--avatar-->
-			</div>
-<div class="boitegrise_626">
-<h2>&nbsp;Informations personnelles</h2>
-&nbsp;Ville<br>
-&nbsp;Code postale<br>
-&nbsp;Numéro de téléphone<br>
-&nbsp;Description personnel
-<div class="finboite"></div>
-</div>
-<div class="boitegrise_626">
-<h2>&nbsp;Informations activitées</h2>
-&nbsp;Sport<br>
-&nbsp;Niveau sportif<br>
-&nbsp;Le jour de la semaine<br>
-&nbsp;Plage horaires
-<div class="finboite"></div>
-</div>
-<div  class="boitegrise_626"><!--Configuration-->
-<h2>&nbsp;Paramètre du compte</h2>
-&nbsp;Mot de passe<br>
-&nbsp;Le choix de faire apparaitre ou non les informations personnelles (email et numéro de téléphone) dans les résultats de recherche.
-<div class="finboite"></div>
-</div>
-<!--Fin de Zone Estelle-->
-				
+				<div><!--avatar-->
+				</div>
+				<div class="boitegrise_626">
+					<h2>&nbsp;Informations personnelles</h2>
+					&nbsp;Nom : <?php echo $nom; ?><br>
+					&nbsp;Prénom : <?php echo $prenom; ?><br>
+					&nbsp;Date d'anniversaire : <?php echo $birth; ?><br>
+					&nbsp;Sexe : <?php echo $sexe; ?><br>
+					&nbsp;Téléphone : <?php echo $tel; ?><br>
+					&nbsp;Email : <?php echo $email; ?><br>
+
+					&nbsp;Ville : <?php echo $ville; ?><br>
+					&nbsp;Code postal : <?php echo $codePostal; ?><br>
+
+					&nbsp;Description personnelle : <?php echo $description; ?>
+					<div class="finboite"></div>
+				</div>
+				<div class="boitegrise_626">
+					<h2>&nbsp;Activitées</h2>
+					<div class="finboite"></div>
+				</div>
+				<?php
+				if ($id == $UserCurrentId) {
+					echo '<form type="POST" action="perso.php" >
+					<input type="submit" name="ModAccount" value="Modifier les paramètres du compte" class="modif_compte"/>
+					</form>';
+					}
+				?>
 				<!--CORRESPOND A UNE BOITE SMALL
 				<div class="boitegrise_305">
 					<h2></h2>

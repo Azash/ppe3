@@ -41,7 +41,10 @@ body {
 
 }
 
-
+.modif_compte {
+	margin: 15px 0 0 90px;
+	width : 626px;
+}
 
 div#conteneur {
 
