@@ -1,4 +1,5 @@
 <?php
+	include ('connexionbdd.php');
 
 	$sql = "SELECT id, email, prenom FROM users WHERE id='".$_SESSION['id']."'";
 	$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
@@ -7,7 +8,7 @@
 	//Envoi du mail !
 		$sujet = 'Sujet de l\'email';
 		$message = "Bonjour, ".$data['prenom']." 
-		Veuillez valider votre adresse mail en cliquant dur ce lien : <a href='validation.php?id=".$data['id']."AND".$pass."
+		Veuillez valider votre adresse mail en cliquant sur ce lien : <a href='validation.php?id=".$data['id']."AND".$pass."'>Valider mon email</a>
 		Merci :)";
 		$headers = "From: postmaster@guillaumeboudy.com\n";
 		$headers .= "Reply-To: postmaster@guillaumeboudy.com\n";

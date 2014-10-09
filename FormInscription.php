@@ -22,9 +22,9 @@
 		$sexe = htmlspecialchars($_POST["sexe"]);
 		$email = htmlspecialchars($_POST["email"]);
 
-		$sqlEmail = "SELECT email FROM users WHERE email='".$email."'";
+		$sqlEmail = "SELECT email, id, prenom FROM users WHERE email='".$email."'";
 		$reqEmail = mysql_query($sqlEmail) or die('Erreur SQL !<br>'.$sqlEmail.'<br>'.mysql_error());
-
+		
 		if($nom && $prenom && $mdp && $re_mdp && $sexe && $email)
 		{
 			if(strlen($nom)>=2)
@@ -40,13 +40,13 @@
 							//include_once 'includes/connexionbdd.inc.php';
 							//$query = mysql_query("INSERT INTO users VALUES('', '$nom', '$prenom', '" . $anneeNaissance . "-" . $moisNaissance . "-" . $jourNaissance . "-1', $sexe', '$email', '$mdp')");
 							$date = $anneeNaissance . "-" . $moisNaissance . "-" . $jourNaissance; 
-							$sql = "INSERT INTO users (id, nom, prenom, birth, mdp, sexe, email) VALUES('null', '$nom', '$prenom', '$date', '$mdp', '$sexe', '$email')";
+							$sqlInsert = "INSERT INTO users (id, nom, prenom, birth, mdp, sexe, email) VALUES('null', '$nom', '$prenom', '$date', '$mdp', '$sexe', '$email')";
 							//echo $sql;
-							$res = mysql_query($sql);
-							
-							if(!$res) echo mysql_error();
+							$resInsert = mysql_query($sqlInsert);	
+					
+							if(!$resInsert) echo mysql_error();
 							//mysql_query("INSERT INTO users VALUES('', '$nom', '$prenom', '" . $anneeNaissance . "-" . $moisNaissance . "-" . $jourNaissance . "', $sexe', '$email', '$mdp')");
-							die('Formulaire bien rempli! Vous allez maintenant reçevoir un mail avec un mot de passe de confirmation. Vous pourrez ensuite choisir votre propre mot de passe pour vous connecter.<a href="Index.php">Continuer mon inscription</a>');
+							die('Formulaire bien rempli! Vous allez maintenant reçevoir un mail avec un mot de passe de confirmation. Vous pourrez ensuite choisir votre propre mot de passe pour vous connecter.<a href="index.php">Continuer mon inscription</a>');
 						}else echo "L'adresse email entrée est déjà utilisé, veuillez entrer une autre adresse email";
 					}else echo "Les mots de passe ne sont pas identiques";
 				}else echo "Veuillez rentrer un prenom de + de 2 caractères";
@@ -77,80 +77,80 @@
 					<h2>&nbsp;Inscription</h2>
 						<form method="post" action="FormInscription.php" style="text-align:center">
 
-		<br />
+						<br />
 
-		<table>
-			<tr>
-				<td><label>&nbsp;Votre nom : </label></td>
-				<td><input type="text" name="nom"></td>
-			</tr>
-			<tr>
-				<td><label>&nbsp;Votre prénom : </label></td>
-				<td><input type="text" name="prenom"></td>
-			</tr>
-			
-			<tr>
-				<td><label>&nbsp;Date de naissance : </label></td>	
-				<td>
-					<select name="jourNaissance">
-					<?php 
-					for ($i = 1; $i <= 31; $i++):
-					?>
-						<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-					<?php 
-					endfor;
-					?>
-					</select>
-					<select name="moisNaissance">
-					<?php 
-					for ($i = 1; $i <= 12; $i++):
-					?>
-						<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-					<?php 
-					endfor;
-					?>
-					</select>
-					<select name="anneeNaissance">
-					<?php 
-					for ($i = date('Y'); $i >= date('Y')-100; $i--):
-					?>
-					
-					<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-					<?php 
-					endfor;
-					?>
-					</select>
-				</td>
-			</tr>	
+						<table>
+							<tr>
+								<td><label>&nbsp;Votre nom : </label></td>
+								<td><input type="text" name="nom"></td>
+							</tr>
+							<tr>
+								<td><label>&nbsp;Votre prénom : </label></td>
+								<td><input type="text" name="prenom"></td>
+							</tr>
+							
+							<tr>
+								<td><label>&nbsp;Date de naissance : </label></td>	
+								<td>
+									<select name="jourNaissance">
+									<?php 
+									for ($i = 1; $i <= 31; $i++):
+									?>
+										<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+									<?php 
+									endfor;
+									?>
+									</select>
+									<select name="moisNaissance">
+									<?php 
+									for ($i = 1; $i <= 12; $i++):
+									?>
+										<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+									<?php 
+									endfor;
+									?>
+									</select>
+									<select name="anneeNaissance">
+									<?php 
+									for ($i = date('Y'); $i >= date('Y')-100; $i--):
+									?>
+									
+									<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+									<?php 
+									endfor;
+									?>
+									</select>
+								</td>
+							</tr>	
 
-			<tr>
-				<td><label>&nbsp;Votre mot de passe : </label></td>
-				<td><input type="password" name="mdp"></td>
-			</tr>
+							<tr>
+								<td><label>&nbsp;Votre mot de passe : </label></td>
+								<td><input type="password" name="mdp"></td>
+							</tr>
 
-			<tr>
-				<td><label>&nbsp;Répetez votre mot de passe : </label></td>
-				<td><input type="password" name="re_mdp"></td>
-			</tr>
-			
-			<tr>
-				<td></td>
-				<td><input type="radio" name="sexe" value="Homme" /> Homme <input type="radio" name="sexe" value="Femme" /> Femme</td>
-			</tr>
+							<tr>
+								<td><label>&nbsp;Répetez votre mot de passe : </label></td>
+								<td><input type="password" name="re_mdp"></td>
+							</tr>
+							
+							<tr>
+								<td></td>
+								<td><input type="radio" name="sexe" value="Homme" checked/> Homme <input type="radio" name="sexe" value="Femme" /> Femme</td>
+							</tr>
 
-			<tr>
-				<td><label>&nbsp;Votre email</label></td>
-				<td><input type="email" name="email"></td>
-			</tr>	
-			
-			<tr>
-				<td></td>
-				<td><center><input type="submit" name="submit" value="Valider"></center></td>
-			</tr>
-		</table>
-	</form>
-	<br />
-	<center><a href="index.php">Je possède déja un compte</a></center>
+							<tr>
+								<td><label>&nbsp;Votre email</label></td>
+								<td><input type="email" name="email"></td>
+							</tr>	
+							
+							<tr>
+								<td></td>
+								<td><center><input type="submit" name="submit" value="Valider"></center></td>
+							</tr>
+						</table>
+					</form>
+					<br />
+					<center><a href="index.php">Je possède déja un compte</a></center>
 					<div class="finboite"></div>
 				</div>
 				<div class="spacer"></div>

@@ -64,20 +64,31 @@
 
 <!--CONTENU-->		
 			<div id="contenu_annexe">
-				<div id="ctl00_pageContenu_pnCarte">
-					<h1>&nbsp;Désinscription</h1>
+				<div class="boitegrise_626">
+					<h2>&nbsp;Désinscription</h2>
 						<form method = "post" action ="Desinscription.php">
-							<p class="align_image">
-								<label for="ctl00_pageContenu_email" id="ctl00_pageContenu_mailLabel">Mail</label>
-								<input name="email" id="ctl00_pageContenu_email" type="text" autofocus>
-							</p>
-							<p class="align_image">
-								<label for="ctl00_pageContenu_pass" id="ctl00_pageContenu_passLabel">Mot de passe</label>
-								<input name="mdp" id="ctl00_pageContenu_pass" type="password">
-							</p>
-							<p class="align_image">
-								<input type="submit" name="submit" value="Se désinscrire du site" />
-							</p>
+							<table align="center">
+								<tr>
+									<td align="center"><label for="ctl00_pageContenu_email" id="ctl00_pageContenu_mailLabel">Mail</label></td>
+									<td><input align="center" name="email" id="ctl00_pageContenu_email" type="text" autofocus></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td><label for="ctl00_pageContenu_pass" id="ctl00_pageContenu_passLabel">Mot de passe&nbsp;&nbsp;</label></td>
+									<td><input align="center" name="mdp" id="ctl00_pageContenu_pass" type="password"></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><input type="submit" name="submit" value="Se désinscrire du site" /></td>
+								</tr>
+							</table>
 						</form>
 						
 						<p style="margin-top: 6px" align="center"><a href="/mdp/mdp.aspx" onclick="window.open(this.href,"Oubli_Mot_de_Passe","height=250,width=300,scrollbars=no,toolbar=no,menubar=no,resizeable=yes,status=no""); return false;">

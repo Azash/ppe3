@@ -2,29 +2,31 @@
 
 <?php
 	//fonction mail, use swift ???
+	
 	session_start();
-	include "connexion.php";
+	include "connexionbdd.php";
+	include "FctPhp.php";
 	
 	$email = "";
 	$error = 0;
 	if (isset($_POST["email"])) $email = $_POST["email"];
 	if ($email != "") {
-		$sql = "SELECT pseudo, email, mdp FROM inscriptions WHERE email='".$email."'";
+		$sql = "SELECT prenom, email, mdp FROM users WHERE email='".$email."'";
 		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 		$data = mysql_fetch_assoc($req);
-		$pseudo = $_data['pseudo'];
+		$prenom = $data['prenom'];
 		if($data['email'] == $email) {
 			$mdp = "";
 			for ($i = 1; $i <= 6; $i++) {
 				$mdp .= chr(rand(48, 90)); //33 = premier caractere imprimable de la table ascii, 125 = dernier qui nous interesse...
 			}
 			//echo $tmpmdp."<br />";
-			$req = sprintf("UPDATE inscriptions SET mdp=SHA1(\"%s\"), setmdp=NULL WHERE email=\"%s\";", $mdp, $email);
+			$req = sprintf("UPDATE users SET mdp=SHA1(\"%s\") WHERE email=\"%s\";", $mdp, $email);
 			mysql_query($req);
-			///////////////////////////////////////////////////////////////////////////							
-							//Envoi du mail !
+			
+							// Envoi du mail !
 								$sujet = 'Sujet de l\'email';
-								$message = "Bonjour, ".$pseudo."
+								$message = "Bonjour, ".$prenom."
 								Ceci est votre mot de passe : ".$mdp."
 								Merci :)";
 								$headers = "From: postmaster@guillaumeboudy.com\n";
@@ -48,9 +50,6 @@
 		//echo "NOT LOGGED !";
 		$error = "Champs email vide.";
 		}
-	
-	include "header.php";
-	
 ?>
 <meta charset="utf-8">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -74,19 +73,13 @@
 			<div id="contenu_annexe">
 				<div class="boitegrise_626">
 					<h2>&nbsp;Mot de passe oublié, merci de taper votre adresse mail</h2></center></br >
-						</header>
-					<!-- Intro -->
-						<div class="center">
-							<!-- A COPIER -->
-							<form action='ForgotPwd.php' align='center' method='post' name='Log'>
-								<table class='flat-table flat-table-3'>
-									<tr><td>Email</td><td><input type='text' name='email' value='<?php echo $email; ?>' /></td></tr>
-								</table>
-								<?php if($error != "") echo "<div class='warning'>/!\ L'adresse mail est introuvable dans la base de donnée /!\</div>"; ?>
-									</br ><input type='submit' class='send' value='Envoyer' /></br >
-							</form>
-								<!-- A COPIER -->
-						</div>
+						<form action='ForgotPwd.php' align='center' method='post' name='Log'>
+							<table align="center">
+								<tr><td>Email</td><td><input type='text' name='email' value='<?php echo $email; ?>' /></td></tr>
+							</table>
+							<?php if($error != "") echo $error;?>
+								</br ><input type='submit' class='send' value='Envoyer' /></br >
+						</form>
 					<div class="finboite"></div>
 				</div>
 				
