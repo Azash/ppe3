@@ -26,29 +26,29 @@
 	}
 	
 	function getConnexion() {
-		echo '<div id="login" class="boitegrise_305">
-					<?php
-						$sqlPrenom = "SELECT prenom FROM users WHERE id=\'".$_SESSION[\'id\']."\'";
-						$reqPrenom = mysql_query($sqlPrenom) or die(\'Erreur SQL !<br>\'.$sqlPrenom.\'<br>\'.mysql_error());
+		echo '<div id="login" class="boitegrise_305">';
+					
+						$sqlPrenom = "SELECT prenom FROM users WHERE id=".$_SESSION['id'];
+						$reqPrenom = mysql_query($sqlPrenom) or die('Erreur SQL !<br>'.$sqlPrenom.'<br>'.mysql_error());
 						$data = mysql_fetch_assoc($reqPrenom);
 						
 						if (isset($_SESSION["id"])) {
 							//echo "ID = ".$_SESSION[\'id\']."\n";
 							//echo "Prenom = ".$data[\'prenom\']."\n";
-							echo \'<h2>&nbsp;Bonjour \'.$data["prenom"].\'</h2>
+							echo '<h2>&nbsp;Bonjour '.$data["prenom"].'</h2>
 							<p>
-								<center><a href="deconnexion.php">Se déconecter<a></center>
+								<center><a href="deconnexion.php">Se déconnecter<a></center>
 							</p>
 							<p>
 								<center><a href="#">Mes infos</a></center>
 							</p>
 							<p class="align_image">
 								<a href="Desinscription.php">Se désinscrire</a>
-							</p>\';
+							</p>';
 						}
 						else {
-							//echo "ID = ".$_SESSION[\'id\']."\n";
-							echo \'<h2>&nbsp;Connectez-vous</h2><form method = "post" action ="Connexion.php">
+							//echo "ID = ".$_SESSION['id']."n";
+							echo '<h2>&nbsp;Connectez-vous</h2><form method = "post" action ="Connexion.php">
 							<p>
 								<label for="ctl00_pageContenu_email" id="ctl00_pageContenu_mailLabel">Mail</label>
 								<input name="email" id="ctl00_pageContenu_email" type="text" autofocus>
@@ -63,10 +63,9 @@
 						</form>
 						
 						<p style="margin-top: 6px" align="center"><a href="/mdp/mdp.aspx" onclick="window.open(this.href,"Oubli_Mot_de_Passe","height=250,width=300,scrollbars=no,toolbar=no,menubar=no,resizeable=yes,status=no"); return false;">
-						Oubli du mot de passe ?</a></br><a href="FormInscription.php">Pas encore membre?</a></p>\';
+						Oubli du mot de passe ?</a></br><a href="FormInscription.php">Pas encore membre?</a></p>';
 						}
-						?>
-						<div class="finboite"></div>
+						echo '<div class="finboite"></div>
 					</div>';
 	}
 	
