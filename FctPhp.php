@@ -28,11 +28,12 @@
 	function getConnexion() {
 		echo '<div id="login" class="boitegrise_305">';
 					
-						$sqlPrenom = "SELECT prenom FROM users WHERE id=".$_SESSION['id'];
-						$reqPrenom = mysql_query($sqlPrenom) or die('Erreur SQL !<br>'.$sqlPrenom.'<br>'.mysql_error());
-						$data = mysql_fetch_assoc($reqPrenom);
+						
 						
 						if (isset($_SESSION["id"])) {
+							$sqlPrenom = "SELECT prenom FROM users WHERE id='".$_SESSION['id']."'";
+							$reqPrenom = mysql_query($sqlPrenom) or die('Erreur SQL !<br>'.$sqlPrenom.'<br>'.mysql_error());
+							$data = mysql_fetch_assoc($reqPrenom);
 							//echo "ID = ".$_SESSION[\'id\']."\n";
 							//echo "Prenom = ".$data[\'prenom\']."\n";
 							echo '<h2>&nbsp;Bonjour '.$data["prenom"].'</h2>

@@ -41,9 +41,16 @@ body {
 
 }
 
+
+
+.modif_compte_valid {
+	margin: 0px 0px 0px 5px;
+	width : 222px;
+}
+
 .modif_compte {
-	margin: 15px 0 0 90px;
-	width : 626px;
+	margin: 0px 0px 0px 5px;
+	width : 455px;
 }
 
 div#conteneur {
