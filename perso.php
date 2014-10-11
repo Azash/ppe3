@@ -1,5 +1,5 @@
-<?php 
-	//Pour se connecter à la base de données
+ï»¿<?php 
+	//Pour se connecter Ã  la base de donnÃ©es
 	include("FctPhp.php");
 	include("connexionbdd.php");
 	session_start();
@@ -39,7 +39,7 @@
 	<!--<script style="" type="text/javascript" src="/global/jquery-1.11.0.min.js"></script>-->
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="Author" content="SOSpartenaires">
-	<meta name="description" content="Sur SOS partenaires trouvez des activités près de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
+	<meta name="description" content="Sur SOS partenaires trouvez des activitÃ©s prÃ¨s de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
 	<meta name="Keywords" content="SOS partenaires, sports et loisirs, sport, loisir, coach, reseau, social, bien, etre, bien-etre, loisirs, sports, communaute, social">
 
 	<!--<link rel="shortcut icon" href="/favicon.ico">-->
@@ -57,10 +57,10 @@
 						<h2>&nbsp;Informations personnelles</h2>
 						<form method="POST" action="perso.php">
 						&nbsp;Nom : <input type="text" value="'.$nom.'" /><br>
-						&nbsp;Prénom : <input type="text" value="'.$prenom.'" /><br>
+						&nbsp;PrÃ©nom : <input type="text" value="'.$prenom.'" /><br>
 						&nbsp;Date d\'anniversaire : '.$birth.'" /><br>
 						&nbsp;Sexe : '.$sexe.'<br>
-						&nbsp;Téléphone : <input type="text" value="'.$tel.'" /><br>
+						&nbsp;TÃ©lÃ©phone : <input type="text" value="'.$tel.'" /><br>
 						&nbsp;Email : <input type="text" value="'.$email.'" /><br>
 
 						&nbsp;Ville : <input type="text" value="'.$ville.'" /><br>
@@ -78,10 +78,10 @@
 						<h2>&nbsp;Informations personnelles</h2>
 						
 						&nbsp;Nom :'.$nom.'<br>
-						&nbsp;Prénom : '.$prenom.'<br>
+						&nbsp;PrÃ©nom : '.$prenom.'<br>
 						&nbsp;Date d\'anniversaire : '.$birth.'<br>
 						&nbsp;Sexe : '.$sexe.'<br>
-						&nbsp;Téléphone : '.$tel.'<br>
+						&nbsp;TÃ©lÃ©phone : '.$tel.'<br>
 						&nbsp;Email : '.$email.'<br>
 
 						&nbsp;Ville : '.$ville.'<br>
@@ -99,7 +99,7 @@
 				getConnexion();
 				if ($id == $UserCurrentId && isset($_POST['modif_activite'])) {
 					echo '<div class="boitegrise_466 sans_marge_gauche">
-						<h2>&nbsp;Activitées</h2>
+						<h2>&nbsp;ActivitÃ©es</h2>
 						<br>
 						<form method="POST" action="perso.php" >
 						<input type="submit" name="modif_activite_valid" value="Valider" class="modif_compte_valid"/>
@@ -110,10 +110,10 @@
 				}
 				else {
 					echo '<div class="boitegrise_466 sans_marge_gauche">
-						<h2>&nbsp;Activitées</h2>
+						<h2>&nbsp;ActivitÃ©es</h2>
 						<br>
 						<form method="POST" action="perso.php" >
-							<input type="submit" name="modif_activite" value="Modifier mes activitées" class="modif_compte"/>
+							<input type="submit" name="modif_activite" value="Modifier mes activitÃ©es" class="modif_compte"/>
 						</form>
 						<div class="finboite"></div>
 						</div>';

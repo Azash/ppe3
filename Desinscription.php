@@ -67,6 +67,9 @@
 				<div class="boitegrise_626">
 					<h2>&nbsp;Désinscription</h2>
 						<form method = "post" action ="Desinscription.php">
+							<p align="center">
+								Pour se désinscrire de notre site, veuillez entrer votre adresse mail valide ainsi que votre mot de passe et cliquer sur "Se désinscrire du site".
+							</p><br />
 							<table align="center">
 								<tr>
 									<td align="center"><label for="ctl00_pageContenu_email" id="ctl00_pageContenu_mailLabel">Mail</label></td>

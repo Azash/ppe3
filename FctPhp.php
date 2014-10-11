@@ -1,15 +1,12 @@
-<?php
+ï»¿<?php
 	function getHeader() {
 			echo '<div id="entete">
 				<div id="menu_entete">
-					<a href="/forum/" id="ctl00_menu_Entete_menu_forum" class="dernier">Forums</a>
-					<a href="/conseils/" id="ctl00_menu_Entete_menu_conseils">Conseils</a>
-					<a href="/annuaire/" id="ctl00_menu_Entete_menu_annuaire">Annuaire</a>
 				
-					<a href="activites.php" id="ctl00_menu_Entete_menu_activites">Activités</a>
-					<a href="perso.php" id="ctl00_menu_Entete_menu_membres">Perso</a>
-					<a href="/partenaires/" id="ctl00_menu_Entete_menu_partenaires">Partenaires</a>
 					<a href="index.php" id="ctl00_menu_Entete_menu_mycleec">SOS</a>
+					<a href="/partenaires/" id="ctl00_menu_Entete_menu_partenaires">Partenaires</a>
+					<a href="perso.php" id="ctl00_menu_Entete_menu_membres">Perso</a>
+					<a href="activites.php" id="ctl00_menu_Entete_menu_activites">ActivitÃ©s</a>
 					<div class="spacer"></div>
 				</div>
 			</div>';
@@ -38,13 +35,13 @@
 							//echo "Prenom = ".$data[\'prenom\']."\n";
 							echo '<h2>&nbsp;Bonjour '.$data["prenom"].'</h2>
 							<p>
-								<center><a href="deconnexion.php">Se déconnecter<a></center>
+								<center><a href="deconnexion.php">Se dÃ©connecter<a></center>
 							</p>
 							<p>
 								<center><a href="#">Mes infos</a></center>
 							</p>
 							<p class="align_image">
-								<a href="Desinscription.php">Se désinscrire</a>
+								<a href="Desinscription.php">Se dÃ©sinscrire</a>
 							</p>';
 						}
 						else {
