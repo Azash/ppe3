@@ -5,7 +5,7 @@
 	session_start();
 	
 	if (!isset($_SESSION['id'])) {
-		//header('location:index.php');
+		header('location:index.php');
 	}
 	else {
 		$UserCurrentId = $_SESSION['id'];
@@ -29,6 +29,8 @@
 		$description = $ligne['description'];
 		$afficheEmail = $ligne['afficheEmail'];
 		$afficheTel = $ligne['afficheTel'];
+		if ($id == $UserCurrentId && isset($_POST['modif']))
+			$modif = true;
 	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
@@ -48,33 +50,74 @@
 <!--FIN HEADER-->
 <!--CONTENU-->			
 			<div id="contenu_annexe">
-				<div><!--avatar-->
-				</div>
-				<div class="boitegrise_626">
-					<h2>&nbsp;Informations personnelles</h2>
-					&nbsp;Nom : <?php echo $nom; ?><br>
-					&nbsp;Prénom : <?php echo $prenom; ?><br>
-					&nbsp;Date d'anniversaire : <?php echo $birth; ?><br>
-					&nbsp;Sexe : <?php echo $sexe; ?><br>
-					&nbsp;Téléphone : <?php echo $tel; ?><br>
-					&nbsp;Email : <?php echo $email; ?><br>
-
-					&nbsp;Ville : <?php echo $ville; ?><br>
-					&nbsp;Code postal : <?php echo $codePostal; ?><br>
-
-					&nbsp;Description personnelle : <?php echo $description; ?>
-					<div class="finboite"></div>
-				</div>
-				<div class="boitegrise_626">
-					<h2>&nbsp;Activitées</h2>
-					<div class="finboite"></div>
-				</div>
+				
 				<?php
-				if ($id == $UserCurrentId) {
-					echo '<form type="POST" action="perso.php" >
-					<input type="submit" name="ModAccount" value="Modifier les paramètres du compte" class="modif_compte"/>
-					</form>';
-					}
+				if ($id == $UserCurrentId && isset($_POST['modif_perso'])) {
+					echo '<div class="boitegrise_466 sans_marge_gauche">
+						<h2>&nbsp;Informations personnelles</h2>
+						<form method="POST" action="perso.php">
+						&nbsp;Nom : <input type="text" value="'.$nom.'" /><br>
+						&nbsp;Prénom : <input type="text" value="'.$prenom.'" /><br>
+						&nbsp;Date d\'anniversaire : '.$birth.'" /><br>
+						&nbsp;Sexe : '.$sexe.'<br>
+						&nbsp;Téléphone : <input type="text" value="'.$tel.'" /><br>
+						&nbsp;Email : <input type="text" value="'.$email.'" /><br>
+
+						&nbsp;Ville : <input type="text" value="'.$ville.'" /><br>
+						&nbsp;Code postal : <input type="text" value="'.$codePostal.'" /><br>
+
+						&nbsp;Description personnelle : <br><textarea value="'.$description.'" class="modif_compte"></textarea><br><br>
+						<input type="submit" name="modif_perso_valid" value="Valider" class="modif_compte_valid"/>
+						<input type="submit" value="Annuler" class="modif_compte_valid"/>
+						</form>
+						<div class="finboite"></div>
+						</div>';
+				}
+				else {
+					echo '<div class="boitegrise_466 sans_marge_gauche">
+						<h2>&nbsp;Informations personnelles</h2>
+						
+						&nbsp;Nom :'.$nom.'<br>
+						&nbsp;Prénom : '.$prenom.'<br>
+						&nbsp;Date d\'anniversaire : '.$birth.'<br>
+						&nbsp;Sexe : '.$sexe.'<br>
+						&nbsp;Téléphone : '.$tel.'<br>
+						&nbsp;Email : '.$email.'<br>
+
+						&nbsp;Ville : '.$ville.'<br>
+						&nbsp;Code postal : '.$codePostal.'<br>
+
+						&nbsp;Description personnelle : '.$description.'<br><br>
+						<form method="POST" action="perso.php" >
+							<input type="submit" name="modif_perso" value="Modifier mes informations personnelles" class="modif_compte"/>
+						</form>
+						
+						<div class="finboite"></div>
+						</div>';
+				}
+				
+				getConnexion();
+				if ($id == $UserCurrentId && isset($_POST['modif_activite'])) {
+					echo '<div class="boitegrise_466 sans_marge_gauche">
+						<h2>&nbsp;Activitées</h2>
+						<br>
+						<form method="POST" action="perso.php" >
+						<input type="submit" name="modif_activite_valid" value="Valider" class="modif_compte_valid"/>
+						<input type="submit" value="Annuler" class="modif_compte_valid"/>
+						</form>
+						<div class="finboite"></div>
+						</div>';
+				}
+				else {
+					echo '<div class="boitegrise_466 sans_marge_gauche">
+						<h2>&nbsp;Activitées</h2>
+						<br>
+						<form method="POST" action="perso.php" >
+							<input type="submit" name="modif_activite" value="Modifier mes activitées" class="modif_compte"/>
+						</form>
+						<div class="finboite"></div>
+						</div>';
+				}
 				?>
 				<!--CORRESPOND A UNE BOITE SMALL
 				<div class="boitegrise_305">
@@ -88,7 +131,7 @@
 				</div>
 				-->
 				<div class="spacer"></div>
-			</div>
+			</div><div class="spacer"></div>
 <!--FIN CONTENU-->			
 <!--FOOTER-->			
 			<?php getFooter(); ?>
