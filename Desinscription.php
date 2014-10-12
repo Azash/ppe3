@@ -94,7 +94,7 @@
 							</table>
 						</form>
 						
-						<p style="margin-top: 6px" align="center"><a href="/mdp/mdp.aspx" onclick="window.open(this.href,"Oubli_Mot_de_Passe","height=250,width=300,scrollbars=no,toolbar=no,menubar=no,resizeable=yes,status=no""); return false;">
+						<p style="margin-top: 6px" align="center"><a href="ForgotMdp.php" onclick="window.open(this.href,"Oubli_Mot_de_Passe","height=250,width=300,scrollbars=no,toolbar=no,menubar=no,resizeable=yes,status=no""); return false;">
 						Oubli du mot de passe ?</a>
 						</p>
 					<div class="finboite"></div>
