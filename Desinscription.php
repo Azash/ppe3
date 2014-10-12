@@ -35,7 +35,7 @@
 		if(count($select) > 0)
 		{			
 			mysql_query("DELETE FROM users WHERE id = '{$_SESSION['id']}'");
-			header('location:Deconnexion.php'); //(=connexion réussie)
+			header('location:deconnexion.php'); //(=connexion réussie)
 		}
 		else 
 

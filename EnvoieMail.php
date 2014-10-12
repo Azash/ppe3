@@ -17,13 +17,10 @@
 				if(mail($email,$sujet,$message,$headers))
 				{
 					echo "L'email a bien été envoyé.";
+					header('Refresh: 6;url=index.php');
 				}else
 				{
-					echo $pass;
-					echo $email;
-					echo $sujet;
-					echo $message;
-					echo $headers;
 					echo "Une erreur c'est produite lors de l'envoi de l'email.";
+					header('Refresh: 6;url=FormInscription.php');
 				}
 ?>

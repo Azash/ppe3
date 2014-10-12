@@ -30,7 +30,20 @@
 		{
 			session_regenerate_id(true);
 			
-			$message = "Bienvenue " . $email;
+			$sqlPrenom = "SELECT prenom FROM users WHERE email='".$email."'";
+			$reqPrenom = mysql_query($sqlPrenom) or die('Erreur SQL !<br>'.$sqlPrenom.'<br>'.mysql_error());
+			$data = mysql_fetch_assoc($req);
+			$prenom = $data['prenom'];
+			
+			$pass = '';
+				for ($i = 1; $i <= 8; $i++) {
+								$pass .= chr(rand(65, 90)); //33 = premier caractere imprimable de la table ascii, 125 = dernier qui nous interesse...
+							}
+							
+			$sqlPass = "UPDATE users SET pass = '".$pass."' WHERE email='".$email."'";
+			$reqPass = mysql_query($sqlPass) or die('Erreur SQL !<br>'.$sqlPass.'<br>'.mysql_error());
+				
+			$message = "Bienvenue " . $prenom;
 			$_SESSION['email'] = $select['email'];
 			//$_SESSION['rank'] = $select['niveauDroit'];
 			$_SESSION['id'] = $select['id'];
