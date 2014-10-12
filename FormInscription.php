@@ -83,21 +83,21 @@
 				<div class="boitegrise_626">
 					<h2>&nbsp;Inscription</h2>
 						<form method="post" action="FormInscription.php" style="text-align:center">
-
+						<p align="center">Veuillez saisir toutes les informations</p>
 						<br />
 
 						<table>
 							<tr>
-								<td><label>&nbsp;Votre nom : </label></td>
+								<td style="text-align: right"><label>&nbsp;Votre nom : </label></td>
 								<td><input type="text" name="nom"></td>
 							</tr>
 							<tr>
-								<td><label>&nbsp;Votre prénom : </label></td>
+								<td style="text-align: right"><label>&nbsp;Votre prénom : </label></td>
 								<td><input type="text" name="prenom"></td>
 							</tr>
 							
 							<tr>
-								<td><label>&nbsp;Date de naissance : </label></td>	
+								<td style="text-align: right"><label>&nbsp;Date de naissance : </label></td>	
 								<td>
 									<select name="jourNaissance">
 									<?php 
@@ -131,12 +131,12 @@
 							</tr>	
 
 							<tr>
-								<td><label>&nbsp;Votre mot de passe : </label></td>
+								<td style="text-align: right"><label>&nbsp;Votre mot de passe : </label></td>
 								<td><input type="password" name="mdp"></td>
 							</tr>
 
 							<tr>
-								<td><label>&nbsp;Répetez votre mot de passe : </label></td>
+								<td style="text-align: right"><label>&nbsp;Répetez votre mot de passe : </label></td>
 								<td><input type="password" name="re_mdp"></td>
 							</tr>
 							
@@ -146,7 +146,7 @@
 							</tr>
 
 							<tr>
-								<td><label>&nbsp;Votre email</label></td>
+								<td style="text-align: right"><label>&nbsp;Votre email : </label></td>
 								<td><input type="email" name="email"></td>
 							</tr>	
 							
