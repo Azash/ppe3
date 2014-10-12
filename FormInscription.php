@@ -1,8 +1,7 @@
 <?php 
-	
 	//Pour se connecter à la base de données
 	include('connexionbdd.php');
-	include('fctPhp.php');
+	include('FctPhp.php');
 ?>
 
 <?php  /* INSCRIPTION */
@@ -21,7 +20,9 @@
 		$re_mdp = htmlspecialchars(trim($_POST['re_mdp']));
 		$sexe = htmlspecialchars($_POST["sexe"]);
 		$email = htmlspecialchars($_POST["email"]);
-
+		$pass = "";
+		$id = "";
+		
 		$sqlEmail = "SELECT email, id, prenom FROM users WHERE email='".$email."'";
 		$reqEmail = mysql_query($sqlEmail) or die('Erreur SQL !<br>'.$sqlEmail.'<br>'.mysql_error());
 		
@@ -39,14 +40,20 @@
 								
 							//include_once 'includes/connexionbdd.inc.php';
 							//$query = mysql_query("INSERT INTO users VALUES('', '$nom', '$prenom', '" . $anneeNaissance . "-" . $moisNaissance . "-" . $jourNaissance . "-1', $sexe', '$email', '$mdp')");
-							$date = $anneeNaissance . "-" . $moisNaissance . "-" . $jourNaissance; 
-							$sqlInsert = "INSERT INTO users (id, nom, prenom, birth, mdp, sexe, email) VALUES('null', '$nom', '$prenom', '$date', '$mdp', '$sexe', '$email')";
+							$date = $anneeNaissance . "-" . $moisNaissance . "-" . $jourNaissance;
+							
+							for ($i = 1; $i <= 8; $i++) {
+								$pass .= chr(rand(65, 90)); //33 = premier caractere imprimable de la table ascii, 125 = dernier qui nous interesse...
+							}
+							
+							$sqlInsert = "INSERT INTO users (id, nom, prenom, birth, mdp, sexe, email, pass) VALUES('null', '$nom', '$prenom', '$date', '$mdp', '$sexe', '$email', '$pass')";
 							//echo $sql;
-							$resInsert = mysql_query($sqlInsert);	
-					
+							$resInsert = mysql_query($sqlInsert);
+							
 							if(!$resInsert) echo mysql_error();
+							header('location:EnvoieMail.php?email='.$email.'');
 							//mysql_query("INSERT INTO users VALUES('', '$nom', '$prenom', '" . $anneeNaissance . "-" . $moisNaissance . "-" . $jourNaissance . "', $sexe', '$email', '$mdp')");
-							die('Formulaire bien rempli! Vous allez maintenant reçevoir un mail avec un mot de passe de confirmation. Vous pourrez ensuite choisir votre propre mot de passe pour vous connecter.<a href="index.php">Continuer mon inscription</a>');
+							//die('Formulaire bien rempli! Vous allez maintenant reçevoir un mail avec un mot de passe de confirmation. Vous pourrez ensuite choisir votre propre mot de passe pour vous connecter.<a href="index.php">Continuer mon inscription</a>');
 						}else echo "L'adresse email entrée est déjà utilisé, veuillez entrer une autre adresse email";
 					}else echo "Les mots de passe ne sont pas identiques";
 				}else echo "Veuillez rentrer un prenom de + de 2 caractères";

@@ -38,7 +38,7 @@
 								<center><a href="deconnexion.php">Se déconnecter<a></center>
 							</p>
 							<p>
-								<center><a href="#">Mes infos</a></center>
+								<center><a href="perso.php">Mes infos</a></center>
 							</p>
 							<p class="align_image">
 								<a href="Desinscription.php">Se désinscrire</a>
@@ -46,7 +46,7 @@
 						}
 						else {
 							//echo "ID = ".$_SESSION['id']."n";
-							echo '<h2>&nbsp;Connectez-vous</h2><form method = "post" action ="Connexion.php">
+							echo '<h2>&nbsp;Connectez-vous</h2><form method = "post" action ="connexion.php">
 							<p>
 								<label for="ctl00_pageContenu_email" id="ctl00_pageContenu_mailLabel">Mail</label>
 								<input name="email" id="ctl00_pageContenu_email" type="text" autofocus>
