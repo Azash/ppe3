@@ -15,6 +15,7 @@
 	$data = mysql_fetch_assoc($req);
 		
 	//echo 'id='.$data['id'].'&pass='.$data['pass'];
+
 	if (isset($_get['id'])) {
 		if ($getPass == $data['pass']) {
 			$sqlValide = "UPDATE users SET valide = 'valide' WHERE id = '".$data['id']."'";
