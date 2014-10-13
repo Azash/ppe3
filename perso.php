@@ -26,6 +26,23 @@
 			if (isset($_POST['modif']))
 				$modif = true;
 		} 
+		if ($id == $UserCurrentId) {
+			if (isset($_POST["modif_dispo_valid"])) {
+				//if (checkDataUser($_POST))
+				$sqlDispo1 = "UPDATE sos_partenaire.dispo SET L1 = '0', L2 = '0', L3 = '0', Ma1 = '0', Ma2 = '0', Ma3 = '0', Me1 = '0', Me2 = '0', Me3 = '0', J1 = '0', J2 = '0', J3 = '0', V1 = '0', V2 = '0', V3 = '0', S1 = '0', S2 = '0', S3 = '0', D1 = '0', D2 = '0', D3 = '0' WHERE idUser = '".$id."'";
+					mysql_query($sqlDispo1) or die('Erreur SQL !<br>'.$sqlDispo1.'<br>'.mysql_error());
+					
+				if (isset($_POST['dispo'])) {					
+					foreach($_POST['dispo'] as $valeur)
+					{
+						$sqlDispo = "UPDATE dispo SET ".$valeur."='1' WHERE idUser = '".$id."'";
+						mysql_query($sqlDispo) or die('Erreur SQL !<br>'.$sqlDispo.'<br>'.mysql_error());
+					}
+				}
+			}
+			if (isset($_POST['modif']))
+				$modif = true;
+		} 
 		$req = "SELECT nom, prenom, birth, mdp, sexe, email, avatar, ville, codePostal, tel, description, afficheEmail, AfficheTel FROM users WHERE id=".$id;
 		$resultat = mysql_query($req) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 		$ligne = mysql_fetch_assoc($resultat);
@@ -46,6 +63,10 @@
 		$description = $ligne['description'];
 		$afficheEmail = $ligne['afficheEmail'];
 		$AfficheTel = $ligne['AfficheTel'];
+		
+		$sqlDispo2 = "SELECT * FROM dispo WHERE idUser='".$id."'";
+		$reqDispo2 = mysql_query($sqlDispo2) or die('Erreur SQL !<br>'.$sqlDispo2.'<br>'.mysql_error());
+		$dataDispo2 = mysql_fetch_assoc($reqDispo2);
 		
 	}
 ?>
@@ -99,7 +120,7 @@
 					echo '<div class="boitegrise_466 sans_marge_gauche">
 						<h2>&nbsp;Informations personnelles</h2>
 
-						&nbsp;Nom :'.$nom.'<br>
+						&nbsp;Nom : '.$nom.'<br>
 						&nbsp;Prénom : '.$prenom.'<br>
 						&nbsp;Date d\'anniversaire : '.$birth.'<br>
 						&nbsp;Sexe : '.$sexe.'<br>';
@@ -107,9 +128,14 @@
 						if ($AfficheTel == 1) echo '&nbsp;Email : '.$email.'<br>';
 
 						echo '&nbsp;Ville : '.$ville.'<br>
-						&nbsp;Code postal : '.$codePostal.'<br>
-
-						&nbsp;Description personnelle : '.$description.'<br><br>';
+						&nbsp;Code postal : '.$codePostal.'<br /><br />
+						<table border="0" style="width: 98%;" align="center">
+							<tbody>
+								<tr>
+									<td>Description personnelle : <br />'.$description.'</td>
+								</tr>
+							</tbody>
+						</table><br />';
 						if ($id == $UserCurrentId) {
 							echo '&nbsp;Afficher mon email : '; if ($afficheEmail == 0) echo "Non"; else echo "Oui"; echo '<br>
 							&nbsp;Afficher mon numéro : '; if ($AfficheTel == 0) echo "Non"; else echo "Oui"; echo '<br><br>';
@@ -144,6 +170,228 @@
 						echo '
 						<form method="POST" action="perso.php" >
 							<input type="submit" name="modif_activite" value="Modifier mes activitées" class="modif_compte"/>
+						</form>';
+						echo '
+						<div class="finboite"></div>
+						</div>';
+				}
+				
+				if ($id == $UserCurrentId && isset($_POST['modif_dispo'])) {
+					echo '<div class="boitegrise_466 sans_marge_gauche">
+						<h2>&nbsp;Dispo</h2>
+						<br>
+						<form method="POST" action="perso.php" >
+							<table border="0" style="width: 98%;" align="center">
+							<tbody>
+								<tr>
+									<td style="text-align:center">
+										&nbsp;
+									</td>
+									<td style="text-align:center">
+										Lun
+									</td>
+									<td style="text-align:center">
+										Mar
+									</td>
+									<td style="text-align:center">
+										Mer
+									</td>
+									<td style="text-align:center">
+										Jeudi
+									</td>
+									<td style="text-align:center">
+										Ven
+									</td>
+									<td style="text-align:center">
+										Sam
+									</td>
+									<td style="text-align:center">
+										Dim
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align:right">
+										Matin :
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="L1" ';if ($dataDispo2['L1'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="Ma1" ';if ($dataDispo2['Ma1'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="Me1" ';if ($dataDispo2['Me1'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="J1" ';if ($dataDispo2['J1'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="V1" ';if ($dataDispo2['V1'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="S1" ';if ($dataDispo2['S1'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="D1" ';if ($dataDispo2['D1'] == "1") echo 'checked'; echo'>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align:right">
+										Après-midi :
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="L2" ';if ($dataDispo2['L2'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="Ma2" ';if ($dataDispo2['Ma2'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="Me2" ';if ($dataDispo2['Me2'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="J2" ';if ($dataDispo2['J2'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="V2" ';if ($dataDispo2['V2'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="S2" ';if ($dataDispo2['S2'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="D2" ';if ($dataDispo2['D2'] == "1") echo 'checked'; echo'>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align:right">
+										Soir :
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="L3" ';if ($dataDispo2['L3'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="Ma3" ';if ($dataDispo2['Ma3'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="Me3" ';if ($dataDispo2['Me3'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="J3" ';if ($dataDispo2['J3'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="V3" ';if ($dataDispo2['V3'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="S3" ';if ($dataDispo2['S3'] == "1") echo 'checked'; echo'>
+									</td>
+									<td style="text-align:center">
+										<input type="checkbox" name="dispo[]" value="D3" ';if ($dataDispo2['D3'] == "1") echo 'checked'; echo'>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<br />
+						<input type="submit" name="modif_dispo_valid" value="Valider" class="modif_compte_valid"/>
+						<input type="submit" value="Annuler" class="modif_compte_valid"/>
+						</form>
+						<div class="finboite"></div>
+						</div>';
+				}
+				else {
+					echo '<div class="boitegrise_466 sans_marge_gauche">
+						<h2>&nbsp;Dispo</h2>
+						<br>
+						<table border="1" style="width: 98%;" align="center">
+							<tbody>
+								<tr>
+									<td bgcolor="FF651B" style="text-align:center">
+										&nbsp;
+									</td>
+									<td bgcolor="FF651B" style="text-align:center">
+										Lun
+									</td>
+									<td bgcolor="FF651B" style="text-align:center">
+										Mar
+									</td>
+									<td bgcolor="FF651B" style="text-align:center">
+										Mer
+									</td>
+									<td bgcolor="FF651B" style="text-align:center">
+										Jeudi
+									</td>
+									<td bgcolor="FF651B" style="text-align:center">
+										Ven
+									</td>
+									<td bgcolor="FF651B" style="text-align:center">
+										Sam
+									</td>
+									<td bgcolor="FF651B" style="text-align:center">
+										Dim
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="FF651B" style="text-align:right">
+										Matin :&nbsp;
+									</td>
+									<td bgcolor="';if ($dataDispo2['L1'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['Ma1'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['Me1'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['J1'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['V1'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['S1'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['D1'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="FF651B" style="text-align:right">
+										Après-midi :&nbsp;
+									</td>
+									<td bgcolor="';if ($dataDispo2['L2'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['Ma2'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['Me2'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['J2'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['V2'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['S2'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['D2'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="FF651B" style="text-align:right">
+										Soir :&nbsp;
+									</td>
+									<td bgcolor="';if ($dataDispo2['L3'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['Ma3'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['Me3'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['J3'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['V3'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['S3'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+									<td bgcolor="';if ($dataDispo2['D3'] == "1") echo '#3ADF00'; else echo'#DF0101'; echo'" style="text-align:center">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<br />';
+						if ($id == $UserCurrentId)
+						echo '
+						<form method="POST" action="perso.php" >
+							<input type="submit" name="modif_dispo" value="Modifier mes disponibilités" class="modif_compte"/>
 						</form>';
 						echo '
 						<div class="finboite"></div>
