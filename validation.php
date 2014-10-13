@@ -10,16 +10,16 @@
 	//echo 'id='.$getId.'<br />';
 	//echo 'pass='.$getPass.'<br />';
 	
-	$sql = "SELECT id, pass FROM users WHERE id='".$getId."'";
+	$sql = "SELECT id, mdp FROM users WHERE id='".$getId."'";
 	$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 	$data = mysql_fetch_assoc($req);
 		
 	//echo 'id='.$data['id'].'&pass='.$data['pass'];
 	
-	if ($getPass == $data['pass']) {
+	if ($getPass == $data['mdp']) {
 		$sqlValide = "UPDATE users SET valide = 'valide' WHERE id = '".$data['id']."'";
 		$reqValide = mysql_query($sqlValide) or die('Erreur SQL !<br>'.$sqlValide.'<br>'.mysql_error());
-		$sqlPass = "UPDATE users SET pass = null WHERE id = '".$data['id']."'";
+		$sqlPass = "UPDATE users SET mdp = null WHERE id = '".$data['id']."'";
 		$reqPass = mysql_query($sqlPass) or die('Erreur SQL !<br>'.$sqlPass.'<br>'.mysql_error());
 		
 		echo "Email Validé. Vous pouvez vous connecter.";

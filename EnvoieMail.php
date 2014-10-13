@@ -9,7 +9,7 @@
 			//Envoi du mail !
 				$sujet = 'Sujet de l\'email';
 				$message = "Bonjour, ".$data['prenom']." 
-				Veuillez valider votre adresse email en cliquant sur ce lien : http://www.m2lsports.guillaumeboudy.com/ppe3/validation.php?id=".$data['id']."&pass=".$data['pass']."
+				Veuillez valider votre adresse email en cliquant sur ce lien : http://www.m2lsports.guillaumeboudy.com/ppe3/validation.php?id=".$data['id']."&pass=".$data['mdp']."
 				Merci :)";
 				$headers = "From: postmaster@guillaumeboudy.com\n";
 				$headers .= "Reply-To: postmaster@guillaumeboudy.com\n";
