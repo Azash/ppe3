@@ -2,7 +2,7 @@
 	include ('connexionbdd.php');
 	$email = $_GET['email'];
 	
-	$sql = "SELECT id, prenom, email, pass FROM users WHERE email='".$email."'";
+	$sql = "SELECT id, prenom, email, mdp FROM users WHERE email='".$email."'";
 	$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());;
 	$data = mysql_fetch_assoc($req);
 			
