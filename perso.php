@@ -9,17 +9,19 @@
 	}
 	else {
 		$UserCurrentId = $_SESSION['id'];
-		if (!isset($_GET['id']))
+		if (!isset($_GET['id'])) {
 			$id = $_SESSION['id'];
-		else
+		}
+		else {
 			$id = $_GET['id'];
+		}
 		if ($id == $UserCurrentId) {
 			if (isset($_POST["modif_perso_valid"])) {
 				//if (checkDataUser($_POST))
 					$birth = $_POST['anneeNaissance']."-".$_POST['moisNaissance']."-".$_POST['jourNaissance'];
 					mysql_query("UPDATE users SET nom='".$_POST['nom']."', prenom='".$_POST['prenom']."', birth='".$birth."', 
 					sexe='".$_POST['sexe']."', email='".$_POST['email']."', ville='".$_POST['ville']."', codePostal='".$_POST['codePostal']."', 
-					tel='".$_POST['tel']."', description='".$_POST['description']."', afficheEmail=".$_POST['afficheEmail'].", AfficheTel=".$_POST['AfficheTel']." WHERE id=".$id)or die(mysql_error());
+					tel='".$_POST['tel']."', description='".$_POST['description']."', afficheEmail='".$_POST['afficheEmail']."', AfficheTel='".$_POST['AfficheTel']."' WHERE id=".$id)or die(mysql_error());
 			}
 			if (isset($_POST['modif']))
 				$modif = true;
@@ -31,7 +33,6 @@
 		$prenom = $ligne['prenom'];
 		$birth = $ligne['birth'];
 		$birthEx = explode("-", $birth);
-		//echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>".$birth." -> ".$birthEx[0]." -> ".$birthEx[1]." -> ".$birthEx[2];
 		$jour = $birthEx[2];
 		$mois = $birthEx[1];
 		$annee = $birthEx[0];
@@ -81,7 +82,7 @@
 						&nbsp;Ville : <input type="text" name="ville" value="'.$ville.'" /><br>
 						&nbsp;Code postal : <input type="text" name="codePostal" value="'.$codePostal.'" /><br>
 
-						&nbsp;Description personnelle : <br><textarea name="description" value="'.$description.'" class="modif_compte"></textarea><br><br>
+						&nbsp;Description personnelle : <br><textarea name="description" value="'.$description.'" class="modif_compte">'.$description.'</textarea><br><br>
 						
 						&nbsp;Afficher mon email : <input type="radio" name="afficheEmail" value="1" '; if ($afficheEmail == "1") echo "checked"; echo ' /> Oui <input type="radio" name="afficheEmail" value="0" '; if ($afficheEmail == "0") echo "checked"; echo ' /> Non<br>
 						&nbsp;Afficher mon numéro : <input type="radio" name="AfficheTel" value="1" '; if ($AfficheTel == "1") echo "checked"; echo ' /> Oui <input type="radio" name="AfficheTel" value="0" '; if ($AfficheTel == "0") echo "checked"; echo ' /> Non<br>
@@ -113,11 +114,12 @@
 							echo '&nbsp;Afficher mon email : '; if ($afficheEmail == 0) echo "Non"; else echo "Oui"; echo '<br>
 							&nbsp;Afficher mon numéro : '; if ($AfficheTel == 0) echo "Non"; else echo "Oui"; echo '<br><br>';
 						}
+						if ($id == $UserCurrentId)
 						echo '
 						<form method="POST" action="perso.php" >
 							<input type="submit" name="modif_perso" value="Modifier mes informations personnelles" class="modif_compte"/>
-						</form>
-						
+						</form>';
+						echo '
 						<div class="finboite"></div>
 						</div>';
 				}
@@ -137,10 +139,13 @@
 				else {
 					echo '<div class="boitegrise_466 sans_marge_gauche">
 						<h2>&nbsp;Activitées</h2>
-						<br>
+						<br>';
+						if ($id == $UserCurrentId)
+						echo '
 						<form method="POST" action="perso.php" >
 							<input type="submit" name="modif_activite" value="Modifier mes activitées" class="modif_compte"/>
-						</form>
+						</form>';
+						echo '
 						<div class="finboite"></div>
 						</div>';
 				}
