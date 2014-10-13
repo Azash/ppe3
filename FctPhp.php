@@ -58,13 +58,62 @@
 							<p class="align_image">
 								<input type="submit" name="submit" value="Se connecter" />
 							</p>
-						</form>
+							</form>
 						
-						<p style="margin-top: 6px" align="center"><a href="ForgotMdp.php" onclick="window.open(this.href,"Oubli_Mot_de_Passe","height=250,width=300,scrollbars=no,toolbar=no,menubar=no,resizeable=yes,status=no"); return false;">
-						Oubli du mot de passe ?</a></br><a href="FormInscription.php">Pas encore membre?</a></p>';
+							<p style="margin-top: 6px" align="center"><a href="ForgotMdp.php" onclick="window.open(this.href,"Oubli_Mot_de_Passe","height=250,width=300,scrollbars=no,toolbar=no,menubar=no,resizeable=yes,status=no"); return false;">
+							Oubli du mot de passe ?</a></br><a href="FormInscription.php">Pas encore membre?</a></p>';
 						}
-						echo '<div class="finboite"></div>
-					</div>';
+						echo '<div class="finboite"></div></div>';
 	}
 	
+	function checkDataUser($VarForm) {
+		/*$nom = $ligne['nom'];
+		$prenom = $ligne['prenom'];
+		$birth = $ligne['birth'];
+		$mdp = $ligne['mdp'];
+		$sexe = $ligne['sexe'];
+		$email = $ligne['email'];
+		$avatar = $ligne['avatar'];
+		$ville = $ligne['ville'];
+		$codePostal = $ligne['codePostal'];
+		$tel = $ligne['tel'];
+		$description = $ligne['description'];
+		$afficheEmail = $ligne['afficheEmail'];
+		$afficheTel = $ligne['afficheTel'];*/
+		//echo $VarForm['nom'];
+		return true;
+	}
+	
+	function ShowListBoxBirth($jour, $mois, $annee) {
+		if (!isset($jour))
+			$jour = 1;
+		if (!isset($mois))
+			$mois = 1;
+		if (!isset($annee))
+			$annee = date('Y');
+		echo '<select name="jourNaissance">';
+		for ($i = 1; $i <= 31; $i++) {
+			echo '<option value="'.$i.'" '; 
+			if ($i == $jour)
+				echo 'selected '; 
+			echo '>'.$i.'</option>';
+		}
+		echo '</select>';
+		echo '<select name="moisNaissance">';
+		for ($i = 1; $i <= 12; $i++) {
+			echo '<option value="'.$i.'" '; 
+			if ($i == $mois)
+				echo 'selected '; 
+			echo '>'.$i.'</option>';
+		}
+		echo '</select>';
+		echo '<select name="anneeNaissance">';
+		for ($i = date('Y'); $i >= date('Y')-100; $i--) {
+			echo '<option value="'.$i.'" '; 
+			if ($i == $annee)
+				echo 'selected '; 
+			echo '>'.$i.'</option>';
+		}
+		echo '</select>';
+	}
 ?>
