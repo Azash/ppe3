@@ -15,18 +15,21 @@
 	$data = mysql_fetch_assoc($req);
 		
 	//echo 'id='.$data['id'].'&pass='.$data['pass'];
-	
-	if ($getPass == $data['pass']) {
-		$sqlValide = "UPDATE users SET valide = 'valide' WHERE id = '".$data['id']."'";
-		$reqValide = mysql_query($sqlValide) or die('Erreur SQL !<br>'.$sqlValide.'<br>'.mysql_error());
-		$sqlPass = "UPDATE users SET pass = null WHERE id = '".$data['id']."'";
-		$reqPass = mysql_query($sqlPass) or die('Erreur SQL !<br>'.$sqlPass.'<br>'.mysql_error());
-		
-		echo "Email Validé. Vous pouvez vous connecter.";
-		header('Refresh: 4;url=index.php');
-	}
-	else {
+	if (isset($_get['id'])) {
+		if ($getPass == $data['pass']) {
+			$sqlValide = "UPDATE users SET valide = 'valide' WHERE id = '".$data['id']."'";
+			$reqValide = mysql_query($sqlValide) or die('Erreur SQL !<br>'.$sqlValide.'<br>'.mysql_error());
+			$sqlPass = "UPDATE users SET pass = null WHERE id = '".$data['id']."'";
+			$reqPass = mysql_query($sqlPass) or die('Erreur SQL !<br>'.$sqlPass.'<br>'.mysql_error());
+			
+			echo "Email Validé. Vous pouvez vous connecter.";
+			header('Refresh: 4;url=index.php');
+		}else {
+			echo "Erreur ce lien n'est pas valide. Si vous rencontrez des problèmes, veuillez nous contacter par email.";
+			header('Refresh: 4;url=index.php');
+			}
+	}else {
 		echo "Erreur ce lien n'est pas valide. Si vous rencontrez des problèmes, veuillez nous contacter par email.";
 		header('Refresh: 4;url=index.php');
-	}
+		}
 ?>
