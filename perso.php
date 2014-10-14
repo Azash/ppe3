@@ -15,36 +15,38 @@
 		else {
 			$id = $_GET['id'];
 		}
+
 		if ($id == $UserCurrentId) {
-			if (isset($_POST["modif_perso_valid"])) {
+			if (isset($_POST["modif_perso_valid"])) { //RELATIF AUX INFORMATIONS PERSONNELLES
 				//if (checkDataUser($_POST))
 					$birth = $_POST['anneeNaissance']."-".$_POST['moisNaissance']."-".$_POST['jourNaissance'];
 					mysql_query("UPDATE users SET nom='".$_POST['nom']."', prenom='".$_POST['prenom']."', birth='".$birth."', 
 					sexe='".$_POST['sexe']."', email='".$_POST['email']."', ville='".$_POST['ville']."', codePostal='".$_POST['codePostal']."', 
 					tel='".$_POST['tel']."', description='".$_POST['description']."', afficheEmail='".$_POST['afficheEmail']."', AfficheTel='".$_POST['AfficheTel']."' WHERE id=".$id)or die(mysql_error());
 			}
-			if (isset($_POST['modif']))
-				$modif = true;
-		} 
-		if ($id == $UserCurrentId) {
-			if (isset($_POST["modif_dispo_valid"])) {
-				//if (checkDataUser($_POST))
-				$sqlDispo1 = "UPDATE sos_partenaire.dispo SET L1 = '0', L2 = '0', L3 = '0', Ma1 = '0', Ma2 = '0', Ma3 = '0', Me1 = '0', Me2 = '0', Me3 = '0', J1 = '0', J2 = '0', J3 = '0', V1 = '0', V2 = '0', V3 = '0', S1 = '0', S2 = '0', S3 = '0', D1 = '0', D2 = '0', D3 = '0' WHERE idUser = '".$id."'";
-					mysql_query($sqlDispo1) or die('Erreur SQL !<br>'.$sqlDispo1.'<br>'.mysql_error());
-					
-				if (isset($_POST['dispo'])) {					
-					foreach($_POST['dispo'] as $valeur)
-					{
-						$sqlDispo = "UPDATE dispo SET ".$valeur."='1' WHERE idUser = '".$id."'";
-						mysql_query($sqlDispo) or die('Erreur SQL !<br>'.$sqlDispo.'<br>'.mysql_error());
-					}
+			else if (isset($_POST["modif_dispo_valid"])) { //RELATIF AUX INFORMATIONS DE DISPONIBILITES
+				$testId = mysql_query("SELECT idUser FROM dispo WHERE idUser='".$id."'") or die('Erreur SQL !<br>'.$testId.'<br>'.mysql_error());
+				$testId = mysql_fetch_array($testId);
+				if (empty($testId))
+					$sqlDispo = "INSERT INTO dispo VALUES(".$id.", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)"; // L1 = '0', L2 = '0', L3 = '0', Ma1 = '0', Ma2 = '0', Ma3 = '0', Me1 = '0', Me2 = '0', Me3 = '0', J1 = '0', J2 = '0', J3 = '0', V1 = '0', V2 = '0', V3 = '0', S1 = '0', S2 = '0', S3 = '0', D1 = '0', D2 = '0', D3 = '0' WHERE idUser = '".$id."'";
+				else
+					$sqlDispo = "UPDATE dispo SET L1 = '0', L2 = '0', L3 = '0', Ma1 = '0', Ma2 = '0', Ma3 = '0', Me1 = '0', Me2 = '0', Me3 = '0', J1 = '0', J2 = '0', J3 = '0', V1 = '0', V2 = '0', V3 = '0', S1 = '0', S2 = '0', S3 = '0', D1 = '0', D2 = '0', D3 = '0' WHERE idUser = '".$id."'";
+				mysql_query($sqlDispo) or die('Erreur SQL !<br>'.$sqlDispo.'<br>'.mysql_error());
+				$sqlDispo = "";
+				foreach($_POST['dispo'] as $valeur)
+				{
+					if ($sqlDispo == "")
+						$sqlDispo = $valeur."='1'";
+					else
+						$sqlDispo = $sqlDispo.", ".$valeur."='1'";
 				}
+				mysql_query("UPDATE dispo SET ".$sqlDispo." WHERE idUser = '".$id."'") or die('Erreur SQL !<br>'.$sqlDispo.'<br>'.mysql_error());
 			}
 			if (isset($_POST['modif']))
 				$modif = true;
 		} 
 		$req = "SELECT nom, prenom, birth, mdp, sexe, email, avatar, ville, codePostal, tel, description, afficheEmail, AfficheTel FROM users WHERE id=".$id;
-		$resultat = mysql_query($req) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+		$resultat = mysql_query($req) or die('Erreur SQL !<br>'.$req.'<br>'.mysql_error());
 		$ligne = mysql_fetch_assoc($resultat);
 		$nom = $ligne['nom'];
 		$prenom = $ligne['prenom'];
@@ -86,9 +88,11 @@
 	<?php getHeader(); ?>
 <!--FIN HEADER-->
 <!--CONTENU-->			
-			<div id="contenu_annexe">
-				
+			<div id="contenu_annexe">				
 				<?php
+//---------------------------------------------------------------------------------------------------------//
+//------------------------------------------ INFOS PERSIONNELLES ------------------------------------------//
+//---------------------------------------------------------------------------------------------------------//
 				if ($id == $UserCurrentId && isset($_POST['modif_perso'])) {
 					echo '<div class="boitegrise_466 sans_marge_gauche">
 						<h2>&nbsp;Informations personnelles</h2>
@@ -149,8 +153,13 @@
 						<div class="finboite"></div>
 						</div>';
 				}
-				
+//--------------------------------------------------------------------------------------------------------//
+//------------------------------------------ BLOCK DE CONNEXION ------------------------------------------//
+//--------------------------------------------------------------------------------------------------------//				
 				getConnexion();
+//--------------------------------------------------------------------------------------------------------//				
+//------------------------------------------  BLOCK ACTIVITES   ------------------------------------------//
+//--------------------------------------------------------------------------------------------------------//				
 				if ($id == $UserCurrentId && isset($_POST['modif_activite'])) {
 					echo '<div class="boitegrise_466 sans_marge_gauche">
 						<h2>&nbsp;Activitées</h2>
@@ -175,7 +184,9 @@
 						<div class="finboite"></div>
 						</div>';
 				}
-				
+//-----------------------------------------------------------------------------------------------------------//
+//------------------------------------------ BLOCK DISPONIBILITEES ------------------------------------------//				
+//-----------------------------------------------------------------------------------------------------------//
 				if ($id == $UserCurrentId && isset($_POST['modif_dispo'])) {
 					echo '<div class="boitegrise_466 sans_marge_gauche">
 						<h2>&nbsp;Dispo</h2>
@@ -398,18 +409,7 @@
 						</div>';
 				}
 				?>
-				<!--CORRESPOND A UNE BOITE SMALL
-				<div class="boitegrise_305">
-					<h2></h2>
-					<div class="finboite"></div>
-				</div>-->
-				<!--CORRESPON A LA BOITE MEDIUM
-				<div class="boitegrise_466 sans_marge_gauche">
-					<h2></h2>
-					<div class="finboite"></div>
-				</div>
-				-->
-				<div class="spacer"></div>
+			<div class="spacer"></div>
 			</div><div class="spacer"></div>
 <!--FIN CONTENU-->			
 <!--FOOTER-->			
