@@ -24,7 +24,11 @@
 				$modif = true;
 		} 
 				
-		$req = "SELECT activitie FROM activities ORDER BY activitie";
+		$reqAct = "SELECT activitie FROM activities ORDER BY activitie";
+		$resAct = mysql_query($reqAct);
+		$ligneAct = mysql_fetch_assoc($resAct);
+		
+		$req = sprintf("SELECT dep FROM departements");
 		$resultat = mysql_query($req);
 		$ligne = mysql_fetch_assoc($resultat);
 	}
@@ -46,27 +50,20 @@
 <!--FIN HEADER-->
 <!--CONTENU-->			
 			<div id="contenu_annexe">
-				
-				<?php
-				if ($id == $UserCurrentId && isset($_POST['modif_recherche'])) {
-					echo '<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_Label1">Sport: </label>
-						<select name="Activité" id="ctl00_pageContenu_ddl_loisir">';
+				<div class="boitegrise_466 sans_marge_gauche">
+					<h2>Trouvez des partenaires de sport près de chez vous</h2>
+						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_Label1">&nbsp;Sport: </label>
+						<select name="Activité" id="ctl00_pageContenu_ddl_loisir">
 							<?php
-								$req = "SELECT activitie FROM activities ORDER BY activitie";
-								$resultat = mysql_query($req);
-								$ligne = mysql_fetch_assoc($resultat);
-								while($ligne){
-									echo '<option value="'.$ligne["activitie"].'">'.$ligne["activitie"].'</option>';
-									$ligne = mysql_fetch_assoc($resultat);
+								while($ligneAct){
+									echo '<option value="'.$ligneAct["activitie"].'">'.$ligneAct["activitie"].'</option>';
+									$ligneAct = mysql_fetch_assoc($resAct);
 								}	
 							?>
 						</select>
-						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">Département : </label>
+						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">&nbsp;Département : </label>
 						<select name="ctl00$pageContenu$postal" id="ctl00_pageContenu_postal">
 							<?php
-								$req = sprintf("SELECT dep FROM departements");
-								$resultat = mysql_query($req);
-								$ligne = mysql_fetch_assoc($resultat);
 								while($ligne){
 									echo '<option value="'.$ligne["dep"].'">'.$ligne["dep"].'</option>';
 									$ligne = mysql_fetch_assoc($resultat);
@@ -76,67 +73,37 @@
 						<!-- <label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">Code Postal: </label>
 						<input name="ctl00$pageContenu$postal" maxlength="5" id="ctl00_pageContenu_postal" style="width:50px;" type="text"> -->
 						<input name="ctl00$pageContenu$btnTrouver" value="Trouver" id="ctl00_pageContenu_btnTrouver" type="submit">
-						<a href="#">Tout afficher</a>';
-				}
-				else {
-					if ($codePostal == 0)
-						$codePostal = "";
-					echo '<div class="boitegrise_466 sans_marge_gauche">
-						<h2>&nbsp;Informations personnelles</h2>
-
-						&nbsp;Nom :'.$nom.'<br>
-						&nbsp;Prénom : '.$prenom.'<br>
-						&nbsp;Date d\'anniversaire : '.$birth.'<br>
-						&nbsp;Sexe : '.$sexe.'<br>';
-						if ($afficheEmail == 1) echo '&nbsp;Téléphone : '.$tel.'<br>';
-						if ($AfficheTel == 1) echo '&nbsp;Email : '.$email.'<br>';
-
-						echo '&nbsp;Ville : '.$ville.'<br>
-						&nbsp;Code postal : '.$codePostal.'<br>
-
-						&nbsp;Description personnelle : '.$description.'<br><br>';
-						if ($id == $UserCurrentId) {
-							echo '&nbsp;Afficher mon email : '; if ($afficheEmail == 0) echo "Non"; else echo "Oui"; echo '<br>
-							&nbsp;Afficher mon numéro : '; if ($AfficheTel == 0) echo "Non"; else echo "Oui"; echo '<br><br>';
-						}
-						if ($id == $UserCurrentId)
-						echo '
-						<form method="POST" action="perso.php" >
-							<input type="submit" name="modif_perso" value="Modifier mes informations personnelles" class="modif_compte"/>
-						</form>';
-						echo '
+						&nbsp;<a href="#">Tout afficher</a>
+					<div class="finboite"></div>
+					</div>
+					<?php getConnexion(); ?>
+					<div class="boitegrise_466 sans_marge_gauche">
+						<h2>Trouvez des partenaires de sport près de chez vous</h2>
+						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_Label1">&nbsp;Sport: </label>
+						<select name="Activité" id="ctl00_pageContenu_ddl_loisir">
+							<?php
+								while($ligneAct){
+									echo '<option value="'.$ligneAct["activitie"].'">'.$ligneAct["activitie"].'</option>';
+									$ligneAct = mysql_fetch_assoc($resAct);
+								}	
+							?>
+						</select>
+						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">&nbsp;Département : </label>
+						<select name="ctl00$pageContenu$postal" id="ctl00_pageContenu_postal">
+							<?php
+								while($ligne){
+									echo '<option value="'.$ligne["dep"].'">'.$ligne["dep"].'</option>';
+									$ligne = mysql_fetch_assoc($resultat);
+								}	
+							?>
+						</select>
+						<!-- <label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">Code Postal: </label>
+						<input name="ctl00$pageContenu$postal" maxlength="5" id="ctl00_pageContenu_postal" style="width:50px;" type="text"> -->
+						<input name="ctl00$pageContenu$btnTrouver" value="Trouver" id="ctl00_pageContenu_btnTrouver" type="submit">
+						<a href="#">Tout afficher</a>
 						<div class="finboite"></div>
-						</div>';
-				}
+					</div>
 				
-				getConnexion();
-				if ($id == $UserCurrentId && isset($_POST['modif_activite'])) {
-					echo '<div class="boitegrise_466 sans_marge_gauche">
-						<h2>&nbsp;Activitées</h2>
-						<br>
-						<form method="POST" action="perso.php" >
-						<input type="submit" name="modif_activite_valid" value="Valider" class="modif_compte_valid"/>
-						<input type="submit" value="Annuler" class="modif_compte_valid"/>
-						</form>
-						<div class="finboite"></div>
-						</div>';
-				}
-				else {
-					echo '<div class="boitegrise_466 sans_marge_gauche">
-						<h2>&nbsp;Activitées</h2>
-						<br>';
-						if ($id == $UserCurrentId)
-						echo '
-						<form method="POST" action="perso.php" >
-							<input type="submit" name="modif_activite" value="Modifier mes activitées" class="modif_compte"/>
-						</form>';
-						echo '
-						<div class="finboite"></div>
-						</div>';
-				}
-				?>
-				<div class="spacer"></div>
-			</div><div class="spacer"></div>
 <!--FIN CONTENU-->			
 <!--FOOTER-->			
 			<?php getFooter(); ?>
