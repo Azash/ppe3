@@ -22,11 +22,7 @@
 			$reqValide = mysql_query($sqlValide) or die('Erreur SQL !<br>'.$sqlValide.'<br>'.mysql_error());
 			$sqlPass = "UPDATE users SET pass = null WHERE id = '".$data['id']."'";
 			$reqPass = mysql_query($sqlPass) or die('Erreur SQL !<br>'.$sqlPass.'<br>'.mysql_error());
-			
-			//On met ici l'id de l'utilisateur dans la table dispo pour l'initialiser avec l'id de l'utilisateur
-			$sqlDispo = "INSERT INTO dispo (idUser) VALUES ('".$data['id']."')";
-			$reqDispo = mysql_query($sqlDispo) or die('Erreur SQL !<br>'.$sqlDispo.'<br>'.mysql_error());
-			
+						
 			echo "Email Validé. Vous pouvez vous connecter.";
 			header('Refresh: 4;url=index.php');
 		}else {
