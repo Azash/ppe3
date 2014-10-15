@@ -21,7 +21,7 @@
 				//if (checkDataUser($_POST))
 					$birth = $_POST['anneeNaissance']."-".$_POST['moisNaissance']."-".$_POST['jourNaissance'];
 					mysql_query("UPDATE users SET nom='".$_POST['nom']."', prenom='".$_POST['prenom']."', birth='".$birth."', 
-					sexe='".$_POST['sexe']."', email='".$_POST['email']."', ville='".$_POST['ville']."', codePostal='".$_POST['codePostal']."', 
+					sexe='".$_POST['sexe']."', email='".$_POST['email']."', ville='".$_POST['ville']."', numDep='".$_POST['numDep']."', 
 					tel='".$_POST['tel']."', description='".$_POST['description']."', afficheEmail='".$_POST['afficheEmail']."', AfficheTel='".$_POST['AfficheTel']."' WHERE id=".$id)or die(mysql_error());
 			}
 			else if (isset($_POST["modif_dispo_valid"])) { //RELATIF AUX INFORMATIONS DE DISPONIBILITES
@@ -45,7 +45,7 @@
 			if (isset($_POST['modif']))
 				$modif = true;
 		} 
-		$req = "SELECT nom, prenom, birth, mdp, sexe, email, avatar, ville, codePostal, tel, description, afficheEmail, AfficheTel FROM users WHERE id=".$id;
+		$req = "SELECT nom, prenom, birth, mdp, sexe, email, avatar, ville, numDep, tel, description, afficheEmail, AfficheTel FROM users WHERE id=".$id;
 		$resultat = mysql_query($req) or die('Erreur SQL !<br>'.$req.'<br>'.mysql_error());
 		$ligne = mysql_fetch_assoc($resultat);
 		$nom = $ligne['nom'];
@@ -60,7 +60,7 @@
 		$email = $ligne['email'];
 		$avatar = $ligne['avatar'];
 		$ville = $ligne['ville'];
-		$codePostal = $ligne['codePostal'];
+		$numDep = $ligne['numDep'];
 		$tel = $ligne['tel'];
 		$description = $ligne['description'];
 		$afficheEmail = $ligne['afficheEmail'];
@@ -105,7 +105,7 @@
 						&nbsp;Email : <input type="text" name="email" value="'.$email.'" /><br>
 
 						&nbsp;Ville : <input type="text" name="ville" value="'.$ville.'" /><br>
-						&nbsp;Code postal : <input type="text" name="codePostal" value="'.$codePostal.'" /><br>
+						&nbsp;Code postal : <input type="text" name="numDep" value="'.$numDep.'" /><br>
 
 						&nbsp;Description personnelle : <br><textarea name="description" value="'.$description.'" class="modif_compte">'.$description.'</textarea><br><br>
 						
@@ -119,8 +119,8 @@
 						</div>';
 				}
 				else {
-					if ($codePostal == 0)
-						$codePostal = "";
+					if ($numDep == 0)
+						$numDep = "";
 					echo '<div class="boitegrise_466 sans_marge_gauche">
 						<h2>&nbsp;Informations personnelles</h2>
 
@@ -132,7 +132,7 @@
 						if ($AfficheTel == 1) echo '&nbsp;Email : '.$email.'<br>';
 
 						echo '&nbsp;Ville : '.$ville.'<br>
-						&nbsp;Code postal : '.$codePostal.'<br /><br />
+						&nbsp;Numéro département : '.$numDep.'<br /><br />
 						<table border="0" style="width: 98%;" align="center">
 							<tbody>
 								<tr>

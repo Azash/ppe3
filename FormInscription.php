@@ -16,6 +16,7 @@
 		$jourNaissance = intval($_POST['jourNaissance']);
 		$moisNaissance = intval($_POST['moisNaissance']);
 		$anneeNaissance = intval($_POST['anneeNaissance']);
+		$numDep = intval($_POST['numDep']);
 		$mdp = htmlspecialchars($_POST["mdp"]);
 		$re_mdp = htmlspecialchars(trim($_POST['re_mdp']));
 		$sexe = htmlspecialchars($_POST["sexe"]);
@@ -46,7 +47,7 @@
 								$pass .= chr(rand(65, 90)); //33 = premier caractere imprimable de la table ascii, 125 = dernier qui nous interesse...
 							}
 							
-							$sqlInsert = "INSERT INTO users (id, nom, prenom, birth, mdp, sexe, email, pass) VALUES('null', '$nom', '$prenom', '$date', '$mdp', '$sexe', '$email', '$pass')";
+							$sqlInsert = "INSERT INTO users (id, nom, prenom, birth, mdp, sexe, email, numDep, pass) VALUES('null', '$nom', '$prenom', '$date', '$mdp', '$sexe', '$email', '$numDep', '$pass')";
 							//echo $sql;
 							$resInsert = mysql_query($sqlInsert);
 							
@@ -128,7 +129,20 @@
 									?>
 									</select>
 								</td>
-							</tr>	
+							</tr>
+							
+							<tr>
+								<td style="text-align: right"><label>&nbsp;Département : </label></td>	
+								<td>
+									<select name="numDep">
+									<?php 
+									for ($i = 1; $i <= 94; $i++):
+									?>
+										<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+									<?php 
+									endfor;
+									?>
+									</select>
 
 							<tr>
 								<td style="text-align: right"><label>&nbsp;Votre mot de passe : </label></td>
