@@ -1,4 +1,4 @@
-<?php 
+Ôªø<?php 
 	//Pour se connecter ?a base de donn?
 	include("FctPhp.php");
 	include("connexionbdd.php");
@@ -23,30 +23,38 @@
 			if (isset($_POST['modif']))
 				$modif = true;
 		}
-		
-		$activite = $_GET['nomActivitÈ'];
-		$departement = $_GET['numDepartement'];
-		
-		
-		/*$sqlActivities = "SELECT id FROM listactivities WHERE activitie = '"$activite"'";
-		$reqActivities = mysql_query($sqlActivities) or die('Erreur SQL !<br>'.$sqlActivities.'<br>'.mysql_error());
-		$dataActivities = mysql_fetch_assoc($reqActivities);
-		$idActivities = $dataActivities['id'];
-		
-		$sqlListActivities = "SELECT idUser, lvl FROM listactivities WHERE idActivities = '"$idActivities"'";
-		$reqListActivities = mysql_query($sqlListActivities) or die('Erreur SQL !<br>'.$sqlListActivities.'<br>'.mysql_error());
-		$dataListActivities = mysql_fetch_assoc($reqListActivities);
-		$idUser = $dataListActivities['idUser'];
-		$lvl = $dataListActivities['lvl'];*/
-		
-		//$sqlUser = "SELECT users.id, users.nom, users.prenom, users.ville, users.numDep, activities.activitie, listactivities.lvl FROM users, activities, listactivities WHERE users.id = 'SELECT listactivities.idUser FROM listactivities WHERE listactivities.idActivities = 'SELECT activities.id FROM activities WHERE activities.activitie = '".$activite."'' AND users.numDep = '".$departement."'";
-		$sqlUser = "SELECT 
-		$reqUser = mysql_query($sqlUser) or die('Erreur SQL !<br>'.$sqlUser.'<br>'.mysql_error());
-		$dataUser = mysql_fetch_assoc($reqUser);
+		if (isset($_GET['nomActivite'])) {
+			$activite = $_GET['nomActivite'];
+			$departement = $_GET['numDepartement'];
+		}
+		else {
+			$activite = 'vide';
+			$departement = 'vide';
+		}
+		//$nom = $_GET['nom'];
+		//$prenom = $_GET['prenom'];
+		//$ville = $_GET['ville'];
+		//$lvl = $_GET['lvl'];
 		
 		
+		if ($activite == 'vide' && $departement == 'vide') {
+				$sql = "SELECT users.id, users.nom, users.prenom, users.ville, users.numDep, activities.activitie, listactivities.lvl, activities.id, listactivities.idUser, listactivities.idActivities FROM users, activities, listactivities WHERE listactivities.idActivities = activities.id AND listactivities.idUser = users.id";
+				$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+				$data = mysql_fetch_assoc($req);
+			}
+		else if ($departement == 'vide') {
+			$sql = "SELECT users.id, users.nom, users.prenom, users.ville, users.numDep, activities.activitie, listactivities.lvl, activities.id, listactivities.idUser, listactivities.idActivities FROM users, activities, listactivities WHERE activities.activitie = '".$activite."' AND listactivities.idActivities = activities.id AND listactivities.idUser = users.id";
+			$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+			$data = mysql_fetch_assoc($req);
+		}
+		else {
+			$sql = "SELECT users.id, users.nom, users.prenom, users.ville, users.numDep activities.activitie, listactivities.lvl, activities.id, listactivities.idUser, listactivities.idActivities FROM users, activities, listactivities WHERE users.numDep = '".$departement."' AND listactivities.idActivities = activities.id AND listactivities.idUser = users.id";
+			$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+			$data = mysql_fetch_assoc($req);
+		}
 		
 	}
+	
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 	<title>SOS partenaires</title>
@@ -54,7 +62,7 @@
 	<!--<script style="" type="text/javascript" src="/global/jquery-1.11.0.min.js"></script>-->
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="Author" content="SOSpartenaires">
-	<meta name="description" content="Sur SOS partenaires trouvez des activitÈs prËs de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
+	<meta name="description" content="Sur SOS partenaires trouvez des activit√©s pr√®s de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
 	<meta name="Keywords" content="SOS partenaires, sports et loisirs, sport, loisir, coach, reseau, social, bien, etre, bien-etre, loisirs, sports, communaute, social">
 
 	<!--<link rel="shortcut icon" href="/favicon.ico">-->
@@ -66,30 +74,41 @@
 <!--CONTENU-->			
 			<div id="contenu_annexe">
 				<div class="boitegrise_466 sans_marge_gauche">
-					<h2>&nbsp;Trouvez des partenaires de sport prÈs de chez vous</h2>
+					<h2>&nbsp;Trouvez des partenaires de sport pr√®s de chez vous</h2>
 						<table border="0" style="width: 98%;" align="center">
-							<?php
-							<tr>
-								<td>
-									
-								</td>
-								<td>
-									
-								</td>
-								<td>
-									
-								</td>
-							</tr>
+							<thead>
+								<tr style="font-weight : bold">
+									<td>Nom</td>
+									<td>Prenom</td>
+									<td>Ville</td>
+									<td>Activit√©</td>
+									<td>Niveau</td>
+									<td>D√©partement</td>
+								</tr>
+							</thead>
+							<?php 
+								while ($ligne = mysql_fetch_array($req)) {
+								// on affiche les r√©sultats
+								echo '<tr align="center">
+										<td>'.$ligne['nom'].'</td>';
+								echo '	<td>'.$ligne['prenom'].'</td>';
+								echo '	<td>'.$ligne['ville'].'</td>';
+								echo '	<td>'.$ligne['activitie'].'</td>';
+								echo '	<td>'.$ligne['lvl'].'</td>';
+								echo '	<td>'.$ligne['numDep'].'</td>
+									<tr>';
+								}
 							?>
 						</table>
 					<div class="finboite"></div>
 					</div>
 					<?php getConnexion(); ?>
 					<div class="boitegrise_466 sans_marge_gauche">
-						<h2>&nbsp;Trouvez des partenaires de sport prËs de chez vous</h2>
-							<p> Blablabla <p>
+						<h2>&nbsp;Trouvez des partenaires de sport pr√®s de chez vous</h2>
+							<p> <?php echo $sql ?> <p>
 						<div class="finboite"></div>
 					</div>
+					<div class="spacer"></div>
 				
 <!--FIN CONTENU-->			
 <!--FOOTER-->			

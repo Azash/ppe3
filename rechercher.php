@@ -18,7 +18,7 @@
 		if ($id == $UserCurrentId) {
 			if (isset($_POST["modif_perso_valid"])) {
 				//if (checkDataUser($_POST))
-					///////Reprendre i�i !!!!
+					///////Reprendre ici !!!!
 			}
 			if (isset($_POST['modif']))
 				$modif = true;
@@ -31,7 +31,6 @@
 		$sqlDep = "SELECT dep FROM departements";
 		$reqDep = mysql_query($sqlDep);
 		$ligneDep = mysql_fetch_assoc($reqDep);
-		
 		
 	}
 ?>
@@ -59,7 +58,8 @@
 								<tr>
 									<td>
 										<label for="rechercher" id="Activité">&nbsp;Sport: </label>
-										<select name="nomActivité" id="rechercher">
+										<select name="nomActivite" id="rechercher">
+											<option value="vide">&nbsp;</option>
 											<?php
 												while($ligneAct){
 													echo '<option value="'.$ligneAct["activitie"].'">'.$ligneAct["activitie"].'</option>';
@@ -71,6 +71,7 @@
 									<td>
 										<label for="rechercher" id="departement">&nbsp;Département : </label>
 										<select name="numDepartement" id="rechercher">
+											<option value="vide">&nbsp;</option>
 											<?php
 												while($ligneDep){
 													echo '<option value="'.$ligneDep["dep"].'">'.$ligneDep["dep"].'</option>';
@@ -85,7 +86,7 @@
 								</tr>
 							</table>
 							<div style="text-align:center">
-								&nbsp;<a href="rechercher.php?all=true">Tout afficher</a>
+								&nbsp;<a href="rechercher.php>Tout afficher</a>
 							</div>
 						</form>
 					<div class="finboite"></div>
