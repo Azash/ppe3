@@ -86,7 +86,7 @@
 								</tr>
 							</table>
 							<div style="text-align:center">
-								&nbsp;<a href="rechercher.php>Tout afficher</a>
+								&nbsp;<a href="afficher.php">Tout afficher</a>
 							</div>
 						</form>
 					<div class="finboite"></div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Lun 13 Octobre 2014 à 13:27
+-- Généré le: Sam 18 Octobre 2014 à 12:53
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `activities` (
 --
 
 INSERT INTO `activities` (`id`, `activitie`) VALUES
-(1, 'Athl&eacute;tisme'),
+(1, 'Athletisme'),
 (2, 'Badminton'),
 (3, 'Basket'),
 (4, 'Danse'),
@@ -49,7 +49,7 @@ INSERT INTO `activities` (`id`, `activitie`) VALUES
 (8, 'Handball'),
 (9, 'Natation'),
 (10, 'Poker'),
-(11, 'Randonn&eacute;e'),
+(11, 'Randonnee'),
 (12, 'Roller'),
 (13, 'Rugby'),
 (14, 'Running'),
@@ -58,7 +58,7 @@ INSERT INTO `activities` (`id`, `activitie`) VALUES
 (17, 'Stretching'),
 (18, 'Tennis'),
 (19, 'Tennis de table'),
-(20, 'V&eacute;lo'),
+(20, 'Velo'),
 (21, 'VTT'),
 (22, 'Yoga');
 
@@ -207,6 +207,15 @@ CREATE TABLE IF NOT EXISTS `dispo` (
   UNIQUE KEY `email` (`idUser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `dispo`
+--
+
+INSERT INTO `dispo` (`idUser`, `L1`, `L2`, `L3`, `Ma1`, `Ma2`, `Ma3`, `Me1`, `Me2`, `Me3`, `J1`, `J2`, `J3`, `V1`, `V2`, `V3`, `S1`, `S2`, `S3`, `D1`, `D2`, `D3`) VALUES
+(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -214,10 +223,32 @@ CREATE TABLE IF NOT EXISTS `dispo` (
 --
 
 CREATE TABLE IF NOT EXISTS `listactivities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idUser` int(11) NOT NULL,
   `idActivities` int(11) NOT NULL,
-  `lvl` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `lvl` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+
+--
+-- Contenu de la table `listactivities`
+--
+
+INSERT INTO `listactivities` (`id`, `idUser`, `idActivities`, `lvl`) VALUES
+(1, 5, 13, 'D&nbsp;butant'),
+(2, 5, 8, 'D&nbsp;butant'),
+(3, 5, 1, 'D&nbsp;butant'),
+(4, 6, 8, 'D&nbsp;butant'),
+(5, 6, 14, 'D&nbsp;butant'),
+(6, 6, 3, 'D&nbsp;butant'),
+(7, 7, 3, 'D&nbsp;butant'),
+(8, 7, 8, 'D&nbsp;butant'),
+(9, 7, 11, 'D&nbsp;butant'),
+(10, 7, 1, 'D&nbsp;butant'),
+(11, 5, 12, 'Deb'),
+(12, 6, 12, 'deb'),
+(13, 7, 12, 'deb'),
+(15, 5, 6, 'deb');
 
 -- --------------------------------------------------------
 
@@ -235,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `ville` varchar(255) DEFAULT NULL,
-  `codePostal` int(5) DEFAULT NULL,
+  `numDep` int(5) DEFAULT NULL,
   `tel` varchar(10) DEFAULT NULL,
   `description` text,
   `afficheEmail` tinyint(1) DEFAULT NULL,
@@ -243,16 +274,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `pass` varchar(50) DEFAULT NULL,
   `valide` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `nom`, `prenom`, `birth`, `mdp`, `sexe`, `email`, `avatar`, `ville`, `codePostal`, `tel`, `description`, `afficheEmail`, `AfficheTel`, `pass`, `valide`) VALUES
+INSERT INTO `users` (`id`, `nom`, `prenom`, `birth`, `mdp`, `sexe`, `email`, `avatar`, `ville`, `numDep`, `tel`, `description`, `afficheEmail`, `AfficheTel`, `pass`, `valide`) VALUES
 (1, 'Boudy', 'Guillaume', '1992-05-23', '9cf95dacd226dcf43da376cdb6cbba7035218921', 'Homme', 'guillaume.boudy@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'valide'),
 (2, 'user', 'user', '2012-11-12', '12dea96fec20593566ab75692c9949596833adc9', 'Homme', 'guillaume.wesley@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'valide'),
-(4, 'user', 'user', '1914-01-01', '12dea96fec20593566ab75692c9949596833adc9', 'Homme', 'user@user.user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'VIJGWNOF', 'valide');
+(4, 'User', 'User', '1914-01-01', '12dea96fec20593566ab75692c9949596833adc9', 'Homme', 'user@user.user', NULL, 'Paris', 75, '0101010101', 'Je suis un utilisateur lambda.\r\nMon nom est User', 1, 1, 'UAEIGHQN', 'valide'),
+(5, 'Boudy', 'Guillaume', '2014-10-09', 'test1', 'Homme', 'test1', NULL, NULL, 75, NULL, NULL, NULL, NULL, NULL, 'valide'),
+(6, 'Lemasson', 'Florent', '2014-10-01', 'test2', 'Femme', 'test2', NULL, NULL, 94, NULL, NULL, NULL, NULL, NULL, 'valide'),
+(7, 'Messaoudi', 'Hichem', '2014-10-01', 'test3', '', 'test3', NULL, NULL, 94, NULL, NULL, NULL, NULL, NULL, 'valide');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

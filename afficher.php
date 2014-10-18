@@ -36,22 +36,25 @@
 		//$ville = $_GET['ville'];
 		//$lvl = $_GET['lvl'];
 		
-		
+	//CONDITIONS POUR LA RECHERCHE 
 		if ($activite == 'vide' && $departement == 'vide') {
-				$sql = "SELECT users.id, users.nom, users.prenom, users.ville, users.numDep, activities.activitie, listactivities.lvl, activities.id, listactivities.idUser, listactivities.idActivities FROM users, activities, listactivities WHERE listactivities.idActivities = activities.id AND listactivities.idUser = users.id";
-				$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
-				$data = mysql_fetch_assoc($req);
+			$sqlAct = '';
+			$sqlDep = '';
 			}
 		else if ($departement == 'vide') {
-			$sql = "SELECT users.id, users.nom, users.prenom, users.ville, users.numDep, activities.activitie, listactivities.lvl, activities.id, listactivities.idUser, listactivities.idActivities FROM users, activities, listactivities WHERE activities.activitie = '".$activite."' AND listactivities.idActivities = activities.id AND listactivities.idUser = users.id";
-			$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
-			$data = mysql_fetch_assoc($req);
+			$sqlAct = 'activities.activitie = "'.$activite.'" AND';
+			$sqlDep = '';
 		}
-		else {
-			$sql = "SELECT users.id, users.nom, users.prenom, users.ville, users.numDep activities.activitie, listactivities.lvl, activities.id, listactivities.idUser, listactivities.idActivities FROM users, activities, listactivities WHERE users.numDep = '".$departement."' AND listactivities.idActivities = activities.id AND listactivities.idUser = users.id";
-			$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
-			$data = mysql_fetch_assoc($req);
+		else if ($activite == 'vide') {
+			$sqlAct = '';
+			$sqlDep = 'users.numDep = "'.$departement.'" AND';
+		}else {
+			$sqlAct = 'activities.activitie = "'.$activite.'" AND';
+			$sqlDep = 'users.numDep = "'.$departement.'" AND';
 		}
+	//REQUETE POUR LA RECHERCHE	
+		$sql = "SELECT users.id, users.nom, users.prenom, users.ville, users.numDep, activities.activitie, listactivities.lvl, activities.id, listactivities.idUser, listactivities.idActivities FROM users, activities, listactivities WHERE ".$sqlDep." ".$sqlAct." listactivities.idActivities = activities.id AND listactivities.idUser = users.id";
+		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 		
 	}
 	
