@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Sam 18 Octobre 2014 à 12:53
+-- Généré le: Dim 19 Octobre 2014 à 19:13
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -29,16 +29,16 @@ USE `sos_partenaire`;
 --
 
 CREATE TABLE IF NOT EXISTS `activities` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `actId` int(11) NOT NULL AUTO_INCREMENT,
   `activitie` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`actId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Contenu de la table `activities`
 --
 
-INSERT INTO `activities` (`id`, `activitie`) VALUES
+INSERT INTO `activities` (`actId`, `activitie`) VALUES
 (1, 'Athletisme'),
 (2, 'Badminton'),
 (3, 'Basket'),
@@ -69,16 +69,16 @@ INSERT INTO `activities` (`id`, `activitie`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `departements` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `depId` int(11) NOT NULL AUTO_INCREMENT,
   `dep` varchar(5) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`depId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ;
 
 --
 -- Contenu de la table `departements`
 --
 
-INSERT INTO `departements` (`id`, `dep`) VALUES
+INSERT INTO `departements` (`depId`, `dep`) VALUES
 (1, '1'),
 (2, '2'),
 (3, '3'),
@@ -223,18 +223,18 @@ INSERT INTO `dispo` (`idUser`, `L1`, `L2`, `L3`, `Ma1`, `Ma2`, `Ma3`, `Me1`, `Me
 --
 
 CREATE TABLE IF NOT EXISTS `listactivities` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `listId` int(11) NOT NULL AUTO_INCREMENT,
   `idUser` int(11) NOT NULL,
   `idActivities` int(11) NOT NULL,
   `lvl` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`listId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Contenu de la table `listactivities`
 --
 
-INSERT INTO `listactivities` (`id`, `idUser`, `idActivities`, `lvl`) VALUES
+INSERT INTO `listactivities` (`listId`, `idUser`, `idActivities`, `lvl`) VALUES
 (1, 5, 13, 'D&nbsp;butant'),
 (2, 5, 8, 'D&nbsp;butant'),
 (3, 5, 1, 'D&nbsp;butant'),
@@ -284,9 +284,9 @@ INSERT INTO `users` (`id`, `nom`, `prenom`, `birth`, `mdp`, `sexe`, `email`, `av
 (1, 'Boudy', 'Guillaume', '1992-05-23', '9cf95dacd226dcf43da376cdb6cbba7035218921', 'Homme', 'guillaume.boudy@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'valide'),
 (2, 'user', 'user', '2012-11-12', '12dea96fec20593566ab75692c9949596833adc9', 'Homme', 'guillaume.wesley@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'valide'),
 (4, 'User', 'User', '1914-01-01', '12dea96fec20593566ab75692c9949596833adc9', 'Homme', 'user@user.user', NULL, 'Paris', 75, '0101010101', 'Je suis un utilisateur lambda.\r\nMon nom est User', 1, 1, 'UAEIGHQN', 'valide'),
-(5, 'Boudy', 'Guillaume', '2014-10-09', 'test1', 'Homme', 'test1', NULL, NULL, 75, NULL, NULL, NULL, NULL, NULL, 'valide'),
-(6, 'Lemasson', 'Florent', '2014-10-01', 'test2', 'Femme', 'test2', NULL, NULL, 94, NULL, NULL, NULL, NULL, NULL, 'valide'),
-(7, 'Messaoudi', 'Hichem', '2014-10-01', 'test3', '', 'test3', NULL, NULL, 94, NULL, NULL, NULL, NULL, NULL, 'valide');
+(5, 'Boudy', 'Guillaume', '1992-10-09', 'test1', 'Homme', 'test1', NULL, NULL, 75, NULL, NULL, NULL, NULL, NULL, 'valide'),
+(6, 'Lemasson', 'Florent', '1990-10-01', 'test2', 'Femme', 'test2', NULL, NULL, 94, NULL, NULL, NULL, NULL, NULL, 'valide'),
+(7, 'Messaoudi', 'Hichem', '1994-10-01', 'test3', '', 'test3', NULL, NULL, 94, NULL, NULL, NULL, NULL, NULL, 'valide');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

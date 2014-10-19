@@ -1,8 +1,3 @@
-/************************ WWW.CLEEC.COM ************************/
-
-/*** @ 2007-2009 LMC France	- www.lmcfrance.com // Cleec - www.cleec.com ***/
-
-
 /************************ Mise à zéro des propriétés par défaut ************************/
 
 html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,input { margin: 0; padding: 0; }
@@ -36,8 +31,6 @@ body {
 	font-family: verdana, arial, helvetica;
 
 	color: #333333;
-
-	/*background: url(/decleec.gif) pour le dev */
 
 }
 
@@ -743,7 +736,7 @@ div#menu_gauche .boiteorange_145, div#menu_gauche .boitebleue_145, div#menu_gauc
 
 .boitegrise_145 { background: white url(images/graphisme/boitegrise_145m.gif) center top repeat-y }
 
-.boitegrise_198 { background: white url(images/graphisme/boitegrise_198m.gif) center top repeat-y }
+.boitegrise_198 { background: white url(images/graphisme/VerySmallBoxMedium.jpg) center top repeat-y }
 
 .boitegrise_225 { background: white url(images/graphisme/boitegrise_225m.gif) center top repeat-y }
 
@@ -757,7 +750,7 @@ div#menu_gauche .boiteorange_145, div#menu_gauche .boitebleue_145, div#menu_gauc
 
 .boitegrise_626 { background: white url(images/graphisme/LargeBoxMedium.jpg) center top repeat-y }
 
-.boitegrise_785 { background: white url(images/graphisme/boitegrise_785m.gif) center top repeat-y }
+.boitegrise_785 { background: white url(images/graphisme/VeryLargeBoxMedium.jpg) center top repeat-y }
 
 
 
@@ -783,7 +776,7 @@ div#menu_gauche .boiteorange_145, div#menu_gauche .boitebleue_145, div#menu_gauc
 
 .boitegrise_145 h2 { background: #BEBEBE url(images/graphisme/boitegrise_145h.gif) center top no-repeat }
 
-.boitegrise_198 h2 { background: #BEBEBE url(images/graphisme/boitegrise_198h.gif) center top no-repeat }
+.boitegrise_198 h2 { background: #BEBEBE url(images/graphisme/VerySmallBoxH.jpg) center top no-repeat }
 
 .boitegrise_225 h2 { background: #BEBEBE url(images/graphisme/boitegrise_225h.gif) center top no-repeat }
 
@@ -797,7 +790,7 @@ div#menu_gauche .boiteorange_145, div#menu_gauche .boitebleue_145, div#menu_gauc
 
 .boitegrise_626 h2 { background: #BEBEBE url(images/graphisme/LargeBoxH.jpg) center top no-repeat }
 
-.boitegrise_785 h2 { background: #BEBEBE url(images/graphisme/boitegrise_785h.gif) center top no-repeat }
+.boitegrise_785 h2 { background: #BEBEBE url(images/graphisme/VeryLargeBoxH.jpg) center top no-repeat }
 
 
 
@@ -871,7 +864,7 @@ img.boiteico {
 
 .boitegrise_145 .finboite { background: white url(images/graphisme/boitegrise_145b.gif) center bottom no-repeat }
 
-.boitegrise_198 .finboite { background: white url(images/graphisme/boitegrise_198b.gif) center bottom no-repeat }
+.boitegrise_198 .finboite { background: white url(images/graphisme/VerySmallBoxB.jpg) center bottom no-repeat }
 
 .boitegrise_225 .finboite { background: white url(images/graphisme/boitegrise_225b.gif) center bottom no-repeat }
 
@@ -885,7 +878,7 @@ img.boiteico {
 
 .boitegrise_626 .finboite { background: white url(images/graphisme/LargeBoxB.jpg) center bottom no-repeat }
 
-.boitegrise_785 .finboite { background: white url(images/graphisme/boitegrise_785b.gif) center bottom no-repeat }
+.boitegrise_785 .finboite { background: white url(images/graphisme/VeryLargeBoxB.jpg) center bottom no-repeat }
 
 
 
@@ -1814,20 +1807,6 @@ table#ctl00_ContentPlace_gridMsg td{
 	color:rgb(118,93,103)
 
 }
-
-
-
-
-
-
-
-
-
-/***************************************************************
-
-******************PHOTOS (mycleec/photos.aspx)******************
-
-***************************************************************/
 
 
 
@@ -2770,8 +2749,6 @@ p.tags a:hover{ text-decoration: underline }
 }
 
 
-
-/*******************Mycleec offres privilège*************************/
 
 div.offrePrivilege {
 

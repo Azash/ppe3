@@ -4,6 +4,14 @@
 	include('connexionbdd.php');
 	/*include('Connexion.php');*/
 	include('FctPhp.php');
+	
+	$sqlAct = "SELECT activitie FROM activities ORDER BY activitie";
+	$reqAct = mysql_query($sqlAct);
+	$ligneAct = mysql_fetch_assoc($reqAct);
+	
+	$sqlDep = "SELECT dep FROM departements";
+	$reqDep = mysql_query($sqlDep);
+	$ligneDep = mysql_fetch_assoc($reqDep);
 ?>
 
 <meta charset="utf-8">
@@ -27,34 +35,43 @@
 				<div id="ctl00_pageContenu_pnCarte">
 					<div class="photo_pres">
 						<h1>Trouvez des partenaires de sport près de chez vous</h1>
-						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_Label1">Sport: </label>
-						<select name="Activité" id="ctl00_pageContenu_ddl_loisir">
-							<?php
-								$req = "SELECT activitie FROM activities ORDER BY activitie";
-								$resultat = mysql_query($req);
-								$ligne = mysql_fetch_assoc($resultat);
-								while($ligne){
-									echo '<option value="'.$ligne["activitie"].'">'.$ligne["activitie"].'</option>';
-									$ligne = mysql_fetch_assoc($resultat);
-								}	
-							?>
-						</select>
-						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">Département : </label>
-						<select name="ctl00$pageContenu$postal" id="ctl00_pageContenu_postal">
-							<?php
-								$req = sprintf("SELECT dep FROM departements");
-								$resultat = mysql_query($req);
-								$ligne = mysql_fetch_assoc($resultat);
-								while($ligne){
-									echo '<option value="'.$ligne["dep"].'">'.$ligne["dep"].'</option>';
-									$ligne = mysql_fetch_assoc($resultat);
-								}	
-							?>
-						</select>
-						<!-- <label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">Code Postal: </label>
-						<input name="ctl00$pageContenu$postal" maxlength="5" id="ctl00_pageContenu_postal" style="width:50px;" type="text"> -->
-						<input name="ctl00$pageContenu$btnTrouver" value="Trouver" id="ctl00_pageContenu_btnTrouver" type="submit">
-						<a href="#">Tout afficher</a>
+						<form action="afficher.php">
+							<table border="0" style="width: 98%;" align="center">
+								<tr>
+									<td>
+										<label for="rechercher" id="Activité">&nbsp;Activité : </label>
+										<select name="nomActivite" id="rechercher">
+											<option value="vide">&nbsp;</option>
+											<?php
+												while($ligneAct){
+													echo '<option value="'.$ligneAct["activitie"].'">'.$ligneAct["activitie"].'</option>';
+													$ligneAct = mysql_fetch_assoc($reqAct);
+												}	
+											?>
+										</select>
+									</td>
+									<td>
+										<label for="rechercher" id="departement">&nbsp;Département : </label>
+										<select name="numDepartement" id="rechercher">
+											<option value="vide">&nbsp;</option>
+											<?php
+												while($ligneDep){
+													echo '<option value="'.$ligneDep["dep"].'">'.$ligneDep["dep"].'</option>';
+													$ligneDep = mysql_fetch_assoc($reqDep);
+												}	
+											?>
+										</select>
+									</td>
+								</tr>
+							</table>
+							<br />
+							<div style="text-align:center">
+								<input name="btnTrouver" value="Trouver" id="idBtnTrouver" type="submit">
+								<input name="btnToutAfficher" value="Tout afficher" type="submit">
+								<!-- <a href="afficher.php">Tout afficher</a> -->
+							</div>
+						</form>
+						<br />
 					</div>
 				</div>
 <!--Zone Pour Estelle-->
@@ -119,6 +136,7 @@
 				-->
 				<div class="spacer"></div>
 			</div>
+			<div class="spacer"></div>
 <!--FIN CONTENU-->			
 <!--FOOTER-->			
 			<?php getFooter(); ?>

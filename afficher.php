@@ -53,7 +53,7 @@
 			$sqlDep = 'users.numDep = "'.$departement.'" AND';
 		}
 	//REQUETE POUR LA RECHERCHE	
-		$sql = "SELECT users.id, users.nom, users.prenom, users.ville, users.numDep, activities.activitie, listactivities.lvl, activities.id, listactivities.idUser, listactivities.idActivities FROM users, activities, listactivities WHERE ".$sqlDep." ".$sqlAct." listactivities.idActivities = activities.id AND listactivities.idUser = users.id";
+		$sql = "SELECT users.id, users.nom, users.prenom, users.ville, users.numDep, activities.activitie, listactivities.lvl, activities.actId, listactivities.idUser, listactivities.idActivities FROM users, activities, listactivities WHERE ".$sqlDep." ".$sqlAct." listactivities.idActivities = activities.actId AND listactivities.idUser = users.id";
 		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 		
 	}
@@ -76,11 +76,15 @@
 <!--FIN HEADER-->
 <!--CONTENU-->			
 			<div id="contenu_annexe">
-				<div class="boitegrise_466 sans_marge_gauche">
+				<div class="boitegrise_785">
 					<h2>&nbsp;Trouvez des partenaires de sport près de chez vous</h2>
+						<style type="text/css">
+							table {border-spacing:0px 10px;}
+							tr:hover{background-color:#FF941C;}
+						</style>
 						<table border="0" style="width: 98%;" align="center">
 							<thead>
-								<tr style="font-weight : bold">
+								<tr align="center" style="font-weight : bold">
 									<td>Nom</td>
 									<td>Prenom</td>
 									<td>Ville</td>
@@ -93,24 +97,19 @@
 								while ($ligne = mysql_fetch_array($req)) {
 								// on affiche les résultats
 								echo '<tr align="center">
-										<td>'.$ligne['nom'].'</td>';
-								echo '	<td>'.$ligne['prenom'].'</td>';
+										<td><a href="perso.php?id='.$ligne['id'].'">'.$ligne['nom'].'</a></td>';
+								echo '	<td><a href="perso.php?id='.$ligne['id'].'">'.$ligne['prenom'].'</a></td>';
 								echo '	<td>'.$ligne['ville'].'</td>';
-								echo '	<td>'.$ligne['activitie'].'</td>';
+								echo '	<td><a href="afficher.php?nomActivite='.$ligne['activitie'].'&numDepartement=vide&btnTrouver=Trouver">'.$ligne['activitie'].'</a></td>';
 								echo '	<td>'.$ligne['lvl'].'</td>';
-								echo '	<td>'.$ligne['numDep'].'</td>
+								echo '	<td><a href="afficher.php?nomActivite=vide&numDepartement='.$ligne['numDep'].'&btnTrouver=Trouver">'.$ligne['numDep'].'</a></td>
 									<tr>';
 								}
 							?>
 						</table>
 					<div class="finboite"></div>
 					</div>
-					<?php getConnexion(); ?>
-					<div class="boitegrise_466 sans_marge_gauche">
-						<h2>&nbsp;Trouvez des partenaires de sport près de chez vous</h2>
-							<p> <?php echo $sql ?> <p>
-						<div class="finboite"></div>
-					</div>
+					<?php //getConnexion(); ?>
 					<div class="spacer"></div>
 				
 <!--FIN CONTENU-->			

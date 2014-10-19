@@ -57,7 +57,7 @@
 							<table border="0" style="width: 98%;" align="center">
 								<tr>
 									<td>
-										<label for="rechercher" id="Activité">&nbsp;Sport: </label>
+										<label for="rechercher" id="Activité">&nbsp;Activité : </label>
 										<select name="nomActivite" id="rechercher">
 											<option value="vide">&nbsp;</option>
 											<?php
@@ -80,47 +80,78 @@
 											?>
 										</select>
 									</td>
+								</tr>
+							</table>
+							<br />
+							<div style="text-align:center">
+								<input name="btnTrouver" value="Trouver" id="idBtnTrouver" type="submit">
+								<input name="btnToutAfficher" value="Tout afficher" type="submit">
+								<!-- <a href="afficher.php">Tout afficher</a> -->
+							</div>
+						</form>
+						<div class="finboite"></div>
+						<div class="spacer"></div>
+					</div>
+					<?php getConnexion(); ?>
+					
+		<!-- /////////// LA DEUXIEME PARTIE DE LA RECHERCHE : RECHERCHE PRECISE ///////////////////
+		
+					<div class="boitegrise_466 sans_marge_gauche">
+						<h2>&nbsp;Trouvez des partenaires de sport près de chez vous</h2>
+						<form action="afficher.php">
+							<table border="0" style="width: 98%;" align="center">
+								<tr>
 									<td>
-										<input name="btnTrouver" value="Trouver" id="idBtnTrouver" type="submit">
+										<label for="rechercher" id="Activité">&nbsp;Activité : </label>
+										<select name="nomActivite" id="rechercher">
+											<option value="vide">&nbsp;</option>
+											
+										</select>
+									</td>
+									<td>
+										<label for="rechercher" id="departement">&nbsp;Département : </label>
+										<select name="numDepartement" id="rechercher">
+											<option value="vide">&nbsp;</option>
+											
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="rechercher" id="nom">&nbsp;Nom : </label>
+										<input type="text" name="nom">
+									</td>
+									<td>
+										<label for="rechercher" id="prenom">&nbsp;Prénom : </label>
+										<input type="text" name="prenom">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="rechercher" id="ville">&nbsp;Ville : </label>
+										<input type="text" name="ville">
+									</td>
+									<td>
+										&nbsp;
 									</td>
 								</tr>
 							</table>
+							<br />
 							<div style="text-align:center">
-								&nbsp;<a href="afficher.php">Tout afficher</a>
+								<input name="btnTrouver" value="Trouver" id="idBtnTrouver" type="submit"><br />
+								<a href="afficher.php">Tout afficher</a>
 							</div>
 						</form>
-					<div class="finboite"></div>
-					</div>
-					<?php getConnexion(); ?>
-					<div class="boitegrise_466 sans_marge_gauche">
-						<h2>&nbsp;Trouvez des partenaires de sport près de chez vous</h2>
-						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_Label1">&nbsp;Sport: </label>
-						<select name="Activité" id="ctl00_pageContenu_ddl_loisir">
-							<?php
-								while($ligneAct){
-									echo '<option value="'.$ligneAct["activitie"].'">'.$ligneAct["activitie"].'</option>';
-									$ligneAct = mysql_fetch_assoc($reqAct);
-								}	
-							?>
-						</select>
-						<label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">&nbsp;Département : </label>
-						<select name="ctl00$pageContenu$postal" id="ctl00_pageContenu_postal">
-							<?php
-								while($ligneDep){
-									echo '<option value="'.$ligneDep["dep"].'">'.$ligneDep["dep"].'</option>';
-									$ligneDep = mysql_fetch_assoc($reqDep);
-								}	
-							?>
-						</select>
-						<!-- <label for="ctl00_pageContenu_postal" id="ctl00_pageContenu_postalLbl">Code Postal: </label>
-						<input name="ctl00$pageContenu$postal" maxlength="5" id="ctl00_pageContenu_postal" style="width:50px;" type="text"> -->
-						<input name="ctl00$pageContenu$btnTrouver" value="Trouver" id="ctl00_pageContenu_btnTrouver" type="submit">
-						<a href="#">Tout afficher</a>
 						<div class="finboite"></div>
+						<div class="spacer"></div>
 					</div>
+					<div class="spacer"></div>
 				
+		FIN DE LA DEUXIEME PARTIE DE LA RECHERCHE-->
+		
 <!--FIN CONTENU-->			
-<!--FOOTER-->			
+<!--FOOTER-->
+			<div class="spacer"></div>
 			<?php getFooter(); ?>
 <!--FIN FOOTER-->			
 		</div>
