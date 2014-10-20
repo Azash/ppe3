@@ -41,9 +41,10 @@
 				if (empty($testId))
 					$sqlDispo = "INSERT INTO dispo VALUES(".$id.", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)"; // L1 = '0', L2 = '0', L3 = '0', Ma1 = '0', Ma2 = '0', Ma3 = '0', Me1 = '0', Me2 = '0', Me3 = '0', J1 = '0', J2 = '0', J3 = '0', V1 = '0', V2 = '0', V3 = '0', S1 = '0', S2 = '0', S3 = '0', D1 = '0', D2 = '0', D3 = '0' WHERE idUser = '".$id."'";
 				else
-					$sqlDispo = "UPDATE dispo SET L1 = '0', L2 = '0', L3 = '0', Ma1 = '0', Ma2 = '0', Ma3 = '0', Me1 = '0', Me2 = '0', Me3 = '0', J1 = '0', J2 = '0', J3 = '0', V1 = '0', V2 = '0', V3 = '0', S1 = '0', S2 = '0', S3 = '0', D1 = '0', D2 = '0', D3 = '0' WHERE idUser = '".$id."'";
+					$sqlDispo = "UPDATE dispo SET L1 = '0', L2 = '0', L3 = '0', Ma1 = '0', Ma2 = '0', Ma3 = '0', Me1 = '0', Me2 = '0', Me3 = '0', J1 = '0', J2 = '0', J3 = '0', V1 = '0', V2 = '0', V3 = '0', S1 = '0', S2 = '0', S3 = '0', D1 = '0', D2 = '0', D3 = '0' WHERE idUser=".$id;
 				mysql_query($sqlDispo) or die('Erreur SQL !<br>'.$sqlDispo.'<br>'.mysql_error());
 				$sqlDispo = "";
+				if (isset($_POST['dispo'])) {
 				foreach($_POST['dispo'] as $valeur)
 				{
 					if ($sqlDispo == "")
@@ -52,6 +53,7 @@
 						$sqlDispo = $sqlDispo.", ".$valeur."='1'";
 				}
 				mysql_query("UPDATE dispo SET ".$sqlDispo." WHERE idUser = '".$id."'") or die('Erreur SQL !<br>'.$sqlDispo.'<br>'.mysql_error());
+				}
 			}
 			if (isset($_POST['modif']))
 				$modif = true;
