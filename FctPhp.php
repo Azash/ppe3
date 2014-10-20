@@ -37,9 +37,6 @@
 							</p>
 							<p>
 								<center><a href="perso.php">Mes infos</a></center>
-							</p>
-							<p class="align_image">
-								<a href="Desinscription.php">Se désinscrire</a>
 							</p>';
 						}
 						else {
