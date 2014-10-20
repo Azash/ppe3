@@ -1,3 +1,50 @@
+<?php if(isset($_POST['submit']))
+	{
+		
+		include("recupdonnee.php");
+		
+		$cp = intval($da['numDep']);
+		$email = htmlspecialchars($da["email"]);
+		$affichemail = $da["affichEmail"];
+		$tel = htmlspecialchars($da["tel"]);
+		$affichetel = $da["AfficheTel"];
+		$ville = htmlspecialchars($da['ville']);
+		$description = htmlspecialchars($da['description']);
+		
+	
+		
+		
+		
+						
+		if (isset($_POST['modifdescription']) && trim($_POST['modifdescription']) != "") 
+		        $description = htmlspecialchars($_POST["modifdescription"]);
+		
+			if (isset($_POST['modiftel']) && trim($_POST['modiftel']) != "")
+			    $tel = htmlspecialchars($_POST["modiftel"]);
+			
+				    
+			if (isset($_POST['modifemail']) && trim($_POST['modifemail']!= "" && filter_var($_POST['modifemail']), FILTER_VALIDATE_EMAIL) && mysql_num_rows($sql) == 0) ;
+			    $email = htmlspecialchars($_POST["modifemail"]);
+			
+			
+			
+			if (isset($_POST['modifville']) && trim($_POST['modifville']) != "")
+			    $ville = htmlspecialchars($_POST["modifville"]);
+			
+			if (isset($_POST['modifcp']) && trim($_POST['modifcp']) != "")
+			    $cp = intval($_POST['modifcp']);
+				
+				$sql = sprintf("UPDATE users SET des=(\"%s\"),tel=(\"%s), atel=(\"%s\"), mail=(\"%s\"),amail=(\"%s\"), ville=(\"%s\"), cp=(\"%s\")  WHERE id=\"%s\";", $description, $tel, $affichetel, $email, $affichemail, $ville, $cp, $id);
+			mysql_query($sql);
+		        
+		
+		
+		
+		
+							
+							
+						
+?>
 
 
 <!DOCTYPE html>
@@ -55,7 +102,7 @@
 	if($da['tel']!= NULL  ) 
 	 echo "Téléphone: ".$da['tel']."<br/>";
 	  
-	  echo " <label for='tel'> Modifier/Ajourter un Numero de Telephone: <input type='tel' name='tel' /> </label>  <br/>";
+	  echo " <label for='tel'> Modifier/Ajourter un Numero de Telephone: <input type='tel' name='modiftel' /> </label>  <br/>";
 
 	  if($da['AfficheTel'] == 1)
 	  	   echo "Actuellement vous permettez aux autres utilisateurs visitant votre profil de voir votre numéro de téléphone, 
@@ -84,35 +131,7 @@
 	  echo "Ville: ".$da['ville']." (".$da['codePostal'].")<br/>";
       echo"Modifier mon adresse //  Ville:  <input type='text' name='modifville' /> CP:  <input type='text' name='modifcp' /> <br/><br/>";
 
-      echo "Vos Disponibilités pour une rencontre sportive <br/><br/>";
       
-
-
-      echo"<label for='ctl00_pageContenu_postal' id='ctl00_pageContenu_Label1'>Sport: </label>
-						<select name='Activité' id='ctl00_pageContenu_ddl_loisir'>";
-							
-								$req = "SELECT activitie FROM activities ORDER BY activitie";
-								$resultat = mysql_query($req);
-								$da = mysql_fetch_assoc($resultat);
-								while($ligne){
-									echo "<option value=/".$da['activitie'].">".$da['activitie']."</option>";
-									$da = mysql_fetch_assoc($resultat);
-								}	
-							
-						echo"</select>
-						<label for='ctl00_pageContenu_postal' id='ctl00_pageContenu_postalLbl'>Département : </label>
-						<select name='ctl00$pageContenu$postal' id='ctl00_pageContenu_postal'>";
-							
-								$req = sprintf("SELECT dep FROM departements");
-								$resultat = mysql_query($req);
-								$da = mysql_fetch_assoc($resultat);
-								while($ligne){
-									echo '<option value="'.$da["dep"].'">'.$da["dep"].'</option>';
-									$da = mysql_fetch_assoc($resultat);
-								}	
-							
-						echo"</select>";
-
      
 
 	  echo "<input type='submit' name='submit' value='Modifier mes Informations'>";
@@ -130,26 +149,3 @@
 	
   </body>
 </html>
-
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-
-
-
-
- 
