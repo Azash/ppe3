@@ -53,13 +53,16 @@
 				//$_SESSION['rank'] = $select['niveauDroit'];
 				$_SESSION['id'] = $select['id'];
 				//echo $_SESSION['id'];
-				header('location:espacemembre.php'); //(=connexion rÃ©ussie)
-			}else {
-				echo "Vous n'avez pas validé votre adresse email.";
+				header('location:perso.php'); //(=connexion rÃ©ussie)
+			}else if ($valide != 'valide'){
+				echo "Vous n'avez pas validé votre adresse email ou votre mot de passe est erroné";
 				header('Refresh: 4;url=index.php');
+			}else {
+				$message= "email ou mot de passe incorrect";
 			}
-		}else
+		}else {
 			$message= "email ou mot de passe incorrect";	
 		}
+	}
 	}
 ?>
