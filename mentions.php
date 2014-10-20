@@ -51,7 +51,7 @@
 															<h3 class="byline" style="font-size: 20px">2. Directeur de publication</h3><br />
 
 															Au sens de l'article 93-2 de la loi n&deg 82-652 du 29 juillet 1982<br />
-															Monsieur Lucien Sapin, Directeur de la Maison des Ligues de Lorraine<br />
+															Monsieur Frederic Guez, Directeur de la Maison des Ligues de Lorraine<br />
 
 															<h3 class="byline" style="font-size: 20px">3. Prestataire d'hebergement</h3><br />
 
