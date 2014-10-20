@@ -23,7 +23,7 @@
 		{	
 			$req = sprintf("UPDATE inscriptions SET pwd=SHA(\"%s\"), setPwd=1 WHERE Id=\"%s\";", $NewPwd, $id);
 			mysql_query($req);
-			header("location:espacemembre.php");
+			header("location:e.php");
 		}
 		else
 			$error = "Mot de passe différent";

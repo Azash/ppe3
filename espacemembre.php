@@ -36,7 +36,12 @@
 				
 				$sql = sprintf("UPDATE users SET des=(\"%s\"),tel=(\"%s), atel=(\"%s\"), mail=(\"%s\"),amail=(\"%s\"), ville=(\"%s\"), cp=(\"%s\")  WHERE id=\"%s\";", $description, $tel, $affichetel, $email, $affichemail, $ville, $cp, $id);
 			mysql_query($sql);
-		        
+			
+			header("location:espacemembre.php");
+		
+		
+		
+		}
 		
 		
 		
@@ -135,6 +140,11 @@
      
 
 	  echo "<input type='submit' name='submit' value='Modifier mes Informations'>";
+	  
+	  
+						
+		
+		
 
 	  
 							
