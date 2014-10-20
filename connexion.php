@@ -53,7 +53,7 @@
 				//$_SESSION['rank'] = $select['niveauDroit'];
 				$_SESSION['id'] = $select['id'];
 				//echo $_SESSION['id'];
-				header('location:index.php'); //(=connexion réussie)
+				header('location:espacemembre.php'); //(=connexion réussie)
 			}else {
 				echo "Vous n'avez pas valid� votre adresse email.";
 				header('Refresh: 4;url=index.php');
