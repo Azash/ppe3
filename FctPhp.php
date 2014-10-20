@@ -65,20 +65,9 @@
 	}
 	
 	function checkDataUser($VarForm) {
-		/*$nom = $ligne['nom'];
-		$prenom = $ligne['prenom'];
-		$birth = $ligne['birth'];
-		$mdp = $ligne['mdp'];
-		$sexe = $ligne['sexe'];
-		$email = $ligne['email'];
-		$avatar = $ligne['avatar'];
-		$ville = $ligne['ville'];
-		$codePostal = $ligne['codePostal'];
-		$tel = $ligne['tel'];
-		$description = $ligne['description'];
-		$afficheEmail = $ligne['afficheEmail'];
-		$afficheTel = $ligne['afficheTel'];*/
-		//echo $VarForm['nom'];
+		if ((empty($VarForm['nom']) or empty($VarForm['prenom']) or empty($VarForm['email']) or empty($VarForm['numDep']))
+		or (!filter_var($VarForm['email'], FILTER_VALIDATE_EMAIL) or strlen($VarForm['numDep']) != 2))
+			return false;
 		return true;
 	}
 	

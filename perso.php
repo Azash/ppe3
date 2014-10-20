@@ -17,12 +17,23 @@
 		}
 
 		if ($id == $UserCurrentId) {
-			if (isset($_POST["modif_perso_valid"])) { //RELATIF AUX INFORMATIONS PERSONNELLES
-				//if (checkDataUser($_POST))
+			if (isset($_GET['idAct'])) {
+				$sqlAct = "DELETE FROM listactivities WHERE listId=".$_GET['idAct'];
+				echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>".$sqlAct;
+				mysql_query($sqlAct);
+			}
+			else if (isset($_POST['modif_activite_valid'])) {
+				$sqlAct = "INSERT INTO listactivities VALUES(\"\" ,".$id.", ".$_POST['nomActivite'].", \"".$_POST['nomLvl']."\")";
+				//echo '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>'.$sqlAct;
+				mysql_query($sqlAct);
+			}
+			else if (isset($_POST["modif_perso_valid"])) { //RELATIF AUX INFORMATIONS PERSONNELLES
+				if (checkDataUser($_POST)) {
 					$birth = $_POST['anneeNaissance']."-".$_POST['moisNaissance']."-".$_POST['jourNaissance'];
 					mysql_query("UPDATE users SET nom='".$_POST['nom']."', prenom='".$_POST['prenom']."', birth='".$birth."', 
 					sexe='".$_POST['sexe']."', email='".$_POST['email']."', ville='".$_POST['ville']."', numDep='".$_POST['numDep']."', 
 					tel='".$_POST['tel']."', description='".$_POST['description']."', afficheEmail='".$_POST['afficheEmail']."', AfficheTel='".$_POST['AfficheTel']."' WHERE id=".$id)or die(mysql_error());
+				}
 			}
 			else if (isset($_POST["modif_dispo_valid"])) { //RELATIF AUX INFORMATIONS DE DISPONIBILITES
 				$testId = mysql_query("SELECT idUser FROM dispo WHERE idUser='".$id."'") or die('Erreur SQL !<br>'.$testId.'<br>'.mysql_error());
@@ -45,6 +56,9 @@
 			if (isset($_POST['modif']))
 				$modif = true;
 		} 
+		$req = "SELECT listId, idActivities, lvl FROM listactivities WHERE idUser=".$id;
+		$resAct = mysql_query($req) or die('Erreur SQL !<br>'.$req.'<br>'.mysql_error());
+		
 		$req = "SELECT nom, prenom, birth, mdp, sexe, email, avatar, ville, numDep, tel, description, afficheEmail, AfficheTel FROM users WHERE id=".$id;
 		$resultat = mysql_query($req) or die('Erreur SQL !<br>'.$req.'<br>'.mysql_error());
 		$ligne = mysql_fetch_assoc($resultat);
@@ -160,23 +174,54 @@
 //--------------------------------------------------------------------------------------------------------//				
 //------------------------------------------  BLOCK ACTIVITES   ------------------------------------------//
 //--------------------------------------------------------------------------------------------------------//				
-				if ($id == $UserCurrentId && isset($_POST['modif_activite'])) {
+				if ($id == $UserCurrentId && (isset($_POST['modif_activite']) or isset($_POST['modif_activite_valid']) or isset($_GET['idAct']))) {
 					echo '<div class="boitegrise_466 sans_marge_gauche">
 						<h2>&nbsp;Activitées</h2>
-						<br>
-						<form method="POST" action="perso.php" >
-						<input type="submit" name="modif_activite_valid" value="Valider" class="modif_compte_valid"/>
+						<br><form method="POST" action="perso.php" >';
+						$activites = mysql_fetch_assoc($resAct);
+						while ($activites) {
+							$res = mysql_fetch_assoc(mysql_query("SELECT activitie FROM activities WHERE actId=".$activites['idActivities']));
+							echo "&nbsp;".$res['activitie']." : ".$activites['lvl']." <a href=\"perso.php?idAct=".$activites['listId']."\">Supprimer</a><br>";
+							//echo $activites['listId'];
+							$activites = mysql_fetch_array($resAct);
+						}
+	
+						$sqlAct = "SELECT actId, activitie FROM activities ORDER BY activitie";
+						$reqAct = mysql_query($sqlAct);
+						$ligneAct = mysql_fetch_assoc($reqAct);
+						echo '<br>&nbsp;<select name="nomActivite">';
+						while($ligneAct){
+							echo '<option value="'.$ligneAct["actId"].'">'.$ligneAct["activitie"].'</option>';
+							$ligneAct = mysql_fetch_assoc($reqAct);
+						}	
+						echo '</select>';
+						echo '&nbsp;<select name="nomLvl">';
+							echo '<option value="Débutant">Débutant</option>';
+							echo '<option value="Moyen">Moyen</option>';
+							echo '<option value="Professionnel">Professionnel</option>';
+							echo '<option value="Compétition">Compétition</option>';
+						echo '</select>';
+						echo '&nbsp;<input type="submit" name="modif_activite_valid" value="Ajouter" />';
+						echo '<br><br>
 						<input type="submit" value="Annuler" class="modif_compte_valid"/>
 						</form>
 						<div class="finboite"></div>
 						</div>';
 				}
 				else {
+					
 					echo '<div class="boitegrise_466 sans_marge_gauche">
 						<h2>&nbsp;Activitées</h2>
 						<br>';
+						$activites = mysql_fetch_assoc($resAct);
+						while ($activites) {
+							$res = mysql_fetch_assoc(mysql_query("SELECT activitie FROM activities WHERE actId=".$activites['idActivities']));
+							echo "&nbsp;".$res['activitie']." : ".$activites['lvl']."<br>";
+							$activites = mysql_fetch_array($resAct);
+						}
+						
 						if ($id == $UserCurrentId)
-						echo '
+						echo '<br>
 						<form method="POST" action="perso.php" >
 							<input type="submit" name="modif_activite" value="Modifier mes activitées" class="modif_compte"/>
 						</form>';
