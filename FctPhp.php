@@ -4,7 +4,7 @@
 				<div id="menu_entete">
 				
 					<a href="index.php" id="ctl00_menu_Entete_menu_mycleec">SOS</a>
-					<a href="espacemembre.php" id="ctl00_menu_Entete_menu_membres">Perso</a>
+					<a href="perso.php" id="ctl00_menu_Entete_menu_membres">Espace Perso</a>
 					<a href="afficher.php" id="ctl00_menu_Entete_menu_activites">Activités</a>
 					<a href="rechercher.php" id="ctl00_menu_Entete_menu_activites">Rechercher</a>
 					<div class="spacer"></div>
