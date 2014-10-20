@@ -127,7 +127,9 @@
 						
 						&nbsp;Afficher mon email : <input type="radio" name="afficheEmail" value="1" '; if ($afficheEmail == "1") echo "checked"; echo ' /> Oui <input type="radio" name="afficheEmail" value="0" '; if ($afficheEmail == "0") echo "checked"; echo ' /> Non<br>
 						&nbsp;Afficher mon numéro : <input type="radio" name="AfficheTel" value="1" '; if ($AfficheTel == "1") echo "checked"; echo ' /> Oui <input type="radio" name="AfficheTel" value="0" '; if ($AfficheTel == "0") echo "checked"; echo ' /> Non<br>
-						<br>
+						<br />
+						<a href="Desinscription.php">&nbsp;Se désinscrire</a>
+						<br /><br />
 						<input type="submit" name="modif_perso_valid" value="Valider" class="modif_compte_valid"/>
 						<input type="submit" value="Annuler" class="modif_compte_valid"/>
 						</form>
