@@ -4,7 +4,6 @@
 				<div id="menu_entete">
 				
 					<a href="index.php" id="ctl00_menu_Entete_menu_mycleec">SOS</a>
-					<a href="/partenaires/" id="ctl00_menu_Entete_menu_partenaires">Partenaires</a>
 					<a href="espacemembre.php" id="ctl00_menu_Entete_menu_membres">Perso</a>
 					<a href="afficher.php" id="ctl00_menu_Entete_menu_activites">Activités</a>
 					<a href="rechercher.php" id="ctl00_menu_Entete_menu_activites">Rechercher</a>
@@ -15,11 +14,9 @@
 		
 	function getFooter() {
 		echo '<div id="pied">
-				<a href="/site-tour.aspx">Aide</a> |
-				<a href="/nos-partenaires/">Nos Partenaires</a> |
-				<a href="/infos/presse.aspx">Presse</a> |
-				<a href="/infos/conditionsdutilisation.aspx">Conditions d\'utilisation</a> |
-				<a href="/infos/contact.aspx">Contact</a>
+				<a href="http://www.m2lsports.guillaumeboudy.com">M2L Sports</a> |
+				<a href="mentions.php">Mentions Légales</a> |
+				<a href="contact.php">Contact</a>
 			</div>';
 	}
 	
@@ -39,7 +36,7 @@
 								<center><a href="deconnexion.php">Se déconnecter<a></center>
 							</p>
 							<p>
-								<center><a href="espacemembre.php">Mes infos</a></center>
+								<center><a href="perso.php">Mes infos</a></center>
 							</p>
 							<p class="align_image">
 								<a href="Desinscription.php">Se désinscrire</a>
