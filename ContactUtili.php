@@ -1,37 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <meta charset="utf-8" />
-<title>Contacter un utilisateur</title>
-
+<title>Contacter un admin</title>
 </head>
 
 <body>
 
 		<br>
-		<h2>Contacter un utilisateur</h2>
-		<br>
+		<h2>Contacter un admin</h2>
+		<br> 
 
 		<form method="post" accept-charset="utf-8" action="envoieMail.php">
-		
-			<div>
-				<label for="nom">Nom</label>
-					<div>
-					<input type="text" id="nom" name="nom" value="" maxlength="50">
-					</div>
-			</div>
-			<br/>
-			<div>
-				<label for="nom">Prénom</label>
-					<div>
-					<input type="text" id="nom" name="nom" value="" maxlength="50">
-					</div>
-			</div>
 
-			<br>
-
-			<div>
 			<label for="mail">Email</label>
 				<div>
 					<input type="email" class="form-control" id="mail" name="mail" value="" maxlength="50">
@@ -54,11 +37,11 @@
 			<div class="form-group">
 				<label for="message">Message</label>
 				<div>
-					<textarea type="text" id="message" name="message" style="width: 350px;"></textarea>
+					<textarea type="text" class="form-control" id="message" name="message" style="width: 350px;"></textarea>
 				</div>
 			</div>
 
-			<p>
+			<p class="text-center">
 				<input type="submit" value="Envoyer">
 			</p>
 
