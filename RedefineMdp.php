@@ -7,18 +7,19 @@
 
 <?php
 	mysql_query("set names 'utf8'");
-	
-	if(isset($_POST['submit'])) {
-	$mdp = htmlspecialchars($_POST["mdp"]);
-	$re_mdp = htmlspecialchars(trim($_POST['re_mdp']));
-	$getId = $_GET["id"];
+	$getId = $_GET['id'];
 	$getPass = $_GET['pass'];
 	
 	$sql = "SELECT id, pass FROM users WHERE id='".$getId."'";
 	$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 	$data = mysql_fetch_assoc($req);
 	
-	if ($getPass == $data['pass'] && $getId == $data["id"]) 
+	if(isset($_POST['submit'])) {
+	$mdp = htmlspecialchars($_POST["mdp"]);
+	$re_mdp = htmlspecialchars(trim($_POST['re_mdp']));
+	
+	
+	if ($getPass == $data['pass'] && $getId == $data['id']) 
 		{	
 		if($mdp && $re_mdp)
 			{
@@ -33,7 +34,7 @@
 						$pass .= chr(rand(65, 90)); //33 = premier caractere imprimable de la table ascii, 125 = dernier qui nous interesse...
 					}
 					
-					$sqlUpdate = "UPDATE users SET pass = '".$pass."', mdp = '".$mdp."' WHERE email='".$email."'";
+					$sqlUpdate = "UPDATE users SET pass = '".$pass."', mdp = '".$mdp."' WHERE id='".$getId."'";
 					$resUpdate = mysql_query($sqlUpdate) or die('Erreur SQL !<br>'.$sqlUpdate.'<br>'.mysql_error());
 					
 					if(!$resUpdate) echo mysql_error();
@@ -41,8 +42,6 @@
 					echo "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />Votre mot de passe a bien été modifié, vous pouvez désormais vous reconnecter avec votre nouveau mot de passe.";
 					header('Refresh: 4;url=index.php');
 					
-					//mysql_query("INSERT INTO users VALUES('', '$nom', '$prenom', '" . $anneeNaissance . "-" . $moisNaissance . "-" . $jourNaissance . "', $sexe', '$email', '$mdp')");
-					//die('Formulaire bien rempli! Vous allez maintenant reçevoir un mail avec un mot de passe de confirmation. Vous pourrez ensuite choisir votre propre mot de passe pour vous connecter.<a href="index.php">Continuer mon inscription</a>');
 				}else echo "Les mots de passe ne sont pas identiques";
 			}else echo "Veuillez saisir tous les champs !";
 		}
@@ -68,7 +67,7 @@
 			<div id="contenu_annexe">
 				<div class="boitegrise_626">
 					<h2>&nbsp;Désinscription</h2>
-						<form method = "post" action ="RedefineMdp.php">
+						<form method = "post" action ="RedefineMdp.php?id="<?php echo $data['id']; ?>"&pass="<?php echo $pass; ?>"">
 							<p align="center">
 								Veuillez saisir votre nouveau mot de passe.
 							</p><br />

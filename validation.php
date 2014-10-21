@@ -1,7 +1,7 @@
 <?php 
 	include ('connexionbdd.php');
 	
-	$getId = $_GET["id"];
+	$getId = $_GET['id'];
 	$getPass = $_GET['pass'];
 	
 	//variable du mot pour dire que l'email a été validé dans la base
@@ -16,7 +16,7 @@
 		
 	//echo 'id='.$data['id'].'&pass='.$data['pass'];
 
-	if (isset($_get['id'])) {
+	if (isset($_GET['id'])) {
 		if ($getPass == $data['pass']) {
 			$sqlValide = "UPDATE users SET valide = 'valide' WHERE id = '".$data['id']."'";
 			$reqValide = mysql_query($sqlValide) or die('Erreur SQL !<br>'.$sqlValide.'<br>'.mysql_error());

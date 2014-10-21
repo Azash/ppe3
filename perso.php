@@ -89,13 +89,13 @@
 	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
-	<title>SOS partenaires</title>
+	<title>Sports&cies</title>
 	<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8">
 	<!--<script style="" type="text/javascript" src="/global/jquery-1.11.0.min.js"></script>-->
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta name="Author" content="SOSpartenaires">
-	<meta name="description" content="Sur SOS partenaires trouvez des activités près de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
-	<meta name="Keywords" content="SOS partenaires, sports et loisirs, sport, loisir, coach, reseau, social, bien, etre, bien-etre, loisirs, sports, communaute, social">
+	<meta name="Author" content="Sports&cie">
+	<meta name="description" content="Sur Sports&cies trouvez des activités près de chez vous, Organisez vos sports et loisirs avec vos amis, Trouvez de nouveaux partenaires.">
+	<meta name="Keywords" content="Sports&cies, sports et loisirs, sport, loisir, coach, reseau, social, bien, etre, bien-etre, loisirs, sports, communaute, social">
 
 	<!--<link rel="shortcut icon" href="/favicon.ico">-->
 	<body>
@@ -376,7 +376,7 @@
 										Mer
 									</td>
 									<td bgcolor="FF651B" style="text-align:center">
-										Jeudi
+										Jeu
 									</td>
 									<td bgcolor="FF651B" style="text-align:center">
 										Ven

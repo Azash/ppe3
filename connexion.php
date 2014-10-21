@@ -12,10 +12,13 @@
 		if(empty($email))
 		{
 			echo "Veuillez saisir votre email<br/>";
+			header('Refresh: 4;url=index.php');
+			
 		}
 		else if(empty($mdp))
 		{
 			echo "Veuillez saisir votre mot de passe";
+			header('Refresh: 4;url=index.php');
 		}
 		else{
 
@@ -59,9 +62,11 @@
 				header('Refresh: 4;url=index.php');
 			}else {
 				$message= "email ou mot de passe incorrect";
+				header('Refresh: 4;url=index.php');
 			}
 		}else {
-			$message= "email ou mot de passe incorrect";	
+			$message= "email ou mot de passe incorrect";
+			header('Refresh: 4;url=index.php');			
 		}
 	}
 	}
