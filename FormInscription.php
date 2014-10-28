@@ -10,8 +10,8 @@
 	
 	if(isset($_POST['submit']))
 	{
-		$nom = htmlspecialchars($_POST["nom"]);
-		$prenom = htmlspecialchars($_POST["prenom"]);
+		$nom = htmlspecialchars(utf8_encode($_POST["nom"]));
+		$prenom = htmlspecialchars(utf8_encode($_POST["prenom"]));
 		//$birth = htmlspecialchars($_POST["birth"]);
 		$jourNaissance = intval($_POST['jourNaissance']);
 		$moisNaissance = intval($_POST['moisNaissance']);

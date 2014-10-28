@@ -53,7 +53,7 @@
 			$sqlDep = 'users.numDep = "'.$departement.'" AND';
 		}
 	//REQUETE POUR LA RECHERCHE	
-		$sql = "SELECT users.id, users.nom, users.prenom, users.ville, users.numDep, activities.activitie, listactivities.lvl, activities.actId, listactivities.idUser, listactivities.idActivities FROM users, activities, listactivities WHERE ".$sqlDep." ".$sqlAct." listactivities.idActivities = activities.actId AND listactivities.idUser = users.id";
+		$sql = "SELECT users.id, users.nom, users.prenom, users.ville, users.numDep, activities.activitie, listactivities.lvl, activities.actId, listactivities.idUser, listactivities.idActivities FROM users, activities, listactivities WHERE ".$sqlDep." ".$sqlAct." listactivities.idActivities = activities.actId AND listactivities.idUser = users.id ORDER BY users.nom";
 		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 		
 	}
@@ -86,7 +86,7 @@
 							<thead>
 								<tr align="center" style="font-weight : bold">
 									<td>Nom</td>
-									<td>Prenom</td>
+									<td>Prénom</td>
 									<td>Ville</td>
 									<td>Activité</td>
 									<td>Niveau</td>
